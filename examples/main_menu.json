@@ -1,0 +1,626 @@
+{
+  "version": "1.0",
+  "name": "GameMainMenu",
+  "designReference": {
+    "width": 1920,
+    "height": 1080,
+    "ppi": 96
+  },
+  "root": "mainScreen",
+  
+  "components": {
+    "mainScreen": {
+      "type": "Screen",
+      "adaptiveStrategy": "fitWidth",
+      "safeArea": true,
+      "children": ["background", "topBar", "contentArea", "bottomBar"]
+    },
+    
+    "background": {
+      "type": "Image",
+      "source": "assets/backgrounds/menu_bg.jpg",
+      "position": {
+        "fill": true
+      }
+    },
+    
+    "topBar": {
+      "type": "Container",
+      "position": {
+        "top": 0,
+        "left": 0,
+        "right": 0,
+        "height": 80
+      },
+      "background": {
+        "type": "gradient",
+        "colors": ["rgba(0,0,0,0.8)", "rgba(0,0,0,0.5)"],
+        "direction": "vertical"
+      },
+      "children": ["logo", "playerInfo"]
+    },
+    
+    "logo": {
+      "type": "Image",
+      "source": "assets/logo.png",
+      "position": {
+        "left": 30,
+        "centerY": 0,
+        "width": 180,
+        "height": 60
+      }
+    },
+    
+    "playerInfo": {
+      "type": "Container",
+      "position": {
+        "right": 30,
+        "centerY": 0,
+        "width": "auto",
+        "height": "auto"
+      },
+      "layout": {
+        "type": "stack",
+        "direction": "horizontal",
+        "spacing": 15,
+        "alignment": {
+          "vertical": "center"
+        }
+      },
+      "children": ["playerAvatar", "playerName", "coinDisplay"]
+    },
+    
+    "playerAvatar": {
+      "type": "Container",
+      "position": {
+        "width": 50,
+        "height": 50
+      },
+      "mask": {
+        "type": "circle",
+        "params": {
+          "radius": "50%"
+        }
+      },
+      "children": ["avatarImage"]
+    },
+    
+    "avatarImage": {
+      "type": "Image",
+      "source": "assets/avatars/default.png",
+      "position": {
+        "fill": true
+      }
+    },
+    
+    "playerName": {
+      "type": "Text",
+      "content": "{playerData.name}",
+      "style": "playerNameText"
+    },
+    
+    "coinDisplay": {
+      "type": "Container",
+      "position": {
+        "width": "auto",
+        "height": "auto"
+      },
+      "layout": {
+        "type": "stack",
+        "direction": "horizontal",
+        "spacing": 5,
+        "alignment": {
+          "vertical": "center"
+        }
+      },
+      "children": ["coinIcon", "coinCount"]
+    },
+    
+    "coinIcon": {
+      "type": "Image",
+      "source": "assets/icons/coin.png",
+      "position": {
+        "width": 24,
+        "height": 24
+      }
+    },
+    
+    "coinCount": {
+      "type": "Text",
+      "content": "{playerData.coins}",
+      "style": "coinCountText"
+    },
+    
+    "contentArea": {
+      "type": "Container",
+      "position": {
+        "top": "topBar.bottom",
+        "left": 0,
+        "right": 0,
+        "bottom": "bottomBar.top"
+      },
+      "layout": {
+        "type": "center",
+        "alignment": {
+          "horizontal": "center",
+          "vertical": "center"
+        }
+      },
+      "children": ["mainMenu"]
+    },
+    
+    "mainMenu": {
+      "type": "Container",
+      "position": {
+        "width": "50%",
+        "maxWidth": 600,
+        "height": "auto"
+      },
+      "layout": {
+        "type": "stack",
+        "direction": "vertical",
+        "spacing": 20,
+        "padding": {
+          "top": 30,
+          "right": 30,
+          "bottom": 30,
+          "left": 30
+        }
+      },
+      "background": {
+        "type": "color",
+        "value": "rgba(0,0,0,0.7)"
+      },
+      "cornerRadius": 15,
+      "children": ["menuTitle", "playButton", "storeButton", "settingsButton", "exitButton"]
+    },
+    
+    "menuTitle": {
+      "type": "Text",
+      "content": "主菜单",
+      "style": "titleText",
+      "position": {
+        "height": 60
+      }
+    },
+    
+    "playButton": {
+      "type": "Button",
+      "content": "开始游戏",
+      "style": "primaryButton",
+      "position": {
+        "height": 80
+      },
+      "effects": ["glowEffect"],
+      "interactions": {
+        "onClick": {
+          "action": "startGame"
+        }
+      }
+    },
+    
+    "storeButton": {
+      "type": "Button",
+      "content": "商店",
+      "style": "secondaryButton",
+      "position": {
+        "height": 70
+      },
+      "interactions": {
+        "onClick": {
+          "action": "navigateTo",
+          "params": {
+            "screen": "storeScreen"
+          }
+        }
+      }
+    },
+    
+    "settingsButton": {
+      "type": "Button",
+      "content": "设置",
+      "style": "secondaryButton",
+      "position": {
+        "height": 70
+      },
+      "interactions": {
+        "onClick": {
+          "action": "navigateTo",
+          "params": {
+            "screen": "settingsScreen"
+          }
+        }
+      }
+    },
+    
+    "exitButton": {
+      "type": "Button",
+      "content": "退出",
+      "style": "dangerButton",
+      "position": {
+        "height": 70
+      },
+      "interactions": {
+        "onClick": {
+          "action": "exitGame"
+        }
+      }
+    },
+    
+    "bottomBar": {
+      "type": "Container",
+      "position": {
+        "left": 0,
+        "right": 0,
+        "bottom": 0,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "rgba(0,0,0,0.8)"
+      },
+      "layout": {
+        "type": "stack",
+        "direction": "horizontal",
+        "alignment": {
+          "vertical": "center"
+        },
+        "padding": {
+          "left": 20,
+          "right": 20
+        },
+        "justifyContent": "space-between"
+      },
+      "children": ["versionText", "socialButtons"]
+    },
+    
+    "versionText": {
+      "type": "Text",
+      "content": "版本 1.0.0",
+      "style": "smallText"
+    },
+    
+    "socialButtons": {
+      "type": "Container",
+      "layout": {
+        "type": "stack",
+        "direction": "horizontal",
+        "spacing": 15
+      },
+      "children": ["facebookButton", "twitterButton", "discordButton"]
+    },
+    
+    "facebookButton": {
+      "type": "Button",
+      "style": "iconButton",
+      "position": {
+        "width": 32,
+        "height": 32
+      },
+      "background": {
+        "type": "image",
+        "source": "assets/icons/facebook.png"
+      },
+      "interactions": {
+        "onClick": {
+          "action": "openURL",
+          "params": {
+            "url": "https://facebook.com/game"
+          }
+        }
+      }
+    },
+    
+    "twitterButton": {
+      "type": "Button",
+      "style": "iconButton",
+      "position": {
+        "width": 32,
+        "height": 32
+      },
+      "background": {
+        "type": "image",
+        "source": "assets/icons/twitter.png"
+      },
+      "interactions": {
+        "onClick": {
+          "action": "openURL",
+          "params": {
+            "url": "https://twitter.com/game"
+          }
+        }
+      }
+    },
+    
+    "discordButton": {
+      "type": "Button",
+      "style": "iconButton",
+      "position": {
+        "width": 32,
+        "height": 32
+      },
+      "background": {
+        "type": "image",
+        "source": "assets/icons/discord.png"
+      },
+      "interactions": {
+        "onClick": {
+          "action": "openURL",
+          "params": {
+            "url": "https://discord.gg/game"
+          }
+        }
+      }
+    }
+  },
+  
+  "styles": {
+    "titleText": {
+      "fontFamily": "Arial",
+      "fontSize": 36,
+      "fontWeight": "bold",
+      "textColor": "#FFFFFF",
+      "textAlign": "center"
+    },
+    
+    "playerNameText": {
+      "fontFamily": "Arial",
+      "fontSize": 20,
+      "textColor": "#FFFFFF",
+      "textAlign": "right"
+    },
+    
+    "coinCountText": {
+      "fontFamily": "Arial",
+      "fontSize": 20,
+      "fontWeight": "bold",
+      "textColor": "#FFD700",
+      "textAlign": "left"
+    },
+    
+    "smallText": {
+      "fontFamily": "Arial",
+      "fontSize": 14,
+      "textColor": "#CCCCCC",
+      "textAlign": "left"
+    },
+    
+    "buttonBase": {
+      "fontFamily": "Arial",
+      "fontSize": 24,
+      "textColor": "#FFFFFF",
+      "textAlign": "center",
+      "cornerRadius": 8,
+      "shadow": {
+        "color": "rgba(0,0,0,0.5)",
+        "offsetX": 0,
+        "offsetY": 3,
+        "blur": 6
+      }
+    },
+    
+    "primaryButton": {
+      "extends": "buttonBase",
+      "fontSize": 28,
+      "background": {
+        "type": "gradient",
+        "colors": ["#3498DB", "#2980B9"],
+        "direction": "vertical"
+      },
+      "states": {
+        "hover": {
+          "background": {
+            "colors": ["#5DADE2", "#3498DB"]
+          },
+          "scale": 1.03
+        },
+        "pressed": {
+          "background": {
+            "colors": ["#2980B9", "#2473A6"]
+          },
+          "scale": 0.97
+        }
+      }
+    },
+    
+    "secondaryButton": {
+      "extends": "buttonBase",
+      "background": {
+        "type": "gradient",
+        "colors": ["#95A5A6", "#7F8C8D"],
+        "direction": "vertical"
+      },
+      "states": {
+        "hover": {
+          "background": {
+            "colors": ["#AAB7B8", "#95A5A6"]
+          },
+          "scale": 1.02
+        },
+        "pressed": {
+          "background": {
+            "colors": ["#7F8C8D", "#707B7C"]
+          },
+          "scale": 0.98
+        }
+      }
+    },
+    
+    "dangerButton": {
+      "extends": "buttonBase",
+      "background": {
+        "type": "gradient",
+        "colors": ["#E74C3C", "#C0392B"],
+        "direction": "vertical"
+      },
+      "states": {
+        "hover": {
+          "background": {
+            "colors": ["#EC7063", "#E74C3C"]
+          },
+          "scale": 1.02
+        },
+        "pressed": {
+          "background": {
+            "colors": ["#C0392B", "#A93226"]
+          },
+          "scale": 0.98
+        }
+      }
+    },
+    
+    "iconButton": {
+      "cornerRadius": 16,
+      "background": {
+        "type": "color",
+        "value": "rgba(255,255,255,0.1)"
+      },
+      "states": {
+        "hover": {
+          "background": {
+            "value": "rgba(255,255,255,0.2)"
+          },
+          "scale": 1.1
+        },
+        "pressed": {
+          "background": {
+            "value": "rgba(255,255,255,0.15)"
+          },
+          "scale": 0.9
+        }
+      }
+    }
+  },
+  
+  "effectsLibrary": {
+    "glowEffect": {
+      "type": "glow",
+      "color": "#3498DB",
+      "intensity": 0.5,
+      "size": 10
+    }
+  },
+  
+  "transitions": {
+    "fadeIn": {
+      "type": "animation",
+      "duration": 0.5,
+      "easing": "easeOutCubic",
+      "keyframes": [
+        {
+          "time": 0,
+          "opacity": 0
+        },
+        {
+          "time": 1,
+          "opacity": 1
+        }
+      ]
+    },
+    "slideIn": {
+      "type": "animation",
+      "duration": 0.3,
+      "easing": "easeOutQuad",
+      "keyframes": [
+        {
+          "time": 0,
+          "translateX": -100,
+          "opacity": 0
+        },
+        {
+          "time": 1,
+          "translateX": 0,
+          "opacity": 1
+        }
+      ]
+    }
+  },
+  
+  "adaptationRules": [
+    {
+      "condition": {
+        "orientation": "portrait"
+      },
+      "adjustments": {
+        "components": {
+          "mainMenu": {
+            "position": {
+              "width": "80%"
+            }
+          },
+          "topBar": {
+            "height": 120,
+            "layout": {
+              "type": "stack",
+              "direction": "vertical",
+              "spacing": 10,
+              "alignment": {
+                "horizontal": "center"
+              }
+            }
+          },
+          "playerInfo": {
+            "position": {
+              "right": "auto",
+              "centerX": 0
+            }
+          }
+        }
+      }
+    },
+    {
+      "condition": {
+        "maxWidth": 800
+      },
+      "adjustments": {
+        "global": {
+          "scale": 0.9
+        },
+        "components": {
+          "playButton": {
+            "position": {
+              "height": 70
+            }
+          },
+          "storeButton": {
+            "position": {
+              "height": 60
+            }
+          },
+          "settingsButton": {
+            "position": {
+              "height": 60
+            }
+          },
+          "exitButton": {
+            "position": {
+              "height": 60
+            }
+          }
+        }
+      }
+    }
+  ],
+  
+  "assets": {
+    "atlases": [
+      {
+        "name": "uiAtlas",
+        "sources": [
+          "assets/icons/*.png",
+          "assets/buttons/*.png"
+        ],
+        "maxSize": 2048,
+        "padding": 2
+      }
+    ],
+    "preload": [
+      "uiAtlas",
+      "assets/backgrounds/menu_bg.jpg",
+      "assets/logo.png"
+    ],
+    "lazyLoad": [
+      "assets/avatars/*.png"
+    ]
+  }
+} 

@@ -1,0 +1,929 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "GUIDS Schema",
+  "description": "JSON Schema for Game UI Description System (GUIDS) files",
+  "type": "object",
+  "required": ["version", "name", "designReference", "root", "components"],
+  "properties": {
+    "version": {
+      "type": "string",
+      "description": "GUIDS版本号",
+      "pattern": "^[0-9]+(\\.[0-9]+)*$"
+    },
+    "name": {
+      "type": "string",
+      "description": "UI描述文件名称"
+    },
+    "designReference": {
+      "type": "object",
+      "description": "设计参考基准",
+      "required": ["width", "height"],
+      "properties": {
+        "width": {
+          "type": "number",
+          "description": "设计基准宽度(像素)",
+          "minimum": 1
+        },
+        "height": {
+          "type": "number",
+          "description": "设计基准高度(像素)",
+          "minimum": 1
+        },
+        "ppi": {
+          "type": "number",
+          "description": "设计基准像素密度",
+          "minimum": 1
+        }
+      }
+    },
+    "root": {
+      "type": "string",
+      "description": "根组件ID"
+    },
+    "components": {
+      "type": "object",
+      "description": "UI组件定义",
+      "additionalProperties": {
+        "$ref": "#/definitions/component"
+      }
+    },
+    "styles": {
+      "type": "object",
+      "description": "样式定义",
+      "additionalProperties": {
+        "$ref": "#/definitions/style"
+      }
+    },
+    "adaptationRules": {
+      "type": "array",
+      "description": "适配规则",
+      "items": {
+        "$ref": "#/definitions/adaptationRule"
+      }
+    },
+    "effectsLibrary": {
+      "type": "object",
+      "description": "特效库",
+      "additionalProperties": {
+        "$ref": "#/definitions/effect"
+      }
+    },
+    "transitions": {
+      "type": "object",
+      "description": "过渡动画",
+      "additionalProperties": {
+        "$ref": "#/definitions/transition"
+      }
+    },
+    "assets": {
+      "type": "object",
+      "description": "资源管理",
+      "properties": {
+        "atlases": {
+          "type": "array",
+          "description": "图集定义",
+          "items": {
+            "$ref": "#/definitions/atlas"
+          }
+        },
+        "fonts": {
+          "type": "array",
+          "description": "字体定义",
+          "items": {
+            "$ref": "#/definitions/font"
+          }
+        },
+        "preload": {
+          "type": "array",
+          "description": "预加载资源列表",
+          "items": {
+            "type": "string"
+          }
+        },
+        "lazyLoad": {
+          "type": "array",
+          "description": "延迟加载资源列表",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "component": {
+      "type": "object",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "组件类型",
+          "enum": ["Screen", "Container", "Button", "Text", "Image", "ProgressBar", "ScrollView", "InputField", "Toggle", "Slider", "Custom"]
+        },
+        "position": {
+          "$ref": "#/definitions/position"
+        },
+        "layout": {
+          "$ref": "#/definitions/layout"
+        },
+        "background": {
+          "$ref": "#/definitions/background"
+        },
+        "style": {
+          "type": "string",
+          "description": "引用的样式名"
+        },
+        "children": {
+          "type": "array",
+          "description": "子组件ID数组",
+          "items": {
+            "type": "string"
+          }
+        },
+        "content": {
+          "type": "string",
+          "description": "文本内容(Text/Button组件)"
+        },
+        "source": {
+          "type": "string",
+          "description": "图像源路径(Image组件)"
+        },
+        "mask": {
+          "$ref": "#/definitions/mask"
+        },
+        "clip": {
+          "$ref": "#/definitions/clip"
+        },
+        "interactions": {
+          "$ref": "#/definitions/interactions"
+        },
+        "effects": {
+          "type": "array",
+          "description": "应用的特效列表",
+          "items": {
+            "type": "string"
+          }
+        },
+        "transitions": {
+          "type": "object",
+          "description": "过渡动画定义",
+          "properties": {
+            "appear": {
+              "type": "string",
+              "description": "出现过渡"
+            },
+            "disappear": {
+              "type": "string",
+              "description": "消失过渡"
+            },
+            "stateChange": {
+              "type": "string",
+              "description": "状态变化过渡"
+            }
+          }
+        },
+        "adaptiveStrategy": {
+          "type": "string",
+          "description": "适配策略(Screen组件)",
+          "enum": ["fitWidth", "fitHeight", "expand", "shrink", "fill"]
+        },
+        "safeArea": {
+          "type": "boolean",
+          "description": "是否适配安全区域(Screen组件)"
+        },
+        "value": {
+          "description": "组件值(ProgressBar/Slider)",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" }
+          ]
+        },
+        "cornerRadius": {
+          "type": "number",
+          "description": "圆角半径"
+        },
+        "opacity": {
+          "type": "number",
+          "description": "不透明度",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "visible": {
+          "type": "boolean",
+          "description": "是否可见"
+        },
+        "adaptive": {
+          "$ref": "#/definitions/adaptive"
+        },
+        "customType": {
+          "type": "string",
+          "description": "自定义组件类型(Custom组件)"
+        },
+        "customProps": {
+          "type": "object",
+          "description": "自定义组件属性(Custom组件)"
+        }
+      },
+      "additionalProperties": {
+        "pattern": "^_[a-zA-Z0-9]+Specific$",
+        "type": "object",
+        "description": "引擎特定扩展属性"
+      }
+    },
+    "position": {
+      "type": "object",
+      "description": "位置和尺寸信息",
+      "properties": {
+        "top": {
+          "description": "上边距",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" }
+          ]
+        },
+        "left": {
+          "description": "左边距",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" }
+          ]
+        },
+        "right": {
+          "description": "右边距",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" }
+          ]
+        },
+        "bottom": {
+          "description": "下边距",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" }
+          ]
+        },
+        "width": {
+          "description": "宽度",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" }
+          ]
+        },
+        "height": {
+          "description": "高度",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" }
+          ]
+        },
+        "centerX": {
+          "description": "X轴中心偏移",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" }
+          ]
+        },
+        "centerY": {
+          "description": "Y轴中心偏移",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" }
+          ]
+        },
+        "rightOf": {
+          "type": "string",
+          "description": "定位在指定元素右侧"
+        },
+        "below": {
+          "type": "string",
+          "description": "定位在指定元素下方"
+        },
+        "margin": {
+          "description": "相对元素间距",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "object" }
+          ]
+        },
+        "alignY": {
+          "type": "string",
+          "description": "与参考元素的Y轴对齐",
+          "enum": ["top", "center", "bottom"]
+        },
+        "alignX": {
+          "type": "string",
+          "description": "与参考元素的X轴对齐",
+          "enum": ["left", "center", "right"]
+        },
+        "fill": {
+          "type": "boolean",
+          "description": "填充父容器"
+        },
+        "centerIn": {
+          "type": "string",
+          "description": "在指定元素中居中"
+        },
+        "maxWidth": {
+          "description": "最大宽度",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" }
+          ]
+        },
+        "maxHeight": {
+          "description": "最大高度",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" }
+          ]
+        },
+        "minWidth": {
+          "description": "最小宽度",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" }
+          ]
+        },
+        "minHeight": {
+          "description": "最小高度",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" }
+          ]
+        }
+      }
+    },
+    "layout": {
+      "type": "object",
+      "description": "布局规则",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "布局类型",
+          "enum": ["stack", "grid", "free", "center"]
+        },
+        "direction": {
+          "type": "string",
+          "description": "方向",
+          "enum": ["vertical", "horizontal"]
+        },
+        "spacing": {
+          "type": "number",
+          "description": "元素间距"
+        },
+        "padding": {
+          "oneOf": [
+            { "type": "number" },
+            {
+              "type": "object",
+              "properties": {
+                "top": { "type": "number" },
+                "right": { "type": "number" },
+                "bottom": { "type": "number" },
+                "left": { "type": "number" }
+              }
+            }
+          ]
+        },
+        "alignment": {
+          "type": "object",
+          "description": "对齐方式",
+          "properties": {
+            "horizontal": {
+              "type": "string",
+              "enum": ["left", "center", "right"]
+            },
+            "vertical": {
+              "type": "string",
+              "enum": ["top", "center", "bottom"]
+            }
+          }
+        },
+        "columns": {
+          "type": "number",
+          "description": "列数"
+        },
+        "columnWidth": {
+          "description": "列宽",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" }
+          ]
+        },
+        "rowHeight": {
+          "description": "行高",
+          "oneOf": [
+            { "type": "number" },
+            { "type": "string" }
+          ]
+        },
+        "justifyContent": {
+          "type": "string",
+          "description": "主轴分布",
+          "enum": ["flex-start", "flex-end", "center", "space-between", "space-around", "space-evenly"]
+        },
+        "alignItems": {
+          "type": "string",
+          "description": "交叉轴对齐",
+          "enum": ["flex-start", "flex-end", "center", "stretch", "baseline"]
+        },
+        "wrap": {
+          "type": "string",
+          "description": "是否换行",
+          "enum": ["nowrap", "wrap", "wrap-reverse"]
+        }
+      }
+    },
+    "background": {
+      "type": "object",
+      "description": "背景定义",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "背景类型",
+          "enum": ["color", "image", "gradient"]
+        },
+        "value": {
+          "type": "string",
+          "description": "颜色值(color类型)"
+        },
+        "source": {
+          "type": "string",
+          "description": "图像源(image类型)"
+        },
+        "colors": {
+          "type": "array",
+          "description": "渐变颜色(gradient类型)",
+          "items": {
+            "type": "string"
+          }
+        },
+        "direction": {
+          "type": "string",
+          "description": "渐变方向",
+          "enum": ["vertical", "horizontal", "diagonal", "radial"]
+        },
+        "repeat": {
+          "type": "string",
+          "description": "图像重复方式",
+          "enum": ["no-repeat", "repeat", "repeat-x", "repeat-y"]
+        },
+        "size": {
+          "type": "string",
+          "description": "图像大小"
+        }
+      }
+    },
+    "style": {
+      "type": "object",
+      "description": "样式定义",
+      "properties": {
+        "extends": {
+          "type": "string",
+          "description": "继承自其他样式"
+        },
+        "fontFamily": {
+          "type": "string",
+          "description": "字体系列"
+        },
+        "fontSize": {
+          "type": "number",
+          "description": "字体大小"
+        },
+        "fontWeight": {
+          "type": "string",
+          "description": "字体粗细",
+          "enum": ["normal", "bold"]
+        },
+        "textColor": {
+          "type": "string",
+          "description": "文本颜色"
+        },
+        "textAlign": {
+          "type": "string",
+          "description": "文本对齐",
+          "enum": ["left", "center", "right"]
+        },
+        "background": {
+          "$ref": "#/definitions/background"
+        },
+        "cornerRadius": {
+          "type": "number",
+          "description": "圆角半径"
+        },
+        "border": {
+          "type": "object",
+          "description": "边框定义",
+          "properties": {
+            "width": { "type": "number" },
+            "color": { "type": "string" },
+            "style": {
+              "type": "string",
+              "enum": ["solid", "dashed", "dotted"]
+            }
+          }
+        },
+        "shadow": {
+          "type": "object",
+          "description": "阴影定义",
+          "properties": {
+            "color": { "type": "string" },
+            "offsetX": { "type": "number" },
+            "offsetY": { "type": "number" },
+            "blur": { "type": "number" }
+          }
+        },
+        "opacity": {
+          "type": "number",
+          "description": "透明度",
+          "minimum": 0,
+          "maximum": 1
+        },
+        "visible": {
+          "type": "boolean",
+          "description": "可见性"
+        },
+        "padding": {
+          "oneOf": [
+            { "type": "number" },
+            {
+              "type": "object",
+              "properties": {
+                "top": { "type": "number" },
+                "right": { "type": "number" },
+                "bottom": { "type": "number" },
+                "left": { "type": "number" }
+              }
+            }
+          ]
+        },
+        "margin": {
+          "oneOf": [
+            { "type": "number" },
+            {
+              "type": "object",
+              "properties": {
+                "top": { "type": "number" },
+                "right": { "type": "number" },
+                "bottom": { "type": "number" },
+                "left": { "type": "number" }
+              }
+            }
+          ]
+        },
+        "states": {
+          "type": "object",
+          "description": "状态样式定义",
+          "properties": {
+            "hover": {
+              "type": "object",
+              "description": "悬停状态样式"
+            },
+            "pressed": {
+              "type": "object",
+              "description": "按下状态样式"
+            },
+            "disabled": {
+              "type": "object",
+              "description": "禁用状态样式"
+            }
+          }
+        }
+      }
+    },
+    "mask": {
+      "type": "object",
+      "description": "遮罩定义",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "遮罩类型",
+          "enum": ["circle", "rectangle", "ellipse", "roundedRect", "custom"]
+        },
+        "params": {
+          "type": "object",
+          "description": "遮罩参数"
+        },
+        "source": {
+          "type": "string",
+          "description": "自定义遮罩图像"
+        },
+        "feather": {
+          "type": "number",
+          "description": "边缘虚化程度"
+        },
+        "invertMask": {
+          "type": "boolean",
+          "description": "是否反转遮罩"
+        }
+      }
+    },
+    "clip": {
+      "type": "object",
+      "description": "裁剪定义",
+      "required": ["enabled"],
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "是否启用裁剪"
+        },
+        "region": {
+          "type": "string",
+          "description": "裁剪区域",
+          "enum": ["bounds", "custom"]
+        },
+        "custom": {
+          "type": "object",
+          "description": "自定义裁剪区域",
+          "properties": {
+            "top": { "type": "number" },
+            "right": { "type": "number" },
+            "bottom": { "type": "number" },
+            "left": { "type": "number" }
+          }
+        },
+        "softness": {
+          "type": "number",
+          "description": "边缘柔和度"
+        }
+      }
+    },
+    "interactions": {
+      "type": "object",
+      "description": "交互定义",
+      "properties": {
+        "onClick": {
+          "$ref": "#/definitions/action"
+        },
+        "onHover": {
+          "$ref": "#/definitions/action"
+        },
+        "onDrag": {
+          "$ref": "#/definitions/action"
+        },
+        "onRelease": {
+          "$ref": "#/definitions/action"
+        },
+        "onValueChange": {
+          "$ref": "#/definitions/action"
+        },
+        "onFocus": {
+          "$ref": "#/definitions/action"
+        },
+        "onBlur": {
+          "$ref": "#/definitions/action"
+        }
+      }
+    },
+    "action": {
+      "type": "object",
+      "description": "行为定义",
+      "required": ["action"],
+      "properties": {
+        "action": {
+          "type": "string",
+          "description": "行为名称"
+        },
+        "params": {
+          "type": "object",
+          "description": "行为参数"
+        }
+      }
+    },
+    "adaptationRule": {
+      "type": "object",
+      "description": "适配规则",
+      "required": ["condition", "adjustments"],
+      "properties": {
+        "condition": {
+          "type": "object",
+          "description": "触发条件",
+          "properties": {
+            "minWidth": { "type": "number" },
+            "maxWidth": { "type": "number" },
+            "minHeight": { "type": "number" },
+            "maxHeight": { "type": "number" },
+            "aspectRatio": { "type": "string" },
+            "orientation": {
+              "type": "string",
+              "enum": ["landscape", "portrait"]
+            },
+            "deviceType": {
+              "type": "string",
+              "enum": ["mobile", "tablet", "desktop"]
+            }
+          }
+        },
+        "adjustments": {
+          "type": "object",
+          "description": "适配调整",
+          "properties": {
+            "global": {
+              "type": "object",
+              "description": "全局调整"
+            },
+            "components": {
+              "type": "object",
+              "description": "组件特定调整",
+              "additionalProperties": {
+                "type": "object"
+              }
+            },
+            "repositionElements": {
+              "type": "array",
+              "description": "元素重新定位",
+              "items": {
+                "type": "object",
+                "required": ["id", "newParent"],
+                "properties": {
+                  "id": { "type": "string" },
+                  "newParent": { "type": "string" }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "effect": {
+      "type": "object",
+      "description": "特效定义",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "特效类型"
+        },
+        "color": {
+          "type": "string",
+          "description": "特效颜色"
+        },
+        "intensity": {
+          "type": "number",
+          "description": "特效强度"
+        },
+        "size": {
+          "type": "number",
+          "description": "特效大小"
+        }
+      }
+    },
+    "transition": {
+      "type": "object",
+      "description": "过渡动画",
+      "required": ["type"],
+      "properties": {
+        "type": {
+          "type": "string",
+          "description": "过渡类型"
+        },
+        "duration": {
+          "type": "number",
+          "description": "持续时间(秒)"
+        },
+        "easing": {
+          "type": "string",
+          "description": "缓动函数"
+        },
+        "keyframes": {
+          "type": "array",
+          "description": "关键帧数组",
+          "items": {
+            "type": "object",
+            "required": ["time"],
+            "properties": {
+              "time": {
+                "type": "number",
+                "description": "时间点(0-1)"
+              },
+              "opacity": { "type": "number" },
+              "translateX": { "type": "number" },
+              "translateY": { "type": "number" },
+              "scale": { "type": "number" },
+              "rotate": { "type": "number" }
+            }
+          }
+        }
+      }
+    },
+    "atlas": {
+      "type": "object",
+      "description": "图集定义",
+      "required": ["name", "sources"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "图集名称"
+        },
+        "sources": {
+          "type": "array",
+          "description": "源图像路径",
+          "items": {
+            "type": "string"
+          }
+        },
+        "maxSize": {
+          "type": "number",
+          "description": "最大尺寸"
+        },
+        "padding": {
+          "type": "number",
+          "description": "图像间距"
+        },
+        "allowRotation": {
+          "type": "boolean",
+          "description": "是否允许旋转"
+        },
+        "powerOfTwo": {
+          "type": "boolean",
+          "description": "是否强制2的幂次方尺寸"
+        },
+        "quality": {
+          "type": "string",
+          "description": "质量设置",
+          "enum": ["low", "medium", "high"]
+        }
+      }
+    },
+    "font": {
+      "type": "object",
+      "description": "字体定义",
+      "required": ["name", "source"],
+      "properties": {
+        "name": {
+          "type": "string",
+          "description": "字体名称"
+        },
+        "source": {
+          "type": "string",
+          "description": "字体文件路径"
+        },
+        "sizes": {
+          "type": "array",
+          "description": "预生成尺寸",
+          "items": {
+            "type": "number"
+          }
+        },
+        "styles": {
+          "type": "array",
+          "description": "预生成样式",
+          "items": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "adaptive": {
+      "type": "object",
+      "description": "自适应规则",
+      "properties": {
+        "scaleMode": {
+          "type": "string",
+          "description": "元素缩放行为",
+          "enum": ["maintain", "stretch", "shrink", "none"]
+        },
+        "scaleThreshold": {
+          "type": "object",
+          "description": "缩放阈值",
+          "properties": {
+            "min": { "type": "number" },
+            "max": { "type": "number" }
+          }
+        },
+        "visibilityRules": {
+          "type": "array",
+          "description": "可见性规则",
+          "items": {
+            "type": "object",
+            "required": ["condition", "visible"],
+            "properties": {
+              "condition": {},
+              "visible": { "type": "boolean" }
+            }
+          }
+        },
+        "sizeRules": {
+          "type": "array",
+          "description": "尺寸规则",
+          "items": {
+            "type": "object",
+            "required": ["condition"],
+            "properties": {
+              "condition": {},
+              "width": {},
+              "height": {}
+            }
+          }
+        },
+        "minHeight": {},
+        "maxHeight": {},
+        "minWidth": {},
+        "maxWidth": {}
+      }
+    }
+  }
+} 

@@ -1,0 +1,118 @@
+{
+  "version": "1.0",
+  "name": "SimpleButtonExample",
+  "designReference": {
+    "width": 1920,
+    "height": 1080
+  },
+  "root": "screen",
+  
+  "components": {
+    "screen": {
+      "type": "Screen",
+      "adaptiveStrategy": "fitWidth",
+      "children": ["mainButton"]
+    },
+    
+    "mainButton": {
+      "type": "Button",
+      "style": "primaryButton",
+      "content": "点击我",
+      "position": {
+        "centerIn": "parent",
+        "width": 200,
+        "height": 60
+      },
+      "interactions": {
+        "onClick": {
+          "action": "buttonClicked",
+          "params": {
+            "id": "mainButton"
+          }
+        },
+        "onHover": {
+          "action": "playSound",
+          "params": {
+            "sound": "hover.mp3"
+          }
+        }
+      },
+      "transitions": {
+        "appear": "fadeInTransition"
+      }
+    }
+  },
+  
+  "styles": {
+    "primaryButton": {
+      "fontFamily": "Arial",
+      "fontSize": 24,
+      "textColor": "#FFFFFF",
+      "textAlign": "center",
+      "background": {
+        "type": "gradient",
+        "colors": ["#3498DB", "#2980B9"],
+        "direction": "vertical"
+      },
+      "cornerRadius": 8,
+      "shadow": {
+        "color": "rgba(0,0,0,0.3)",
+        "offsetX": 0,
+        "offsetY": 3,
+        "blur": 5
+      },
+      "states": {
+        "hover": {
+          "background": {
+            "colors": ["#5DADE2", "#3498DB"]
+          },
+          "scale": 1.05
+        },
+        "pressed": {
+          "background": {
+            "colors": ["#2980B9", "#2473A6"]
+          },
+          "scale": 0.98
+        }
+      }
+    }
+  },
+  
+  "transitions": {
+    "fadeInTransition": {
+      "type": "animation",
+      "duration": 0.3,
+      "easing": "easeOutQuad",
+      "keyframes": [
+        {
+          "time": 0,
+          "opacity": 0,
+          "translateY": 20
+        },
+        {
+          "time": 1,
+          "opacity": 1,
+          "translateY": 0
+        }
+      ]
+    }
+  },
+  
+  "adaptationRules": [
+    {
+      "condition": {
+        "maxWidth": 800
+      },
+      "adjustments": {
+        "components": {
+          "mainButton": {
+            "position": {
+              "width": 150,
+              "height": 50
+            }
+          }
+        }
+      }
+    }
+  ]
+} 
