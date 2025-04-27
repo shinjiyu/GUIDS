@@ -1,0 +1,440 @@
+{
+  "version": "1.0",
+  "name": "Row组件溢出处理测试",
+  "designReference": {
+    "width": 1200,
+    "height": 800
+  },
+  "root": "screen",
+  
+  "components": {
+    "screen": {
+      "type": "Screen",
+      "background": {
+        "type": "color",
+        "value": "#F5F5F5"
+      },
+      "children": ["title", "rowOverflow", "rowWrapOverflow", "rowClipOverflow", "rowScrollOverflow"]
+    },
+    
+    "title": {
+      "type": "Text",
+      "position": {
+        "top": 30,
+        "left": 50,
+        "width": 400,
+        "height": 40
+      },
+      "content": "Row组件溢出处理测试",
+      "style": {
+        "fontSize": 24,
+        "fontWeight": "bold",
+        "color": "#333333"
+      }
+    },
+    
+    "rowOverflow": {
+      "type": "Row",
+      "position": {
+        "top": 100,
+        "left": 50,
+        "width": 300,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "start",
+        "spacing": 10,
+        "wrap": false,
+        "overflow": "visible"
+      },
+      "children": ["overflowLabel", "box1_1", "box1_2", "box1_3", "box1_4", "box1_5"]
+    },
+    
+    "overflowLabel": {
+      "type": "Text",
+      "position": {
+        "width": 60,
+        "height": 100
+      },
+      "content": "溢出可见: 元素超出容器边界",
+      "style": {
+        "fontSize": 12,
+        "color": "#333333"
+      }
+    },
+    
+    "box1_1": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF9800"
+      },
+      "cornerRadius": 4
+    },
+    
+    "box1_2": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 4
+    },
+    
+    "box1_3": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 4
+    },
+    
+    "box1_4": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#9C27B0"
+      },
+      "cornerRadius": 4
+    },
+    
+    "box1_5": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#F44336"
+      },
+      "cornerRadius": 4
+    },
+    
+    "rowWrapOverflow": {
+      "type": "Row",
+      "position": {
+        "top": 220,
+        "left": 50,
+        "width": 300,
+        "height": 150
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "start",
+        "spacing": 10,
+        "wrap": true,
+        "overflow": "visible"
+      },
+      "children": ["wrapOverflowLabel", "box2_1", "box2_2", "box2_3", "box2_4", "box2_5"]
+    },
+    
+    "wrapOverflowLabel": {
+      "type": "Text",
+      "position": {
+        "width": 60,
+        "height": 150
+      },
+      "content": "自动换行: 元素换行不溢出",
+      "style": {
+        "fontSize": 12,
+        "color": "#333333"
+      }
+    },
+    
+    "box2_1": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF9800"
+      },
+      "cornerRadius": 4
+    },
+    
+    "box2_2": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 4
+    },
+    
+    "box2_3": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 4
+    },
+    
+    "box2_4": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#9C27B0"
+      },
+      "cornerRadius": 4
+    },
+    
+    "box2_5": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#F44336"
+      },
+      "cornerRadius": 4
+    },
+    
+    "rowClipOverflow": {
+      "type": "Row",
+      "position": {
+        "top": 390,
+        "left": 50,
+        "width": 300,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "start",
+        "spacing": 10,
+        "wrap": false,
+        "overflow": "hidden"
+      },
+      "children": ["clipOverflowLabel", "box3_1", "box3_2", "box3_3", "box3_4", "box3_5"]
+    },
+    
+    "clipOverflowLabel": {
+      "type": "Text",
+      "position": {
+        "width": 60,
+        "height": 100
+      },
+      "content": "溢出隐藏: 元素被裁剪",
+      "style": {
+        "fontSize": 12,
+        "color": "#333333"
+      }
+    },
+    
+    "box3_1": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF9800"
+      },
+      "cornerRadius": 4
+    },
+    
+    "box3_2": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 4
+    },
+    
+    "box3_3": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 4
+    },
+    
+    "box3_4": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#9C27B0"
+      },
+      "cornerRadius": 4
+    },
+    
+    "box3_5": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#F44336"
+      },
+      "cornerRadius": 4
+    },
+    
+    "rowScrollOverflow": {
+      "type": "Row",
+      "position": {
+        "top": 510,
+        "left": 50,
+        "width": 300,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "start",
+        "spacing": 10,
+        "wrap": false,
+        "overflow": "scroll"
+      },
+      "children": ["scrollOverflowLabel", "box4_1", "box4_2", "box4_3", "box4_4", "box4_5"]
+    },
+    
+    "scrollOverflowLabel": {
+      "type": "Text",
+      "position": {
+        "width": 60,
+        "height": 100
+      },
+      "content": "溢出滚动: 元素可滚动查看",
+      "style": {
+        "fontSize": 12,
+        "color": "#333333"
+      }
+    },
+    
+    "box4_1": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF9800"
+      },
+      "cornerRadius": 4
+    },
+    
+    "box4_2": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 4
+    },
+    
+    "box4_3": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 4
+    },
+    
+    "box4_4": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#9C27B0"
+      },
+      "cornerRadius": 4
+    },
+    
+    "box4_5": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#F44336"
+      },
+      "cornerRadius": 4
+    }
+  }
+} 

@@ -1,0 +1,498 @@
+{
+  "version": "1.0",
+  "name": "Row组件分布方式(distribution)属性测试",
+  "designReference": {
+    "width": 1200,
+    "height": 800
+  },
+  "root": "screen",
+  "components": {
+    "screen": {
+      "type": "Screen",
+      "background": {
+        "type": "color",
+        "value": "#F5F5F5"
+      },
+      "children": [
+        "title", 
+        "rowStartDist", 
+        "rowCenterDist", 
+        "rowEndDist", 
+        "rowSpaceBetweenDist",
+        "rowSpaceAroundDist",
+        "rowSpaceEvenlyDist"
+      ]
+    },
+    "title": {
+      "type": "Text",
+      "position": {
+        "top": 30,
+        "left": 50,
+        "width": 400,
+        "height": 40
+      },
+      "content": "Row组件分布方式(distribution)属性测试",
+      "style": {
+        "fontSize": 24,
+        "fontWeight": "bold",
+        "color": "#333333"
+      }
+    },
+    
+    "rowStartDist": {
+      "type": "Row",
+      "position": {
+        "top": 90,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "start",
+        "spacing": 10,
+        "padding": 10
+      },
+      "children": ["startDistLabel", "box1", "box2", "box3"]
+    },
+    "startDistLabel": {
+      "type": "Text",
+      "position": {
+        "width": 150,
+        "height": 60
+      },
+      "content": "左侧分布: distribution: start",
+      "style": {
+        "fontSize": 12,
+        "color": "#333333"
+      }
+    },
+    "box1": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF9800"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    "box2": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    "box3": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    
+    "rowCenterDist": {
+      "type": "Row",
+      "position": {
+        "top": 180,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "center",
+        "spacing": 10,
+        "padding": 10
+      },
+      "children": ["centerDistLabel", "boxC1", "boxC2", "boxC3"]
+    },
+    "centerDistLabel": {
+      "type": "Text",
+      "position": {
+        "width": 150,
+        "height": 60
+      },
+      "content": "居中分布: distribution: center",
+      "style": {
+        "fontSize": 12,
+        "color": "#333333"
+      }
+    },
+    "boxC1": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF9800"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    "boxC2": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    "boxC3": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    
+    "rowEndDist": {
+      "type": "Row",
+      "position": {
+        "top": 270,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "end",
+        "spacing": 10,
+        "padding": 10
+      },
+      "children": ["endDistLabel", "boxE1", "boxE2", "boxE3"]
+    },
+    "endDistLabel": {
+      "type": "Text",
+      "position": {
+        "width": 150,
+        "height": 60
+      },
+      "content": "右侧分布: distribution: end",
+      "style": {
+        "fontSize": 12,
+        "color": "#333333"
+      }
+    },
+    "boxE1": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF9800"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    "boxE2": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    "boxE3": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    
+    "rowSpaceBetweenDist": {
+      "type": "Row",
+      "position": {
+        "top": 360,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "space-between",
+        "spacing": 0,
+        "padding": 10
+      },
+      "children": ["spaceBetweenDistLabel", "boxSB1", "boxSB2", "boxSB3"]
+    },
+    "spaceBetweenDistLabel": {
+      "type": "Text",
+      "position": {
+        "width": 150,
+        "height": 60
+      },
+      "content": "两端对齐: distribution: space-between",
+      "style": {
+        "fontSize": 12,
+        "color": "#333333"
+      }
+    },
+    "boxSB1": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF9800"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    "boxSB2": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    "boxSB3": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    
+    "rowSpaceAroundDist": {
+      "type": "Row",
+      "position": {
+        "top": 450,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "space-around",
+        "spacing": 0,
+        "padding": 10
+      },
+      "children": ["spaceAroundDistLabel", "boxSA1", "boxSA2", "boxSA3"]
+    },
+    "spaceAroundDistLabel": {
+      "type": "Text",
+      "position": {
+        "width": 150,
+        "height": 60
+      },
+      "content": "环绕分布: distribution: space-around",
+      "style": {
+        "fontSize": 12,
+        "color": "#333333"
+      }
+    },
+    "boxSA1": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF9800"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    "boxSA2": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    "boxSA3": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    
+    "rowSpaceEvenlyDist": {
+      "type": "Row",
+      "position": {
+        "top": 540,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "space-evenly",
+        "spacing": 0,
+        "padding": 10
+      },
+      "children": ["spaceEvenlyDistLabel", "boxSE1", "boxSE2", "boxSE3"]
+    },
+    "spaceEvenlyDistLabel": {
+      "type": "Text",
+      "position": {
+        "width": 150,
+        "height": 60
+      },
+      "content": "均匀分布: distribution: space-evenly",
+      "style": {
+        "fontSize": 12,
+        "color": "#333333"
+      }
+    },
+    "boxSE1": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF9800"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    "boxSE2": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    },
+    "boxSE3": {
+      "type": "Container",
+      "position": {
+        "width": 60,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "border": {
+        "cornerRadius": 4
+      }
+    }
+  }
+} 
