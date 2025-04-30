@@ -1,0 +1,119 @@
+{
+  "version": "1.0",
+  "name": "Row组件基本水平排列测试",
+  "designReference": {
+    "width": 1200,
+    "height": 800
+  },
+  "root": "screen",
+  
+  "components": {
+    "screen": {
+      "type": "Screen",
+      "background": {
+        "type": "color",
+        "value": "#F5F5F5"
+      },
+      "children": ["testRow"]
+    },
+    
+    "testRow": {
+      "type": "Row",
+      "position": {
+        "top": 100,
+        "left": 100,
+        "width": 600,
+        "height": 200
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "center"
+      },
+      "children": ["item1", "item2", "item3"]
+    },
+    
+    "item1": {
+      "type": "Container",
+      "position": {
+        "width": 100,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["label1"]
+    },
+    
+    "item2": {
+      "type": "Container",
+      "position": {
+        "width": 100,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["label2"]
+    },
+    
+    "item3": {
+      "type": "Container",
+      "position": {
+        "width": 100,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["label3"]
+    },
+    
+    "label1": {
+      "type": "Text",
+      "content": "项目1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label2": {
+      "type": "Text",
+      "content": "项目2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label3": {
+      "type": "Text",
+      "content": "项目3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    }
+  },
+  
+  "styles": {
+    "itemLabel": {
+      "fontFamily": "Arial",
+      "fontSize": 16,
+      "fontWeight": "bold",
+      "textColor": "#FFFFFF",
+      "textAlign": "center"
+    }
+  }
+} 

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Row组件分布方式测试</title>
+    <style id="guids-styles">
+
+/* GUIDS基础样式 */
+:root {
+    --guids-design-width: 1200px;
+    --guids-design-height: 800px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.guids-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.guids-container {
+    position: relative;
+}
+
+.guids-row {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.guids-column {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.guids-button {
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guids-image {
+    display: block;
+    object-fit: contain;
+}
+
+.guids-text {
+    word-wrap: break-word;
+}
+
+/* 响应式缩放支持 */
+
+/* 响应式缩放 */
+.guids-responsive {
+    transform-origin: top left;
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .guids-responsive[data-strategy="fitWidth"] {
+        transform: scale(calc(100vw / var(--guids-design-width)));
+        width: var(--guids-design-width);
+        height: var(--guids-design-height);
+    }
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .guids-responsive[data-strategy="fitHeight"] {
+        transform: scale(calc(100vh / var(--guids-design-height)));
+        width: var(--guids-design-width);
+        height: var(--guids-design-height);
+    }
+}
+
+
+    </style>
+</head>
+<body>
+<div id="screen" class="guids-screen guids-screen"><div id="row1" class="guids-row guids-row"><div id="item1A" class="guids-container guids-container"><p id="label1A" class="guids-text">左对齐</p></div><div id="item1B" class="guids-container guids-container"><p id="label1B" class="guids-text">start</p></div><div id="item1C" class="guids-container guids-container"><p id="label1C" class="guids-text">靠左</p></div></div><div id="row2" class="guids-row guids-row"><div id="item2A" class="guids-container guids-container"><p id="label2A" class="guids-text">居中对齐</p></div><div id="item2B" class="guids-container guids-container"><p id="label2B" class="guids-text">center</p></div><div id="item2C" class="guids-container guids-container"><p id="label2C" class="guids-text">水平居中</p></div></div><div id="row3" class="guids-row guids-row"><div id="item3A" class="guids-container guids-container"><p id="label3A" class="guids-text">右对齐</p></div><div id="item3B" class="guids-container guids-container"><p id="label3B" class="guids-text">end</p></div><div id="item3C" class="guids-container guids-container"><p id="label3C" class="guids-text">靠右</p></div></div><div id="row4" class="guids-row guids-row"><div id="item4A" class="guids-container guids-container"><p id="label4A" class="guids-text">两端对齐</p></div><div id="item4B" class="guids-container guids-container"><p id="label4B" class="guids-text">space-between</p></div><div id="item4C" class="guids-container guids-container"><p id="label4C" class="guids-text">元素之间均分</p></div></div><div id="row5" class="guids-row guids-row"><div id="item5A" class="guids-container guids-container"><p id="label5A" class="guids-text">周围均分</p></div><div id="item5B" class="guids-container guids-container"><p id="label5B" class="guids-text">space-around</p></div><div id="item5C" class="guids-container guids-container"><p id="label5C" class="guids-text">等距环绕</p></div></div><div id="row6" class="guids-row guids-row"><div id="item6A" class="guids-container guids-container"><p id="label6A" class="guids-text">全部均分</p></div><div id="item6B" class="guids-container guids-container"><p id="label6B" class="guids-text">space-evenly</p></div><div id="item6C" class="guids-container guids-container"><p id="label6C" class="guids-text">等间距</p></div></div></div>
+<style>
+#screen { background-color: #F5F5F5; }
+#row1 { position: absolute; top: 30px; left: 50px; width: 700px; height: 100px; background-color: #E0E0E0; display: flex; flex-direction: row; align-items: center; justify-content: flex-start; }
+#item1A { position: relative; width: 100px; height: 80px; background-color: #FF5252; border-radius: 8px; }
+#label1A { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#item1B { position: relative; width: 100px; height: 80px; background-color: #4CAF50; border-radius: 8px; }
+#label1B { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#item1C { position: relative; width: 100px; height: 80px; background-color: #2196F3; border-radius: 8px; }
+#label1C { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#row2 { position: absolute; top: 150px; left: 50px; width: 700px; height: 100px; background-color: #E0E0E0; display: flex; flex-direction: row; align-items: center; justify-content: center; }
+#item2A { position: relative; width: 100px; height: 80px; background-color: #FF5252; border-radius: 8px; }
+#label2A { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#item2B { position: relative; width: 100px; height: 80px; background-color: #4CAF50; border-radius: 8px; }
+#label2B { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#item2C { position: relative; width: 100px; height: 80px; background-color: #2196F3; border-radius: 8px; }
+#label2C { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#row3 { position: absolute; top: 270px; left: 50px; width: 700px; height: 100px; background-color: #E0E0E0; display: flex; flex-direction: row; align-items: center; justify-content: flex-end; }
+#item3A { position: relative; width: 100px; height: 80px; background-color: #FF5252; border-radius: 8px; }
+#label3A { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#item3B { position: relative; width: 100px; height: 80px; background-color: #4CAF50; border-radius: 8px; }
+#label3B { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#item3C { position: relative; width: 100px; height: 80px; background-color: #2196F3; border-radius: 8px; }
+#label3C { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#row4 { position: absolute; top: 390px; left: 50px; width: 700px; height: 100px; background-color: #E0E0E0; display: flex; flex-direction: row; align-items: center; justify-content: space-between; }
+#item4A { position: relative; width: 100px; height: 80px; background-color: #FF5252; border-radius: 8px; }
+#label4A { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#item4B { position: relative; width: 100px; height: 80px; background-color: #4CAF50; border-radius: 8px; }
+#label4B { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#item4C { position: relative; width: 100px; height: 80px; background-color: #2196F3; border-radius: 8px; }
+#label4C { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#row5 { position: absolute; top: 510px; left: 50px; width: 700px; height: 100px; background-color: #E0E0E0; display: flex; flex-direction: row; align-items: center; justify-content: space-around; }
+#item5A { position: relative; width: 100px; height: 80px; background-color: #FF5252; border-radius: 8px; }
+#label5A { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#item5B { position: relative; width: 100px; height: 80px; background-color: #4CAF50; border-radius: 8px; }
+#label5B { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#item5C { position: relative; width: 100px; height: 80px; background-color: #2196F3; border-radius: 8px; }
+#label5C { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#row6 { position: absolute; top: 630px; left: 50px; width: 700px; height: 100px; background-color: #E0E0E0; display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; }
+#item6A { position: relative; width: 100px; height: 80px; background-color: #FF5252; border-radius: 8px; }
+#label6A { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#item6B { position: relative; width: 100px; height: 80px; background-color: #4CAF50; border-radius: 8px; }
+#label6B { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#item6C { position: relative; width: 100px; height: 80px; background-color: #2196F3; border-radius: 8px; }
+#label6C { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+</style>
+
+<script>
+
+// GUIDS交互支持
+document.addEventListener('DOMContentLoaded', function() {
+    // 注册点击事件
+    document.querySelectorAll('[data-action]').forEach(element => {
+        element.addEventListener('click', function(e) {
+            const action = this.getAttribute('data-action');
+            const params = JSON.parse(this.getAttribute('data-params') || '{}');
+            console.log('执行操作:', action, '参数:', params);
+            
+            // 这里可以实现模拟操作（示例）
+            switch(action) {
+                case 'navigateTo':
+                    if (params.screen) {
+                        alert('导航到: ' + params.screen);
+                    }
+                    break;
+                case 'openURL':
+                    if (params.url) {
+                        window.open(params.url, '_blank');
+                    }
+                    break;
+                default:
+                    // 自定义操作可通过事件派发
+                    const customEvent = new CustomEvent('guids-action', {
+                        detail: { action, params, element: this }
+                    });
+                    document.dispatchEvent(customEvent);
+            }
+        });
+    });
+    
+    // 处理hover状态
+    document.querySelectorAll('[data-has-hover]').forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            this.classList.add('guids-hover');
+        });
+        element.addEventListener('mouseleave', function() {
+            this.classList.remove('guids-hover');
+        });
+    });
+    
+    // 处理pressed状态
+    document.querySelectorAll('[data-has-pressed]').forEach(element => {
+        element.addEventListener('mousedown', function() {
+            this.classList.add('guids-pressed');
+        });
+        element.addEventListener('mouseup', function() {
+            this.classList.remove('guids-pressed');
+        });
+        element.addEventListener('mouseleave', function() {
+            this.classList.remove('guids-pressed');
+        });
+    });
+});
+
+</script>
+
+</body>
+</html>

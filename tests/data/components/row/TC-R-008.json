@@ -1,0 +1,656 @@
+{
+  "version": "1.0",
+  "name": "Row组件分布方式测试",
+  "designReference": {
+    "width": 1200,
+    "height": 800
+  },
+  "root": "screen",
+  
+  "components": {
+    "screen": {
+      "type": "Screen",
+      "background": {
+        "type": "color",
+        "value": "#F5F5F5"
+      },
+      "children": ["distributionTitle", "rowStart", "rowCenter", "rowEnd", "rowSpaceBetween", "rowSpaceAround", "rowSpaceEvenly"]
+    },
+    
+    "distributionTitle": {
+      "type": "Text",
+      "content": "Row 组件分布方式（Distribution）测试",
+      "position": {
+        "top": 30,
+        "left": 50,
+        "width": 600,
+        "height": 40
+      },
+      "style": "titleStyle"
+    },
+    
+    "rowStart": {
+      "type": "Row",
+      "position": {
+        "top": 100,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "start"
+      },
+      "children": ["startLabel", "box1", "box2", "box3"],
+      "cornerRadius": 8
+    },
+    
+    "rowCenter": {
+      "type": "Row",
+      "position": {
+        "top": 200,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "center"
+      },
+      "children": ["centerLabel", "box4", "box5", "box6"],
+      "cornerRadius": 8
+    },
+    
+    "rowEnd": {
+      "type": "Row",
+      "position": {
+        "top": 300,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "end"
+      },
+      "children": ["endLabel", "box7", "box8", "box9"],
+      "cornerRadius": 8
+    },
+    
+    "rowSpaceBetween": {
+      "type": "Row",
+      "position": {
+        "top": 400,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "space-between"
+      },
+      "children": ["spaceBetweenLabel", "box10", "box11", "box12"],
+      "cornerRadius": 8
+    },
+    
+    "rowSpaceAround": {
+      "type": "Row",
+      "position": {
+        "top": 500,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "space-around"
+      },
+      "children": ["spaceAroundLabel", "box13", "box14", "box15"],
+      "cornerRadius": 8
+    },
+    
+    "rowSpaceEvenly": {
+      "type": "Row",
+      "position": {
+        "top": 600,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "space-evenly"
+      },
+      "children": ["spaceEvenlyLabel", "box16", "box17", "box18"],
+      "cornerRadius": 8
+    },
+    
+    "startLabel": {
+      "type": "Text",
+      "content": "开始(start):",
+      "position": {
+        "width": 120,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "centerLabel": {
+      "type": "Text",
+      "content": "居中(center):",
+      "position": {
+        "width": 120,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "endLabel": {
+      "type": "Text",
+      "content": "末端(end):",
+      "position": {
+        "width": 120,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "spaceBetweenLabel": {
+      "type": "Text",
+      "content": "两端对齐:",
+      "position": {
+        "width": 120,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "spaceAroundLabel": {
+      "type": "Text",
+      "content": "环绕:",
+      "position": {
+        "width": 120,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "spaceEvenlyLabel": {
+      "type": "Text",
+      "content": "均分:",
+      "position": {
+        "width": 120,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "box1": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel1"]
+    },
+    
+    "box2": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel2"]
+    },
+    
+    "box3": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel3"]
+    },
+    
+    "box4": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel4"]
+    },
+    
+    "box5": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel5"]
+    },
+    
+    "box6": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel6"]
+    },
+    
+    "box7": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel7"]
+    },
+    
+    "box8": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel8"]
+    },
+    
+    "box9": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel9"]
+    },
+    
+    "box10": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel10"]
+    },
+    
+    "box11": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel11"]
+    },
+    
+    "box12": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel12"]
+    },
+    
+    "box13": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel13"]
+    },
+    
+    "box14": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel14"]
+    },
+    
+    "box15": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel15"]
+    },
+    
+    "box16": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel16"]
+    },
+    
+    "box17": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel17"]
+    },
+    
+    "box18": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel18"]
+    },
+    
+    "boxLabel1": {
+      "type": "Text",
+      "content": "项目1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel2": {
+      "type": "Text",
+      "content": "项目2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel3": {
+      "type": "Text",
+      "content": "项目3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel4": {
+      "type": "Text",
+      "content": "项目1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel5": {
+      "type": "Text",
+      "content": "项目2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel6": {
+      "type": "Text",
+      "content": "项目3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel7": {
+      "type": "Text",
+      "content": "项目1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel8": {
+      "type": "Text",
+      "content": "项目2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel9": {
+      "type": "Text",
+      "content": "项目3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel10": {
+      "type": "Text",
+      "content": "项目1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel11": {
+      "type": "Text",
+      "content": "项目2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel12": {
+      "type": "Text",
+      "content": "项目3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel13": {
+      "type": "Text",
+      "content": "项目1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel14": {
+      "type": "Text",
+      "content": "项目2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel15": {
+      "type": "Text",
+      "content": "项目3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel16": {
+      "type": "Text",
+      "content": "项目1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel17": {
+      "type": "Text",
+      "content": "项目2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel18": {
+      "type": "Text",
+      "content": "项目3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    }
+  },
+  
+  "styles": {
+    "titleStyle": {
+      "fontFamily": "Arial",
+      "fontSize": 24,
+      "fontWeight": "bold",
+      "textColor": "#333333",
+      "textAlign": "left"
+    },
+    "labelStyle": {
+      "fontFamily": "Arial",
+      "fontSize": 16,
+      "fontWeight": "bold",
+      "textColor": "#333333",
+      "textAlign": "right"
+    },
+    "itemLabel": {
+      "fontFamily": "Arial",
+      "fontSize": 14,
+      "fontWeight": "bold",
+      "textColor": "#FFFFFF",
+      "textAlign": "center"
+    }
+  }
+} 

@@ -11,6 +11,10 @@
     "screen": {
       "type": "Screen",
       "adaptiveStrategy": "fitWidth",
+      "background": {
+        "type": "color",
+        "value": "#F5F5F5"
+      },
       "children": ["mainButton"]
     },
     
@@ -31,10 +35,7 @@
           }
         },
         "onHover": {
-          "action": "playSound",
-          "params": {
-            "sound": "hover.mp3"
-          }
+          "action": "buttonHovered"
         }
       },
       "transitions": {
@@ -50,9 +51,8 @@
       "textColor": "#FFFFFF",
       "textAlign": "center",
       "background": {
-        "type": "gradient",
-        "colors": ["#3498DB", "#2980B9"],
-        "direction": "vertical"
+        "type": "color",
+        "value": "#3498DB"
       },
       "cornerRadius": 8,
       "shadow": {
@@ -64,13 +64,13 @@
       "states": {
         "hover": {
           "background": {
-            "colors": ["#5DADE2", "#3498DB"]
+            "value": "#5DADE2"
           },
           "scale": 1.05
         },
         "pressed": {
           "background": {
-            "colors": ["#2980B9", "#2473A6"]
+            "value": "#2980B9"
           },
           "scale": 0.98
         }

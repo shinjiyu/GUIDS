@@ -1,0 +1,399 @@
+{
+  "version": "1.0",
+  "name": "Column组件基本布局测试",
+  "root": "screen",
+  "designReference": {
+    "width": 1200,
+    "height": 800
+  },
+  "components": {
+    "screen": {
+      "id": "screen",
+      "type": "screen",
+      "style": {
+        "width": "100%",
+        "height": "100%",
+        "backgroundColor": "#f5f5f5",
+        "display": "flex",
+        "flexDirection": "column",
+        "alignItems": "center",
+        "padding": "20px"
+      },
+      "children": ["title", "container"]
+    },
+    "title": {
+      "id": "title",
+      "type": "text",
+      "style": {
+        "fontSize": "24px",
+        "fontWeight": "bold",
+        "marginBottom": "20px",
+        "color": "#333"
+      },
+      "text": "Column组件基本布局测试"
+    },
+    "container": {
+      "id": "container",
+      "type": "container",
+      "style": {
+        "width": "1000px",
+        "backgroundColor": "#ffffff",
+        "borderRadius": "8px",
+        "boxShadow": "0 2px 10px rgba(0, 0, 0, 0.1)",
+        "padding": "30px",
+        "display": "flex",
+        "flexDirection": "column",
+        "gap": "30px"
+      },
+      "children": ["fixedColumn", "minMaxColumn", "coloredColumn", "mixedContentColumn"]
+    },
+    "fixedColumn": {
+      "id": "fixedColumn",
+      "type": "column",
+      "style": {
+        "width": "100%",
+        "height": "150px",
+        "border": "1px solid #e0e0e0",
+        "borderRadius": "4px",
+        "backgroundColor": "#fafafa",
+        "padding": "10px"
+      },
+      "layout": {
+        "spacing": 10
+      },
+      "children": ["fixedTitle", "fixedBox1", "fixedBox2"]
+    },
+    "fixedTitle": {
+      "id": "fixedTitle",
+      "type": "text",
+      "style": {
+        "fontSize": "16px",
+        "fontWeight": "bold",
+        "color": "#333"
+      },
+      "text": "固定宽高的Column (width: 100%, height: 150px)"
+    },
+    "fixedBox1": {
+      "id": "fixedBox1",
+      "type": "container",
+      "style": {
+        "backgroundColor": "#e3f2fd",
+        "padding": "10px",
+        "borderRadius": "4px",
+        "textAlign": "center"
+      },
+      "children": ["fixedBox1Text"]
+    },
+    "fixedBox1Text": {
+      "id": "fixedBox1Text",
+      "type": "text",
+      "text": "子元素 1",
+      "style": {
+        "color": "#1565c0"
+      }
+    },
+    "fixedBox2": {
+      "id": "fixedBox2",
+      "type": "container",
+      "style": {
+        "backgroundColor": "#e8f5e9",
+        "padding": "10px",
+        "borderRadius": "4px",
+        "textAlign": "center"
+      },
+      "children": ["fixedBox2Text"]
+    },
+    "fixedBox2Text": {
+      "id": "fixedBox2Text",
+      "type": "text",
+      "text": "子元素 2",
+      "style": {
+        "color": "#2e7d32"
+      }
+    },
+    "minMaxColumn": {
+      "id": "minMaxColumn",
+      "type": "column",
+      "style": {
+        "minWidth": "300px",
+        "maxWidth": "100%",
+        "minHeight": "100px",
+        "maxHeight": "200px",
+        "border": "1px solid #e0e0e0",
+        "borderRadius": "4px",
+        "backgroundColor": "#fafafa",
+        "padding": "10px"
+      },
+      "layout": {
+        "spacing": 10
+      },
+      "children": ["minMaxTitle", "minMaxBox1", "minMaxBox2", "minMaxBox3"]
+    },
+    "minMaxTitle": {
+      "id": "minMaxTitle",
+      "type": "text",
+      "style": {
+        "fontSize": "16px",
+        "fontWeight": "bold",
+        "color": "#333"
+      },
+      "text": "最小/最大宽高的Column (min-width: 300px, max-width: 100%, min-height: 100px, max-height: 200px)"
+    },
+    "minMaxBox1": {
+      "id": "minMaxBox1",
+      "type": "container",
+      "style": {
+        "backgroundColor": "#fff3e0",
+        "padding": "10px",
+        "borderRadius": "4px",
+        "textAlign": "center"
+      },
+      "children": ["minMaxBox1Text"]
+    },
+    "minMaxBox1Text": {
+      "id": "minMaxBox1Text",
+      "type": "text",
+      "text": "子元素 1",
+      "style": {
+        "color": "#e65100"
+      }
+    },
+    "minMaxBox2": {
+      "id": "minMaxBox2",
+      "type": "container",
+      "style": {
+        "backgroundColor": "#f3e5f5",
+        "padding": "10px",
+        "borderRadius": "4px",
+        "textAlign": "center"
+      },
+      "children": ["minMaxBox2Text"]
+    },
+    "minMaxBox2Text": {
+      "id": "minMaxBox2Text",
+      "type": "text",
+      "text": "子元素 2",
+      "style": {
+        "color": "#6a1b9a"
+      }
+    },
+    "minMaxBox3": {
+      "id": "minMaxBox3",
+      "type": "container",
+      "style": {
+        "backgroundColor": "#e1f5fe",
+        "padding": "10px",
+        "borderRadius": "4px",
+        "textAlign": "center"
+      },
+      "children": ["minMaxBox3Text"]
+    },
+    "minMaxBox3Text": {
+      "id": "minMaxBox3Text",
+      "type": "text",
+      "text": "子元素 3",
+      "style": {
+        "color": "#0277bd"
+      }
+    },
+    "coloredColumn": {
+      "id": "coloredColumn",
+      "type": "column",
+      "style": {
+        "width": "100%",
+        "backgroundColor": "#e8eaf6",
+        "border": "1px solid #c5cae9",
+        "borderRadius": "4px",
+        "padding": "10px"
+      },
+      "layout": {
+        "spacing": 10,
+        "alignment": "center"
+      },
+      "children": ["coloredTitle", "coloredBox1", "coloredBox2", "coloredBox3"]
+    },
+    "coloredTitle": {
+      "id": "coloredTitle",
+      "type": "text",
+      "style": {
+        "fontSize": "16px",
+        "fontWeight": "bold",
+        "color": "#3f51b5"
+      },
+      "text": "带背景色的Column (alignment: center)"
+    },
+    "coloredBox1": {
+      "id": "coloredBox1",
+      "type": "container",
+      "style": {
+        "width": "80%",
+        "backgroundColor": "#bbdefb",
+        "padding": "10px",
+        "borderRadius": "4px",
+        "textAlign": "center"
+      },
+      "children": ["coloredBox1Text"]
+    },
+    "coloredBox1Text": {
+      "id": "coloredBox1Text",
+      "type": "text",
+      "text": "宽度为80%的子元素",
+      "style": {
+        "color": "#1976d2"
+      }
+    },
+    "coloredBox2": {
+      "id": "coloredBox2",
+      "type": "container",
+      "style": {
+        "width": "60%",
+        "backgroundColor": "#c8e6c9",
+        "padding": "10px",
+        "borderRadius": "4px",
+        "textAlign": "center"
+      },
+      "children": ["coloredBox2Text"]
+    },
+    "coloredBox2Text": {
+      "id": "coloredBox2Text",
+      "type": "text",
+      "text": "宽度为60%的子元素",
+      "style": {
+        "color": "#388e3c"
+      }
+    },
+    "coloredBox3": {
+      "id": "coloredBox3",
+      "type": "container",
+      "style": {
+        "width": "40%",
+        "backgroundColor": "#ffecb3",
+        "padding": "10px",
+        "borderRadius": "4px",
+        "textAlign": "center"
+      },
+      "children": ["coloredBox3Text"]
+    },
+    "coloredBox3Text": {
+      "id": "coloredBox3Text",
+      "type": "text",
+      "text": "宽度为40%的子元素",
+      "style": {
+        "color": "#ffa000"
+      }
+    },
+    "mixedContentColumn": {
+      "id": "mixedContentColumn",
+      "type": "column",
+      "style": {
+        "width": "100%",
+        "border": "1px solid #e0e0e0",
+        "borderRadius": "4px",
+        "backgroundColor": "#fafafa",
+        "padding": "10px"
+      },
+      "layout": {
+        "spacing": 10
+      },
+      "children": ["mixedTitle", "textElement", "imageElement", "buttonGroup"]
+    },
+    "mixedTitle": {
+      "id": "mixedTitle",
+      "type": "text",
+      "style": {
+        "fontSize": "16px",
+        "fontWeight": "bold",
+        "color": "#333"
+      },
+      "text": "混合内容的Column (文本、图像和按钮)"
+    },
+    "textElement": {
+      "id": "textElement",
+      "type": "text",
+      "style": {
+        "fontSize": "14px",
+        "color": "#555",
+        "textAlign": "center",
+        "padding": "10px",
+        "backgroundColor": "#f5f5f5",
+        "borderRadius": "4px"
+      },
+      "text": "这是一个文本元素，放置在Column内部。Column组件可以包含各种类型的子元素，并按照垂直方向排列它们。"
+    },
+    "imageElement": {
+      "id": "imageElement",
+      "type": "container",
+      "style": {
+        "width": "100%",
+        "height": "100px",
+        "backgroundColor": "#eeeeee",
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center",
+        "borderRadius": "4px"
+      },
+      "children": ["imagePlaceholder"]
+    },
+    "imagePlaceholder": {
+      "id": "imagePlaceholder",
+      "type": "text",
+      "style": {
+        "color": "#757575"
+      },
+      "text": "这里本应显示图像 (100px 高)"
+    },
+    "buttonGroup": {
+      "id": "buttonGroup",
+      "type": "row",
+      "style": {
+        "width": "100%",
+        "padding": "10px",
+        "backgroundColor": "#f5f5f5",
+        "borderRadius": "4px"
+      },
+      "layout": {
+        "spacing": 10,
+        "distribution": "center"
+      },
+      "children": ["button1", "button2"]
+    },
+    "button1": {
+      "id": "button1",
+      "type": "button",
+      "style": {
+        "padding": "8px 16px",
+        "backgroundColor": "#2196f3",
+        "color": "white",
+        "border": "none",
+        "borderRadius": "4px",
+        "cursor": "pointer"
+      },
+      "text": "确认",
+      "clickAction": "console.log('确认按钮被点击');"
+    },
+    "button2": {
+      "id": "button2",
+      "type": "button",
+      "style": {
+        "padding": "8px 16px",
+        "backgroundColor": "#f5f5f5",
+        "color": "#333",
+        "border": "1px solid #ccc",
+        "borderRadius": "4px",
+        "cursor": "pointer"
+      },
+      "text": "取消",
+      "clickAction": "console.log('取消按钮被点击');"
+    }
+  },
+  
+  "styles": {
+    "itemLabel": {
+      "fontFamily": "Arial",
+      "fontSize": 16,
+      "fontWeight": "bold",
+      "textColor": "#FFFFFF",
+      "textAlign": "center"
+    }
+  }
+} 

@@ -1,0 +1,662 @@
+{
+  "version": "1.0",
+  "name": "Row组件分布方式(distribution)测试",
+  "designReference": {
+    "width": 1200,
+    "height": 800
+  },
+  "root": "screen",
+  
+  "components": {
+    "screen": {
+      "type": "Screen",
+      "background": {
+        "type": "color",
+        "value": "#F5F5F5"
+      },
+      "children": ["distributionTitle", "rowStartDist", "rowCenterDist", "rowEndDist", "rowSpaceBetweenDist", "rowSpaceAroundDist", "rowSpaceEvenlyDist"]
+    },
+    
+    "distributionTitle": {
+      "type": "Text",
+      "content": "Row 组件分布方式（Distribution）测试",
+      "position": {
+        "top": 30,
+        "left": 50,
+        "width": 600,
+        "height": 40
+      },
+      "style": "titleStyle"
+    },
+    
+    "rowStartDist": {
+      "type": "Row",
+      "position": {
+        "top": 100,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "start",
+        "spacing": 0
+      },
+      "children": ["startDistLabel", "box1_1", "box1_2", "box1_3"],
+      "cornerRadius": 8
+    },
+    
+    "rowCenterDist": {
+      "type": "Row",
+      "position": {
+        "top": 190,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "center",
+        "spacing": 0
+      },
+      "children": ["centerDistLabel", "box2_1", "box2_2", "box2_3"],
+      "cornerRadius": 8
+    },
+    
+    "rowEndDist": {
+      "type": "Row",
+      "position": {
+        "top": 280,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "end",
+        "spacing": 0
+      },
+      "children": ["endDistLabel", "box3_1", "box3_2", "box3_3"],
+      "cornerRadius": 8
+    },
+    
+    "rowSpaceBetweenDist": {
+      "type": "Row",
+      "position": {
+        "top": 370,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "space-between",
+        "spacing": 0
+      },
+      "children": ["spaceBetweenDistLabel", "box4_1", "box4_2", "box4_3"],
+      "cornerRadius": 8
+    },
+    
+    "rowSpaceAroundDist": {
+      "type": "Row",
+      "position": {
+        "top": 460,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "space-around",
+        "spacing": 0
+      },
+      "children": ["spaceAroundDistLabel", "box5_1", "box5_2", "box5_3"],
+      "cornerRadius": 8
+    },
+    
+    "rowSpaceEvenlyDist": {
+      "type": "Row",
+      "position": {
+        "top": 550,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "space-evenly",
+        "spacing": 0
+      },
+      "children": ["spaceEvenlyDistLabel", "box6_1", "box6_2", "box6_3"],
+      "cornerRadius": 8
+    },
+    
+    "startDistLabel": {
+      "type": "Text",
+      "content": "左侧分布:",
+      "position": {
+        "width": 140,
+        "height": 30
+      },
+      "style": "labelStyle"
+    },
+    
+    "centerDistLabel": {
+      "type": "Text",
+      "content": "居中分布:",
+      "position": {
+        "width": 140,
+        "height": 30
+      },
+      "style": "labelStyle"
+    },
+    
+    "endDistLabel": {
+      "type": "Text",
+      "content": "右侧分布:",
+      "position": {
+        "width": 140,
+        "height": 30
+      },
+      "style": "labelStyle"
+    },
+    
+    "spaceBetweenDistLabel": {
+      "type": "Text",
+      "content": "两端对齐:",
+      "position": {
+        "width": 140,
+        "height": 30
+      },
+      "style": "labelStyle"
+    },
+    
+    "spaceAroundDistLabel": {
+      "type": "Text",
+      "content": "环绕分布:",
+      "position": {
+        "width": 140,
+        "height": 30
+      },
+      "style": "labelStyle"
+    },
+    
+    "spaceEvenlyDistLabel": {
+      "type": "Text",
+      "content": "均匀分布:",
+      "position": {
+        "width": 140,
+        "height": 30
+      },
+      "style": "labelStyle"
+    },
+    
+    "box1_1": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel1_1"]
+    },
+    
+    "box1_2": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel1_2"]
+    },
+    
+    "box1_3": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel1_3"]
+    },
+    
+    "box2_1": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel2_1"]
+    },
+    
+    "box2_2": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel2_2"]
+    },
+    
+    "box2_3": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel2_3"]
+    },
+    
+    "box3_1": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel3_1"]
+    },
+    
+    "box3_2": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel3_2"]
+    },
+    
+    "box3_3": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel3_3"]
+    },
+    
+    "box4_1": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel4_1"]
+    },
+    
+    "box4_2": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel4_2"]
+    },
+    
+    "box4_3": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel4_3"]
+    },
+    
+    "box5_1": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel5_1"]
+    },
+    
+    "box5_2": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel5_2"]
+    },
+    
+    "box5_3": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel5_3"]
+    },
+    
+    "box6_1": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel6_1"]
+    },
+    
+    "box6_2": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel6_2"]
+    },
+    
+    "box6_3": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 50
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["boxLabel6_3"]
+    },
+    
+    "boxLabel1_1": {
+      "type": "Text",
+      "content": "1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel1_2": {
+      "type": "Text",
+      "content": "2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel1_3": {
+      "type": "Text",
+      "content": "3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel2_1": {
+      "type": "Text",
+      "content": "1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel2_2": {
+      "type": "Text",
+      "content": "2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel2_3": {
+      "type": "Text",
+      "content": "3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel3_1": {
+      "type": "Text",
+      "content": "1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel3_2": {
+      "type": "Text",
+      "content": "2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel3_3": {
+      "type": "Text",
+      "content": "3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel4_1": {
+      "type": "Text",
+      "content": "1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel4_2": {
+      "type": "Text",
+      "content": "2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel4_3": {
+      "type": "Text",
+      "content": "3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel5_1": {
+      "type": "Text",
+      "content": "1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel5_2": {
+      "type": "Text",
+      "content": "2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel5_3": {
+      "type": "Text",
+      "content": "3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel6_1": {
+      "type": "Text",
+      "content": "1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel6_2": {
+      "type": "Text",
+      "content": "2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "boxLabel6_3": {
+      "type": "Text",
+      "content": "3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    }
+  },
+  
+  "styles": {
+    "titleStyle": {
+      "fontFamily": "Arial",
+      "fontSize": 24,
+      "fontWeight": "bold",
+      "textColor": "#333333",
+      "textAlign": "left"
+    },
+    "labelStyle": {
+      "fontFamily": "Arial",
+      "fontSize": 16,
+      "fontWeight": "bold",
+      "textColor": "#333333",
+      "textAlign": "right"
+    },
+    "itemLabel": {
+      "fontFamily": "Arial",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "textColor": "#FFFFFF",
+      "textAlign": "center"
+    }
+  }
+} 

@@ -1,0 +1,352 @@
+{
+  "version": "1.0",
+  "name": "Row组件换行测试",
+  "designReference": {
+    "width": 1200,
+    "height": 800
+  },
+  "root": "screen",
+  
+  "components": {
+    "screen": {
+      "type": "Screen",
+      "background": {
+        "type": "color",
+        "value": "#F5F5F5"
+      },
+      "children": ["rowNoWrap", "rowWrap"]
+    },
+    
+    "rowNoWrap": {
+      "type": "Row",
+      "position": {
+        "top": 50,
+        "left": 50,
+        "width": 500,
+        "height": 150
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "start",
+        "spacing": 10,
+        "wrap": false
+      },
+      "children": ["item1", "item2", "item3", "item4", "item5", "item6"],
+      "cornerRadius": 8
+    },
+    
+    "rowWrap": {
+      "type": "Row",
+      "position": {
+        "top": 250,
+        "left": 50,
+        "width": 500,
+        "height": 300
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "start",
+        "spacing": 10,
+        "wrap": true
+      },
+      "children": ["item7", "item8", "item9", "item10", "item11", "item12"],
+      "cornerRadius": 8
+    },
+    
+    "item1": {
+      "type": "Container",
+      "position": {
+        "width": 100,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["label1"]
+    },
+    
+    "item2": {
+      "type": "Container",
+      "position": {
+        "width": 100,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["label2"]
+    },
+    
+    "item3": {
+      "type": "Container",
+      "position": {
+        "width": 100,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["label3"]
+    },
+    
+    "item4": {
+      "type": "Container",
+      "position": {
+        "width": 100,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#9C27B0"
+      },
+      "cornerRadius": 8,
+      "children": ["label4"]
+    },
+    
+    "item5": {
+      "type": "Container",
+      "position": {
+        "width": 100,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF9800"
+      },
+      "cornerRadius": 8,
+      "children": ["label5"]
+    },
+    
+    "item6": {
+      "type": "Container",
+      "position": {
+        "width": 100,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#607D8B"
+      },
+      "cornerRadius": 8,
+      "children": ["label6"]
+    },
+    
+    "item7": {
+      "type": "Container",
+      "position": {
+        "width": 100,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["label7"]
+    },
+    
+    "item8": {
+      "type": "Container",
+      "position": {
+        "width": 100,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["label8"]
+    },
+    
+    "item9": {
+      "type": "Container",
+      "position": {
+        "width": 100,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["label9"]
+    },
+    
+    "item10": {
+      "type": "Container",
+      "position": {
+        "width": 100,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#9C27B0"
+      },
+      "cornerRadius": 8,
+      "children": ["label10"]
+    },
+    
+    "item11": {
+      "type": "Container",
+      "position": {
+        "width": 100,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF9800"
+      },
+      "cornerRadius": 8,
+      "children": ["label11"]
+    },
+    
+    "item12": {
+      "type": "Container",
+      "position": {
+        "width": 100,
+        "height": 100
+      },
+      "background": {
+        "type": "color",
+        "value": "#607D8B"
+      },
+      "cornerRadius": 8,
+      "children": ["label12"]
+    },
+    
+    "label1": {
+      "type": "Text",
+      "content": "项目1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label2": {
+      "type": "Text",
+      "content": "项目2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label3": {
+      "type": "Text",
+      "content": "项目3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label4": {
+      "type": "Text",
+      "content": "项目4",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label5": {
+      "type": "Text",
+      "content": "项目5",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label6": {
+      "type": "Text",
+      "content": "项目6",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label7": {
+      "type": "Text",
+      "content": "项目1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label8": {
+      "type": "Text",
+      "content": "项目2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label9": {
+      "type": "Text",
+      "content": "项目3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label10": {
+      "type": "Text",
+      "content": "项目4",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label11": {
+      "type": "Text",
+      "content": "项目5",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label12": {
+      "type": "Text",
+      "content": "项目6",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    }
+  },
+  
+  "styles": {
+    "itemLabel": {
+      "fontFamily": "Arial",
+      "fontSize": 16,
+      "fontWeight": "bold",
+      "textColor": "#FFFFFF",
+      "textAlign": "center"
+    }
+  }
+} 

@@ -1,0 +1,457 @@
+{
+  "version": "1.0",
+  "name": "Row组件对齐方式(alignment)测试",
+  "designReference": {
+    "width": 1200,
+    "height": 800
+  },
+  "root": "screen",
+  
+  "components": {
+    "screen": {
+      "type": "Screen",
+      "background": {
+        "type": "color",
+        "value": "#F5F5F5"
+      },
+      "children": ["alignmentTitle", "rowStartAlign", "rowCenterAlign", "rowEndAlign", "rowStretchAlign"]
+    },
+    
+    "alignmentTitle": {
+      "type": "Text",
+      "content": "Row 组件对齐方式（Alignment）测试",
+      "position": {
+        "top": 30,
+        "left": 50,
+        "width": 600,
+        "height": 40
+      },
+      "style": "titleStyle"
+    },
+    
+    "rowStartAlign": {
+      "type": "Row",
+      "position": {
+        "top": 100,
+        "left": 50,
+        "width": 600,
+        "height": 120
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "start",
+        "distribution": "start",
+        "spacing": 20
+      },
+      "children": ["startAlignLabel", "smallBox1", "mediumBox1", "largeBox1"],
+      "cornerRadius": 8
+    },
+    
+    "rowCenterAlign": {
+      "type": "Row",
+      "position": {
+        "top": 240,
+        "left": 50,
+        "width": 600,
+        "height": 120
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "start",
+        "spacing": 20
+      },
+      "children": ["centerAlignLabel", "smallBox2", "mediumBox2", "largeBox2"],
+      "cornerRadius": 8
+    },
+    
+    "rowEndAlign": {
+      "type": "Row",
+      "position": {
+        "top": 380,
+        "left": 50,
+        "width": 600,
+        "height": 120
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "end",
+        "distribution": "start",
+        "spacing": 20
+      },
+      "children": ["endAlignLabel", "smallBox3", "mediumBox3", "largeBox3"],
+      "cornerRadius": 8
+    },
+    
+    "rowStretchAlign": {
+      "type": "Row",
+      "position": {
+        "top": 520,
+        "left": 50,
+        "width": 600,
+        "height": 120
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "stretch",
+        "distribution": "start",
+        "spacing": 20
+      },
+      "children": ["stretchAlignLabel", "stretchBox1", "stretchBox2", "stretchBox3"],
+      "cornerRadius": 8
+    },
+    
+    "startAlignLabel": {
+      "type": "Text",
+      "content": "顶部对齐:",
+      "position": {
+        "width": 100,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "centerAlignLabel": {
+      "type": "Text",
+      "content": "居中对齐:",
+      "position": {
+        "width": 100,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "endAlignLabel": {
+      "type": "Text",
+      "content": "底部对齐:",
+      "position": {
+        "width": 100,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "stretchAlignLabel": {
+      "type": "Text",
+      "content": "拉伸对齐:",
+      "position": {
+        "width": 100,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "smallBox1": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 40
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["smallBoxLabel1"]
+    },
+    
+    "mediumBox1": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["mediumBoxLabel1"]
+    },
+    
+    "largeBox1": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["largeBoxLabel1"]
+    },
+    
+    "smallBox2": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 40
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["smallBoxLabel2"]
+    },
+    
+    "mediumBox2": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["mediumBoxLabel2"]
+    },
+    
+    "largeBox2": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["largeBoxLabel2"]
+    },
+    
+    "smallBox3": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 40
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["smallBoxLabel3"]
+    },
+    
+    "mediumBox3": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["mediumBoxLabel3"]
+    },
+    
+    "largeBox3": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["largeBoxLabel3"]
+    },
+    
+    "stretchBox1": {
+      "type": "Container",
+      "position": {
+        "width": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["stretchBoxLabel1"]
+    },
+    
+    "stretchBox2": {
+      "type": "Container",
+      "position": {
+        "width": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["stretchBoxLabel2"]
+    },
+    
+    "stretchBox3": {
+      "type": "Container",
+      "position": {
+        "width": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["stretchBoxLabel3"]
+    },
+    
+    "smallBoxLabel1": {
+      "type": "Text",
+      "content": "40px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "mediumBoxLabel1": {
+      "type": "Text",
+      "content": "60px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "largeBoxLabel1": {
+      "type": "Text",
+      "content": "80px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "smallBoxLabel2": {
+      "type": "Text",
+      "content": "40px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "mediumBoxLabel2": {
+      "type": "Text",
+      "content": "60px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "largeBoxLabel2": {
+      "type": "Text",
+      "content": "80px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "smallBoxLabel3": {
+      "type": "Text",
+      "content": "40px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "mediumBoxLabel3": {
+      "type": "Text",
+      "content": "60px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "largeBoxLabel3": {
+      "type": "Text",
+      "content": "80px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "stretchBoxLabel1": {
+      "type": "Text",
+      "content": "拉伸",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "stretchBoxLabel2": {
+      "type": "Text",
+      "content": "拉伸",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "stretchBoxLabel3": {
+      "type": "Text",
+      "content": "拉伸",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    }
+  },
+  
+  "styles": {
+    "titleStyle": {
+      "fontFamily": "Arial",
+      "fontSize": 24,
+      "fontWeight": "bold",
+      "textColor": "#333333",
+      "textAlign": "left"
+    },
+    "labelStyle": {
+      "fontFamily": "Arial",
+      "fontSize": 16,
+      "fontWeight": "bold",
+      "textColor": "#333333",
+      "textAlign": "right"
+    },
+    "itemLabel": {
+      "fontFamily": "Arial",
+      "fontSize": 14,
+      "fontWeight": "bold",
+      "textColor": "#FFFFFF",
+      "textAlign": "center"
+    }
+  }
+} 

@@ -1,0 +1,463 @@
+{
+  "version": "1.0",
+  "name": "Image Component Test",
+  "designWidth": 1200,
+  "designHeight": 800,
+  "root": {
+    "type": "screen",
+    "id": "mainScreen",
+    "style": {
+      "backgroundColor": "#f5f5f5"
+    },
+    "children": [
+      {
+        "type": "container",
+        "id": "imageTestContainer",
+        "x": 50,
+        "y": 50,
+        "width": 1100,
+        "height": 700,
+        "style": {
+          "backgroundColor": "#ffffff",
+          "cornerRadius": 10,
+          "shadowColor": "rgba(0,0,0,0.1)",
+          "shadowBlur": 10,
+          "shadowOffsetX": 5,
+          "shadowOffsetY": 5
+        },
+        "children": [
+          {
+            "type": "text",
+            "id": "pageTitle",
+            "x": 50,
+            "y": 30,
+            "width": 1000,
+            "height": 40,
+            "content": "Image Component Test Cases",
+            "style": {
+              "fontSize": 24,
+              "fontWeight": "bold",
+              "color": "#333333",
+              "textAlign": "center"
+            }
+          },
+          {
+            "type": "container",
+            "id": "basicImageContainer",
+            "x": 50,
+            "y": 100,
+            "width": 250,
+            "height": 250,
+            "style": {
+              "backgroundColor": "#f0f0f0",
+              "borderColor": "#dddddd",
+              "borderWidth": 1,
+              "cornerRadius": 8
+            },
+            "children": [
+              {
+                "type": "text",
+                "id": "basicImageTitle",
+                "x": 10,
+                "y": 10,
+                "width": 230,
+                "height": 30,
+                "content": "Basic Image",
+                "style": {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "color": "#333333"
+                }
+              },
+              {
+                "type": "image",
+                "id": "basicImage",
+                "x": 25,
+                "y": 50,
+                "width": 200,
+                "height": 150,
+                "source": "assets/images/sample1.jpg",
+                "style": {
+                  "backgroundColor": "#eeeeee"
+                }
+              },
+              {
+                "type": "text",
+                "id": "basicImageDesc",
+                "x": 10,
+                "y": 210,
+                "width": 230,
+                "height": 30,
+                "content": "Standard image rendering",
+                "style": {
+                  "fontSize": 14,
+                  "color": "#666666",
+                  "textAlign": "center"
+                }
+              }
+            ]
+          },
+          {
+            "type": "container",
+            "id": "cornerRadiusImageContainer",
+            "x": 320,
+            "y": 100,
+            "width": 250,
+            "height": 250,
+            "style": {
+              "backgroundColor": "#f0f0f0",
+              "borderColor": "#dddddd",
+              "borderWidth": 1,
+              "cornerRadius": 8
+            },
+            "children": [
+              {
+                "type": "text",
+                "id": "cornerRadiusImageTitle",
+                "x": 10,
+                "y": 10,
+                "width": 230,
+                "height": 30,
+                "content": "Rounded Image",
+                "style": {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "color": "#333333"
+                }
+              },
+              {
+                "type": "image",
+                "id": "cornerRadiusImage",
+                "x": 25,
+                "y": 50,
+                "width": 200,
+                "height": 150,
+                "source": "assets/images/sample2.jpg",
+                "style": {
+                  "backgroundColor": "#eeeeee",
+                  "cornerRadius": 20
+                }
+              },
+              {
+                "type": "text",
+                "id": "cornerRadiusImageDesc",
+                "x": 10,
+                "y": 210,
+                "width": 230,
+                "height": 30,
+                "content": "Image with rounded corners",
+                "style": {
+                  "fontSize": 14,
+                  "color": "#666666",
+                  "textAlign": "center"
+                }
+              }
+            ]
+          },
+          {
+            "type": "container",
+            "id": "circleImageContainer",
+            "x": 590,
+            "y": 100,
+            "width": 250,
+            "height": 250,
+            "style": {
+              "backgroundColor": "#f0f0f0",
+              "borderColor": "#dddddd",
+              "borderWidth": 1,
+              "cornerRadius": 8
+            },
+            "children": [
+              {
+                "type": "text",
+                "id": "circleImageTitle",
+                "x": 10,
+                "y": 10,
+                "width": 230,
+                "height": 30,
+                "content": "Circle Image",
+                "style": {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "color": "#333333"
+                }
+              },
+              {
+                "type": "image",
+                "id": "circleImage",
+                "x": 75,
+                "y": 50,
+                "width": 100,
+                "height": 100,
+                "source": "assets/images/sample_avatar.jpg",
+                "style": {
+                  "backgroundColor": "#eeeeee",
+                  "cornerRadius": 50
+                }
+              },
+              {
+                "type": "text",
+                "id": "circleImageDesc",
+                "x": 10,
+                "y": 170,
+                "width": 230,
+                "height": 70,
+                "content": "Circular image with full corner radius (equal to half width/height)",
+                "style": {
+                  "fontSize": 14,
+                  "color": "#666666",
+                  "textAlign": "center"
+                }
+              }
+            ]
+          },
+          {
+            "type": "container",
+            "id": "covermodeImageContainer",
+            "x": 860,
+            "y": 100,
+            "width": 250,
+            "height": 250,
+            "style": {
+              "backgroundColor": "#f0f0f0",
+              "borderColor": "#dddddd",
+              "borderWidth": 1,
+              "cornerRadius": 8
+            },
+            "children": [
+              {
+                "type": "text",
+                "id": "covermodeImageTitle",
+                "x": 10,
+                "y": 10,
+                "width": 230,
+                "height": 30,
+                "content": "Cover Mode Image",
+                "style": {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "color": "#333333"
+                }
+              },
+              {
+                "type": "image",
+                "id": "covermodeImage",
+                "x": 25,
+                "y": 50,
+                "width": 200,
+                "height": 150,
+                "source": "assets/images/sample_landscape.jpg",
+                "resizeMode": "cover",
+                "style": {
+                  "backgroundColor": "#eeeeee"
+                }
+              },
+              {
+                "type": "text",
+                "id": "covermodeImageDesc",
+                "x": 10,
+                "y": 210,
+                "width": 230,
+                "height": 30,
+                "content": "Image with cover resize mode",
+                "style": {
+                  "fontSize": 14,
+                  "color": "#666666",
+                  "textAlign": "center"
+                }
+              }
+            ]
+          },
+          {
+            "type": "container",
+            "id": "containmodeImageContainer",
+            "x": 50,
+            "y": 370,
+            "width": 250,
+            "height": 250,
+            "style": {
+              "backgroundColor": "#f0f0f0",
+              "borderColor": "#dddddd",
+              "borderWidth": 1,
+              "cornerRadius": 8
+            },
+            "children": [
+              {
+                "type": "text",
+                "id": "containmodeImageTitle",
+                "x": 10,
+                "y": 10,
+                "width": 230,
+                "height": 30,
+                "content": "Contain Mode Image",
+                "style": {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "color": "#333333"
+                }
+              },
+              {
+                "type": "image",
+                "id": "containmodeImage",
+                "x": 25,
+                "y": 50,
+                "width": 200,
+                "height": 150,
+                "source": "assets/images/sample_portrait.jpg",
+                "resizeMode": "contain",
+                "style": {
+                  "backgroundColor": "#eeeeee"
+                }
+              },
+              {
+                "type": "text",
+                "id": "containmodeImageDesc",
+                "x": 10,
+                "y": 210,
+                "width": 230,
+                "height": 30,
+                "content": "Image with contain resize mode",
+                "style": {
+                  "fontSize": 14,
+                  "color": "#666666",
+                  "textAlign": "center"
+                }
+              }
+            ]
+          },
+          {
+            "type": "container",
+            "id": "interactiveImageContainer",
+            "x": 320,
+            "y": 370,
+            "width": 250,
+            "height": 250,
+            "style": {
+              "backgroundColor": "#f0f0f0",
+              "borderColor": "#dddddd",
+              "borderWidth": 1,
+              "cornerRadius": 8
+            },
+            "children": [
+              {
+                "type": "text",
+                "id": "interactiveImageTitle",
+                "x": 10,
+                "y": 10,
+                "width": 230,
+                "height": 30,
+                "content": "Interactive Image",
+                "style": {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "color": "#333333"
+                }
+              },
+              {
+                "type": "image",
+                "id": "interactiveImage",
+                "x": 25,
+                "y": 50,
+                "width": 200,
+                "height": 150,
+                "source": "assets/images/sample3.jpg",
+                "style": {
+                  "backgroundColor": "#eeeeee"
+                },
+                "events": {
+                  "click": {
+                    "action": "alert",
+                    "params": {
+                      "message": "Image clicked!"
+                    }
+                  }
+                },
+                "states": {
+                  "hover": {
+                    "style": {
+                      "opacity": 0.8,
+                      "transform": "scale(1.05)"
+                    }
+                  }
+                }
+              },
+              {
+                "type": "text",
+                "id": "interactiveImageDesc",
+                "x": 10,
+                "y": 210,
+                "width": 230,
+                "height": 30,
+                "content": "Clickable image with hover effect",
+                "style": {
+                  "fontSize": 14,
+                  "color": "#666666",
+                  "textAlign": "center"
+                }
+              }
+            ]
+          },
+          {
+            "type": "container",
+            "id": "borderedImageContainer",
+            "x": 590,
+            "y": 370,
+            "width": 250,
+            "height": 250,
+            "style": {
+              "backgroundColor": "#f0f0f0",
+              "borderColor": "#dddddd",
+              "borderWidth": 1,
+              "cornerRadius": 8
+            },
+            "children": [
+              {
+                "type": "text",
+                "id": "borderedImageTitle",
+                "x": 10,
+                "y": 10,
+                "width": 230,
+                "height": 30,
+                "content": "Bordered Image",
+                "style": {
+                  "fontSize": 16,
+                  "fontWeight": "bold",
+                  "color": "#333333"
+                }
+              },
+              {
+                "type": "image",
+                "id": "borderedImage",
+                "x": 25,
+                "y": 50,
+                "width": 200,
+                "height": 150,
+                "source": "assets/images/sample4.jpg",
+                "style": {
+                  "backgroundColor": "#eeeeee",
+                  "borderColor": "#3388cc",
+                  "borderWidth": 4,
+                  "cornerRadius": 8
+                }
+              },
+              {
+                "type": "text",
+                "id": "borderedImageDesc",
+                "x": 10,
+                "y": 210,
+                "width": 230,
+                "height": 30,
+                "content": "Image with custom border",
+                "style": {
+                  "fontSize": 14,
+                  "color": "#666666",
+                  "textAlign": "center"
+                }
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  }
+} 

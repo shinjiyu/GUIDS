@@ -17,8 +17,11 @@
     },
     
     "background": {
-      "type": "Image",
-      "source": "assets/backgrounds/menu_bg.jpg",
+      "type": "Container",
+      "background": {
+        "type": "color",
+        "value": "#1E1E2D"
+      },
       "position": {
         "fill": true
       }
@@ -33,16 +36,16 @@
         "height": 80
       },
       "background": {
-        "type": "gradient",
-        "colors": ["rgba(0,0,0,0.8)", "rgba(0,0,0,0.5)"],
-        "direction": "vertical"
+        "type": "color",
+        "value": "rgba(0,0,0,0.8)"
       },
-      "children": ["logo", "playerInfo"]
+      "children": ["logoText", "playerInfo"]
     },
     
-    "logo": {
-      "type": "Image",
-      "source": "assets/logo.png",
+    "logoText": {
+      "type": "Text",
+      "content": "游戏标志",
+      "style": "logoText",
       "position": {
         "left": 30,
         "centerY": 0,
@@ -76,20 +79,15 @@
         "width": 50,
         "height": 50
       },
+      "background": {
+        "type": "color",
+        "value": "#4285F4"
+      },
       "mask": {
         "type": "circle",
         "params": {
           "radius": "50%"
         }
-      },
-      "children": ["avatarImage"]
-    },
-    
-    "avatarImage": {
-      "type": "Image",
-      "source": "assets/avatars/default.png",
-      "position": {
-        "fill": true
       }
     },
     
@@ -117,8 +115,12 @@
     },
     
     "coinIcon": {
-      "type": "Image",
-      "source": "assets/icons/coin.png",
+      "type": "Container",
+      "background": {
+        "type": "color",
+        "value": "#FFD700"
+      },
+      "cornerRadius": 12,
       "position": {
         "width": 24,
         "height": 24
@@ -293,13 +295,10 @@
     "facebookButton": {
       "type": "Button",
       "style": "iconButton",
+      "content": "FB",
       "position": {
         "width": 32,
         "height": 32
-      },
-      "background": {
-        "type": "image",
-        "source": "assets/icons/facebook.png"
       },
       "interactions": {
         "onClick": {
@@ -314,13 +313,10 @@
     "twitterButton": {
       "type": "Button",
       "style": "iconButton",
+      "content": "TW",
       "position": {
         "width": 32,
         "height": 32
-      },
-      "background": {
-        "type": "image",
-        "source": "assets/icons/twitter.png"
       },
       "interactions": {
         "onClick": {
@@ -335,13 +331,10 @@
     "discordButton": {
       "type": "Button",
       "style": "iconButton",
+      "content": "DC",
       "position": {
         "width": 32,
         "height": 32
-      },
-      "background": {
-        "type": "image",
-        "source": "assets/icons/discord.png"
       },
       "interactions": {
         "onClick": {
@@ -355,6 +348,14 @@
   },
   
   "styles": {
+    "logoText": {
+      "fontFamily": "Arial",
+      "fontSize": 28,
+      "fontWeight": "bold",
+      "textColor": "#FFFFFF",
+      "textAlign": "center"
+    },
+    
     "titleText": {
       "fontFamily": "Arial",
       "fontSize": 36,
@@ -403,20 +404,19 @@
       "extends": "buttonBase",
       "fontSize": 28,
       "background": {
-        "type": "gradient",
-        "colors": ["#3498DB", "#2980B9"],
-        "direction": "vertical"
+        "type": "color",
+        "value": "#3498DB"
       },
       "states": {
         "hover": {
           "background": {
-            "colors": ["#5DADE2", "#3498DB"]
+            "value": "#5DADE2"
           },
           "scale": 1.03
         },
         "pressed": {
           "background": {
-            "colors": ["#2980B9", "#2473A6"]
+            "value": "#2980B9"
           },
           "scale": 0.97
         }
@@ -426,20 +426,19 @@
     "secondaryButton": {
       "extends": "buttonBase",
       "background": {
-        "type": "gradient",
-        "colors": ["#95A5A6", "#7F8C8D"],
-        "direction": "vertical"
+        "type": "color",
+        "value": "#95A5A6"
       },
       "states": {
         "hover": {
           "background": {
-            "colors": ["#AAB7B8", "#95A5A6"]
+            "value": "#AAB7B8"
           },
           "scale": 1.02
         },
         "pressed": {
           "background": {
-            "colors": ["#7F8C8D", "#707B7C"]
+            "value": "#7F8C8D"
           },
           "scale": 0.98
         }
@@ -449,20 +448,19 @@
     "dangerButton": {
       "extends": "buttonBase",
       "background": {
-        "type": "gradient",
-        "colors": ["#E74C3C", "#C0392B"],
-        "direction": "vertical"
+        "type": "color",
+        "value": "#E74C3C"
       },
       "states": {
         "hover": {
           "background": {
-            "colors": ["#EC7063", "#E74C3C"]
+            "value": "#EC7063"
           },
           "scale": 1.02
         },
         "pressed": {
           "background": {
-            "colors": ["#C0392B", "#A93226"]
+            "value": "#C0392B"
           },
           "scale": 0.98
         }
@@ -471,6 +469,10 @@
     
     "iconButton": {
       "cornerRadius": 16,
+      "fontSize": 12,
+      "fontWeight": "bold",
+      "textColor": "#FFFFFF",
+      "textAlign": "center",
       "background": {
         "type": "color",
         "value": "rgba(255,255,255,0.1)"
@@ -600,27 +602,5 @@
         }
       }
     }
-  ],
-  
-  "assets": {
-    "atlases": [
-      {
-        "name": "uiAtlas",
-        "sources": [
-          "assets/icons/*.png",
-          "assets/buttons/*.png"
-        ],
-        "maxSize": 2048,
-        "padding": 2
-      }
-    ],
-    "preload": [
-      "uiAtlas",
-      "assets/backgrounds/menu_bg.jpg",
-      "assets/logo.png"
-    ],
-    "lazyLoad": [
-      "assets/avatars/*.png"
-    ]
-  }
+  ]
 } 

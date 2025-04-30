@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Row组件对齐方式(alignment)测试</title>
+    <style id="guids-styles">
+
+/* GUIDS基础样式 */
+:root {
+    --guids-design-width: 1200px;
+    --guids-design-height: 800px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.guids-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.guids-container {
+    position: relative;
+}
+
+.guids-row {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.guids-column {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.guids-button {
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guids-image {
+    display: block;
+    object-fit: contain;
+}
+
+.guids-text {
+    word-wrap: break-word;
+}
+
+/* 响应式缩放支持 */
+
+/* 响应式缩放 */
+.guids-responsive {
+    transform-origin: top left;
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .guids-responsive[data-strategy="fitWidth"] {
+        transform: scale(calc(100vw / var(--guids-design-width)));
+        width: var(--guids-design-width);
+        height: var(--guids-design-height);
+    }
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .guids-responsive[data-strategy="fitHeight"] {
+        transform: scale(calc(100vh / var(--guids-design-height)));
+        width: var(--guids-design-width);
+        height: var(--guids-design-height);
+    }
+}
+
+
+    </style>
+</head>
+<body>
+<div id="screen" class="guids-screen guids-screen"><p id="alignmentTitle" class="guids-text">Row 组件对齐方式（Alignment）测试</p><div id="rowStartAlign" class="guids-row guids-row"><p id="startAlignLabel" class="guids-text">顶部对齐:</p><div id="smallBox1" class="guids-container guids-container"><p id="smallBoxLabel1" class="guids-text">40px</p></div><div id="mediumBox1" class="guids-container guids-container"><p id="mediumBoxLabel1" class="guids-text">60px</p></div><div id="largeBox1" class="guids-container guids-container"><p id="largeBoxLabel1" class="guids-text">80px</p></div></div><div id="rowCenterAlign" class="guids-row guids-row"><p id="centerAlignLabel" class="guids-text">居中对齐:</p><div id="smallBox2" class="guids-container guids-container"><p id="smallBoxLabel2" class="guids-text">40px</p></div><div id="mediumBox2" class="guids-container guids-container"><p id="mediumBoxLabel2" class="guids-text">60px</p></div><div id="largeBox2" class="guids-container guids-container"><p id="largeBoxLabel2" class="guids-text">80px</p></div></div><div id="rowEndAlign" class="guids-row guids-row"><p id="endAlignLabel" class="guids-text">底部对齐:</p><div id="smallBox3" class="guids-container guids-container"><p id="smallBoxLabel3" class="guids-text">40px</p></div><div id="mediumBox3" class="guids-container guids-container"><p id="mediumBoxLabel3" class="guids-text">60px</p></div><div id="largeBox3" class="guids-container guids-container"><p id="largeBoxLabel3" class="guids-text">80px</p></div></div><div id="rowStretchAlign" class="guids-row guids-row"><p id="stretchAlignLabel" class="guids-text">拉伸对齐:</p><div id="stretchBox1" class="guids-container guids-container"><p id="stretchBoxLabel1" class="guids-text">拉伸</p></div><div id="stretchBox2" class="guids-container guids-container"><p id="stretchBoxLabel2" class="guids-text">拉伸</p></div><div id="stretchBox3" class="guids-container guids-container"><p id="stretchBoxLabel3" class="guids-text">拉伸</p></div></div></div>
+<style>
+#screen { background-color: #F5F5F5; }
+#alignmentTitle { position: absolute; top: 30px; left: 50px; width: 600px; height: 40px; font-family: Arial; font-size: 24px; font-weight: bold; color: #333333; text-align: left; }
+#rowStartAlign { position: absolute; top: 100px; left: 50px; width: 600px; height: 120px; background-color: #E0E0E0; border-radius: 8px; display: flex; flex-direction: row; gap: 20px; align-items: flex-start; justify-content: flex-start; }
+#startAlignLabel { position: relative; width: 100px; height: 40px; font-family: Arial; font-size: 16px; font-weight: bold; color: #333333; text-align: right; }
+#smallBox1 { position: relative; width: 80px; height: 40px; background-color: #FF5252; border-radius: 8px; }
+#smallBoxLabel1 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#mediumBox1 { position: relative; width: 80px; height: 60px; background-color: #4CAF50; border-radius: 8px; }
+#mediumBoxLabel1 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#largeBox1 { position: relative; width: 80px; height: 80px; background-color: #2196F3; border-radius: 8px; }
+#largeBoxLabel1 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#rowCenterAlign { position: absolute; top: 240px; left: 50px; width: 600px; height: 120px; background-color: #E0E0E0; border-radius: 8px; display: flex; flex-direction: row; gap: 20px; align-items: center; justify-content: flex-start; }
+#centerAlignLabel { position: relative; width: 100px; height: 40px; font-family: Arial; font-size: 16px; font-weight: bold; color: #333333; text-align: right; }
+#smallBox2 { position: relative; width: 80px; height: 40px; background-color: #FF5252; border-radius: 8px; }
+#smallBoxLabel2 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#mediumBox2 { position: relative; width: 80px; height: 60px; background-color: #4CAF50; border-radius: 8px; }
+#mediumBoxLabel2 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#largeBox2 { position: relative; width: 80px; height: 80px; background-color: #2196F3; border-radius: 8px; }
+#largeBoxLabel2 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#rowEndAlign { position: absolute; top: 380px; left: 50px; width: 600px; height: 120px; background-color: #E0E0E0; border-radius: 8px; display: flex; flex-direction: row; gap: 20px; align-items: flex-end; justify-content: flex-start; }
+#endAlignLabel { position: relative; width: 100px; height: 40px; font-family: Arial; font-size: 16px; font-weight: bold; color: #333333; text-align: right; }
+#smallBox3 { position: relative; width: 80px; height: 40px; background-color: #FF5252; border-radius: 8px; }
+#smallBoxLabel3 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#mediumBox3 { position: relative; width: 80px; height: 60px; background-color: #4CAF50; border-radius: 8px; }
+#mediumBoxLabel3 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#largeBox3 { position: relative; width: 80px; height: 80px; background-color: #2196F3; border-radius: 8px; }
+#largeBoxLabel3 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#rowStretchAlign { position: absolute; top: 520px; left: 50px; width: 600px; height: 120px; background-color: #E0E0E0; border-radius: 8px; display: flex; flex-direction: row; gap: 20px; align-items: stretch; justify-content: flex-start; }
+#stretchAlignLabel { position: relative; width: 100px; height: 40px; font-family: Arial; font-size: 16px; font-weight: bold; color: #333333; text-align: right; }
+#stretchBox1 { position: relative; width: 80px; background-color: #FF5252; border-radius: 8px; }
+#stretchBoxLabel1 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#stretchBox2 { position: relative; width: 80px; background-color: #4CAF50; border-radius: 8px; }
+#stretchBoxLabel2 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#stretchBox3 { position: relative; width: 80px; background-color: #2196F3; border-radius: 8px; }
+#stretchBoxLabel3 { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); font-family: Arial; font-size: 14px; font-weight: bold; color: #FFFFFF; text-align: center; }
+</style>
+
+<script>
+
+// GUIDS交互支持
+document.addEventListener('DOMContentLoaded', function() {
+    // 注册点击事件
+    document.querySelectorAll('[data-action]').forEach(element => {
+        element.addEventListener('click', function(e) {
+            const action = this.getAttribute('data-action');
+            const params = JSON.parse(this.getAttribute('data-params') || '{}');
+            console.log('执行操作:', action, '参数:', params);
+            
+            // 这里可以实现模拟操作（示例）
+            switch(action) {
+                case 'navigateTo':
+                    if (params.screen) {
+                        alert('导航到: ' + params.screen);
+                    }
+                    break;
+                case 'openURL':
+                    if (params.url) {
+                        window.open(params.url, '_blank');
+                    }
+                    break;
+                default:
+                    // 自定义操作可通过事件派发
+                    const customEvent = new CustomEvent('guids-action', {
+                        detail: { action, params, element: this }
+                    });
+                    document.dispatchEvent(customEvent);
+            }
+        });
+    });
+    
+    // 处理hover状态
+    document.querySelectorAll('[data-has-hover]').forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            this.classList.add('guids-hover');
+        });
+        element.addEventListener('mouseleave', function() {
+            this.classList.remove('guids-hover');
+        });
+    });
+    
+    // 处理pressed状态
+    document.querySelectorAll('[data-has-pressed]').forEach(element => {
+        element.addEventListener('mousedown', function() {
+            this.classList.add('guids-pressed');
+        });
+        element.addEventListener('mouseup', function() {
+            this.classList.remove('guids-pressed');
+        });
+        element.addEventListener('mouseleave', function() {
+            this.classList.remove('guids-pressed');
+        });
+    });
+});
+
+</script>
+
+</body>
+</html>

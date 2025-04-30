@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Row组件分布方式(distribution)属性测试</title>
+    <style id="guids-styles">
+
+/* GUIDS基础样式 */
+:root {
+    --guids-design-width: 1200px;
+    --guids-design-height: 800px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.guids-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.guids-container {
+    position: relative;
+}
+
+.guids-row {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.guids-column {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.guids-button {
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guids-image {
+    display: block;
+    object-fit: contain;
+}
+
+.guids-text {
+    word-wrap: break-word;
+}
+
+/* 响应式缩放支持 */
+
+/* 响应式缩放 */
+.guids-responsive {
+    transform-origin: top left;
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .guids-responsive[data-strategy="fitWidth"] {
+        transform: scale(calc(100vw / var(--guids-design-width)));
+        width: var(--guids-design-width);
+        height: var(--guids-design-height);
+    }
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .guids-responsive[data-strategy="fitHeight"] {
+        transform: scale(calc(100vh / var(--guids-design-height)));
+        width: var(--guids-design-width);
+        height: var(--guids-design-height);
+    }
+}
+
+
+    </style>
+</head>
+<body>
+<div id="screen" class="guids-screen guids-screen"><p id="title" class="guids-text">Row组件分布方式(distribution)属性测试</p><div id="rowStartDist" class="guids-row guids-row"><p id="startDistLabel" class="guids-text">左侧分布: distribution: start</p><div id="box1" class="guids-container guids-container"></div><div id="box2" class="guids-container guids-container"></div><div id="box3" class="guids-container guids-container"></div></div><div id="rowCenterDist" class="guids-row guids-row"><p id="centerDistLabel" class="guids-text">居中分布: distribution: center</p><div id="boxC1" class="guids-container guids-container"></div><div id="boxC2" class="guids-container guids-container"></div><div id="boxC3" class="guids-container guids-container"></div></div><div id="rowEndDist" class="guids-row guids-row"><p id="endDistLabel" class="guids-text">右侧分布: distribution: end</p><div id="boxE1" class="guids-container guids-container"></div><div id="boxE2" class="guids-container guids-container"></div><div id="boxE3" class="guids-container guids-container"></div></div><div id="rowSpaceBetweenDist" class="guids-row guids-row"><p id="spaceBetweenDistLabel" class="guids-text">两端对齐: distribution: space-between</p><div id="boxSB1" class="guids-container guids-container"></div><div id="boxSB2" class="guids-container guids-container"></div><div id="boxSB3" class="guids-container guids-container"></div></div><div id="rowSpaceAroundDist" class="guids-row guids-row"><p id="spaceAroundDistLabel" class="guids-text">环绕分布: distribution: space-around</p><div id="boxSA1" class="guids-container guids-container"></div><div id="boxSA2" class="guids-container guids-container"></div><div id="boxSA3" class="guids-container guids-container"></div></div><div id="rowSpaceEvenlyDist" class="guids-row guids-row"><p id="spaceEvenlyDistLabel" class="guids-text">均匀分布: distribution: space-evenly</p><div id="boxSE1" class="guids-container guids-container"></div><div id="boxSE2" class="guids-container guids-container"></div><div id="boxSE3" class="guids-container guids-container"></div></div></div>
+<style>
+#screen { background-color: #F5F5F5; }
+#title { position: absolute; top: 30px; left: 50px; width: 400px; height: 40px; }
+#rowStartDist { position: absolute; top: 90px; left: 50px; width: 600px; height: 80px; background-color: #E0E0E0; display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: flex-start; padding: 10px; }
+#startDistLabel { position: relative; width: 150px; height: 60px; }
+#box1 { position: relative; width: 60px; height: 60px; background-color: #FF9800; }
+#box2 { position: relative; width: 60px; height: 60px; background-color: #4CAF50; }
+#box3 { position: relative; width: 60px; height: 60px; background-color: #2196F3; }
+#rowCenterDist { position: absolute; top: 180px; left: 50px; width: 600px; height: 80px; background-color: #E0E0E0; display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: center; padding: 10px; }
+#centerDistLabel { position: relative; width: 150px; height: 60px; }
+#boxC1 { position: relative; width: 60px; height: 60px; background-color: #FF9800; }
+#boxC2 { position: relative; width: 60px; height: 60px; background-color: #4CAF50; }
+#boxC3 { position: relative; width: 60px; height: 60px; background-color: #2196F3; }
+#rowEndDist { position: absolute; top: 270px; left: 50px; width: 600px; height: 80px; background-color: #E0E0E0; display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: flex-end; padding: 10px; }
+#endDistLabel { position: relative; width: 150px; height: 60px; }
+#boxE1 { position: relative; width: 60px; height: 60px; background-color: #FF9800; }
+#boxE2 { position: relative; width: 60px; height: 60px; background-color: #4CAF50; }
+#boxE3 { position: relative; width: 60px; height: 60px; background-color: #2196F3; }
+#rowSpaceBetweenDist { position: absolute; top: 360px; left: 50px; width: 600px; height: 80px; background-color: #E0E0E0; display: flex; flex-direction: row; align-items: center; justify-content: space-between; padding: 10px; }
+#spaceBetweenDistLabel { position: relative; width: 150px; height: 60px; }
+#boxSB1 { position: relative; width: 60px; height: 60px; background-color: #FF9800; }
+#boxSB2 { position: relative; width: 60px; height: 60px; background-color: #4CAF50; }
+#boxSB3 { position: relative; width: 60px; height: 60px; background-color: #2196F3; }
+#rowSpaceAroundDist { position: absolute; top: 450px; left: 50px; width: 600px; height: 80px; background-color: #E0E0E0; display: flex; flex-direction: row; align-items: center; justify-content: space-around; padding: 10px; }
+#spaceAroundDistLabel { position: relative; width: 150px; height: 60px; }
+#boxSA1 { position: relative; width: 60px; height: 60px; background-color: #FF9800; }
+#boxSA2 { position: relative; width: 60px; height: 60px; background-color: #4CAF50; }
+#boxSA3 { position: relative; width: 60px; height: 60px; background-color: #2196F3; }
+#rowSpaceEvenlyDist { position: absolute; top: 540px; left: 50px; width: 600px; height: 80px; background-color: #E0E0E0; display: flex; flex-direction: row; align-items: center; justify-content: space-evenly; padding: 10px; }
+#spaceEvenlyDistLabel { position: relative; width: 150px; height: 60px; }
+#boxSE1 { position: relative; width: 60px; height: 60px; background-color: #FF9800; }
+#boxSE2 { position: relative; width: 60px; height: 60px; background-color: #4CAF50; }
+#boxSE3 { position: relative; width: 60px; height: 60px; background-color: #2196F3; }
+</style>
+
+<script>
+
+// GUIDS交互支持
+document.addEventListener('DOMContentLoaded', function() {
+    // 注册点击事件
+    document.querySelectorAll('[data-action]').forEach(element => {
+        element.addEventListener('click', function(e) {
+            const action = this.getAttribute('data-action');
+            const params = JSON.parse(this.getAttribute('data-params') || '{}');
+            console.log('执行操作:', action, '参数:', params);
+            
+            // 这里可以实现模拟操作（示例）
+            switch(action) {
+                case 'navigateTo':
+                    if (params.screen) {
+                        alert('导航到: ' + params.screen);
+                    }
+                    break;
+                case 'openURL':
+                    if (params.url) {
+                        window.open(params.url, '_blank');
+                    }
+                    break;
+                default:
+                    // 自定义操作可通过事件派发
+                    const customEvent = new CustomEvent('guids-action', {
+                        detail: { action, params, element: this }
+                    });
+                    document.dispatchEvent(customEvent);
+            }
+        });
+    });
+    
+    // 处理hover状态
+    document.querySelectorAll('[data-has-hover]').forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            this.classList.add('guids-hover');
+        });
+        element.addEventListener('mouseleave', function() {
+            this.classList.remove('guids-hover');
+        });
+    });
+    
+    // 处理pressed状态
+    document.querySelectorAll('[data-has-pressed]').forEach(element => {
+        element.addEventListener('mousedown', function() {
+            this.classList.add('guids-pressed');
+        });
+        element.addEventListener('mouseup', function() {
+            this.classList.remove('guids-pressed');
+        });
+        element.addEventListener('mouseleave', function() {
+            this.classList.remove('guids-pressed');
+        });
+    });
+});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GameMainMenu</title>
+    <style id="guids-styles">
+
+/* GUIDS基础样式 */
+:root {
+    --guids-design-width: 1920px;
+    --guids-design-height: 1080px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.guids-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.guids-container {
+    position: relative;
+}
+
+.guids-row {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.guids-column {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.guids-button {
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guids-image {
+    display: block;
+    object-fit: contain;
+}
+
+.guids-text {
+    word-wrap: break-word;
+}
+
+/* 响应式缩放支持 */
+
+/* 响应式缩放 */
+.guids-responsive {
+    transform-origin: top left;
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .guids-responsive[data-strategy="fitWidth"] {
+        transform: scale(calc(100vw / var(--guids-design-width)));
+        width: var(--guids-design-width);
+        height: var(--guids-design-height);
+    }
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .guids-responsive[data-strategy="fitHeight"] {
+        transform: scale(calc(100vh / var(--guids-design-height)));
+        width: var(--guids-design-width);
+        height: var(--guids-design-height);
+    }
+}
+
+
+    </style>
+</head>
+<body>
+<div id="mainScreen" data-strategy="fitWidth" class="guids-screen guids-screen guids-responsive"><div id="background" class="guids-container guids-container"></div><div id="topBar" class="guids-container guids-container"><p id="logoText" class="guids-text">游戏标志</p><div id="playerInfo" class="guids-container guids-container"><div id="playerAvatar" class="guids-container guids-container"></div><p id="playerName" class="guids-text">{playerData.name}</p><div id="coinDisplay" class="guids-container guids-container"><div id="coinIcon" class="guids-container guids-container"></div><p id="coinCount" class="guids-text">{playerData.coins}</p></div></div></div><div id="contentArea" class="guids-container guids-container"><div id="mainMenu" class="guids-container guids-container"><p id="menuTitle" class="guids-text">主菜单</p><button id="playButton" data-action="startGame" data-has-hover="true" data-has-pressed="true" class="guids-button">开始游戏</button><button id="storeButton" data-action="navigateTo" data-params='{"screen":"storeScreen"}' data-has-hover="true" data-has-pressed="true" class="guids-button">商店</button><button id="settingsButton" data-action="navigateTo" data-params='{"screen":"settingsScreen"}' data-has-hover="true" data-has-pressed="true" class="guids-button">设置</button><button id="exitButton" data-action="exitGame" data-has-hover="true" data-has-pressed="true" class="guids-button">退出</button></div></div><div id="bottomBar" class="guids-container guids-container"><p id="versionText" class="guids-text">版本 1.0.0</p><div id="socialButtons" class="guids-container guids-container"><button id="facebookButton" data-action="openURL" data-params='{"url":"https://facebook.com/game"}' data-has-hover="true" data-has-pressed="true" class="guids-button">FB</button><button id="twitterButton" data-action="openURL" data-params='{"url":"https://twitter.com/game"}' data-has-hover="true" data-has-pressed="true" class="guids-button">TW</button><button id="discordButton" data-action="openURL" data-params='{"url":"https://discord.gg/game"}' data-has-hover="true" data-has-pressed="true" class="guids-button">DC</button></div></div></div>
+<style>
+#background { position: absolute; top: 0; right: 0; bottom: 0; left: 0; background-color: #1E1E2D; }
+#topBar { position: absolute; top: 0px; left: 0px; right: 0px; height: 80px; background-color: rgba(0,0,0,0.8); }
+#logoText { position: absolute; left: 30px; top: 50%; transform: translateY(-50%); width: 180px; height: 60px; font-family: Arial; font-size: 28px; font-weight: bold; color: #FFFFFF; text-align: center; }
+#playerInfo { position: absolute; right: 30px; top: 50%; transform: translateY(-50%); width: auto; height: auto; display: flex; flex-direction: row; gap: 15px; align-items: flex-start; }
+#playerAvatar { position: absolute; width: 50px; height: 50px; background-color: #4285F4; mask-image: radial-gradient(50% at center, black 100%, transparent 100%); -webkit-mask-image: radial-gradient(${radius} at center, black 100%, transparent 100%); mask-repeat: no-repeat; -webkit-mask-repeat: no-repeat; mask-size: 100% 100%; -webkit-mask-size: 100% 100%; }
+#playerName { font-family: Arial; font-size: 20px; color: #FFFFFF; text-align: right; }
+#coinDisplay { position: absolute; width: auto; height: auto; display: flex; flex-direction: row; gap: 5px; align-items: flex-start; }
+#coinIcon { position: absolute; width: 24px; height: 24px; background-color: #FFD700; border-radius: 12px; }
+#coinCount { font-family: Arial; font-size: 20px; font-weight: bold; color: #FFD700; text-align: left; }
+#contentArea { position: absolute; top: 0px; left: 0px; right: 0px; bottom: 0px; }
+#mainMenu { position: absolute; width: 50%; height: auto; max-width: 600px; background-color: rgba(0,0,0,0.7); border-radius: 15px; display: flex; flex-direction: column; gap: 20px; padding-top: 30px; padding-right: 30px; padding-bottom: 30px; padding-left: 30px; }
+#menuTitle { position: absolute; height: 60px; font-family: Arial; font-size: 36px; font-weight: bold; color: #FFFFFF; text-align: center; }
+.guids-hover { transform: scale(1.03); }
+.guids-pressed { transform: scale(0.97); }
+#playButton { position: absolute; height: 80px; font-family: Arial; font-size: 24px; color: #FFFFFF; text-align: center; border-radius: 8px; box-shadow: 0px 3px 6px rgba(0,0,0,0.5); font-size: 28px; background-color: #3498DB; }
+.guids-hover { transform: scale(1.02); }
+.guids-pressed { transform: scale(0.98); }
+#storeButton { position: absolute; height: 70px; font-family: Arial; font-size: 24px; color: #FFFFFF; text-align: center; border-radius: 8px; box-shadow: 0px 3px 6px rgba(0,0,0,0.5); background-color: #95A5A6; }
+.guids-hover { transform: scale(1.02); }
+.guids-pressed { transform: scale(0.98); }
+#settingsButton { position: absolute; height: 70px; font-family: Arial; font-size: 24px; color: #FFFFFF; text-align: center; border-radius: 8px; box-shadow: 0px 3px 6px rgba(0,0,0,0.5); background-color: #95A5A6; }
+.guids-hover { transform: scale(1.02); }
+.guids-pressed { transform: scale(0.98); }
+#exitButton { position: absolute; height: 70px; font-family: Arial; font-size: 24px; color: #FFFFFF; text-align: center; border-radius: 8px; box-shadow: 0px 3px 6px rgba(0,0,0,0.5); background-color: #E74C3C; }
+#bottomBar { position: absolute; left: 0px; right: 0px; bottom: 0px; height: 60px; background-color: rgba(0,0,0,0.8); display: flex; flex-direction: row; align-items: flex-start; padding-right: 20px; padding-left: 20px; }
+#versionText { font-family: Arial; font-size: 14px; color: #CCCCCC; text-align: left; }
+#socialButtons { display: flex; flex-direction: row; gap: 15px; }
+.guids-hover { transform: scale(1.1); }
+.guids-pressed { transform: scale(0.9); }
+#facebookButton { position: absolute; width: 32px; height: 32px; font-size: 12px; font-weight: bold; color: #FFFFFF; text-align: center; background-color: rgba(255,255,255,0.1); border-radius: 16px; }
+.guids-hover { transform: scale(1.1); }
+.guids-pressed { transform: scale(0.9); }
+#twitterButton { position: absolute; width: 32px; height: 32px; font-size: 12px; font-weight: bold; color: #FFFFFF; text-align: center; background-color: rgba(255,255,255,0.1); border-radius: 16px; }
+.guids-hover { transform: scale(1.1); }
+.guids-pressed { transform: scale(0.9); }
+#discordButton { position: absolute; width: 32px; height: 32px; font-size: 12px; font-weight: bold; color: #FFFFFF; text-align: center; background-color: rgba(255,255,255,0.1); border-radius: 16px; }
+</style>
+
+<script>
+
+// GUIDS交互支持
+document.addEventListener('DOMContentLoaded', function() {
+    // 注册点击事件
+    document.querySelectorAll('[data-action]').forEach(element => {
+        element.addEventListener('click', function(e) {
+            const action = this.getAttribute('data-action');
+            const params = JSON.parse(this.getAttribute('data-params') || '{}');
+            console.log('执行操作:', action, '参数:', params);
+            
+            // 这里可以实现模拟操作（示例）
+            switch(action) {
+                case 'navigateTo':
+                    if (params.screen) {
+                        alert('导航到: ' + params.screen);
+                    }
+                    break;
+                case 'openURL':
+                    if (params.url) {
+                        window.open(params.url, '_blank');
+                    }
+                    break;
+                default:
+                    // 自定义操作可通过事件派发
+                    const customEvent = new CustomEvent('guids-action', {
+                        detail: { action, params, element: this }
+                    });
+                    document.dispatchEvent(customEvent);
+            }
+        });
+    });
+    
+    // 处理hover状态
+    document.querySelectorAll('[data-has-hover]').forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            this.classList.add('guids-hover');
+        });
+        element.addEventListener('mouseleave', function() {
+            this.classList.remove('guids-hover');
+        });
+    });
+    
+    // 处理pressed状态
+    document.querySelectorAll('[data-has-pressed]').forEach(element => {
+        element.addEventListener('mousedown', function() {
+            this.classList.add('guids-pressed');
+        });
+        element.addEventListener('mouseup', function() {
+            this.classList.remove('guids-pressed');
+        });
+        element.addEventListener('mouseleave', function() {
+            this.classList.remove('guids-pressed');
+        });
+    });
+});
+
+</script>
+
+</body>
+</html>

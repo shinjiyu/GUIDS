@@ -1,0 +1,446 @@
+{
+  "version": "1.0",
+  "name": "Column组件对齐属性测试",
+  "designReference": {
+    "width": 1200,
+    "height": 800
+  },
+  "root": "screen",
+  "components": {
+    "screen": {
+      "id": "screen",
+      "type": "screen",
+      "style": {
+        "backgroundColor": "#f0f0f0"
+      },
+      "children": ["container"]
+    },
+    "container": {
+      "id": "container",
+      "type": "container",
+      "style": {
+        "position": "relative",
+        "width": 1000,
+        "height": 700,
+        "margin": "40px auto",
+        "padding": 20,
+        "backgroundColor": "#ffffff",
+        "boxShadow": "0 4px 8px rgba(0,0,0,0.1)",
+        "borderRadius": 8
+      },
+      "children": ["title", "columnStart", "columnCenter", "columnEnd", "columnStretch"]
+    },
+    "title": {
+      "id": "title",
+      "type": "text",
+      "style": {
+        "fontSize": 24,
+        "fontWeight": "bold",
+        "color": "#333",
+        "textAlign": "center",
+        "marginBottom": 30
+      },
+      "text": "Column组件对齐属性测试"
+    },
+    "columnStart": {
+      "id": "columnStart",
+      "type": "column",
+      "style": {
+        "width": 220,
+        "height": 500,
+        "position": "absolute",
+        "left": 40,
+        "top": 100,
+        "backgroundColor": "#f5f5f5",
+        "padding": 10,
+        "borderRadius": 8,
+        "alignItems": "flex-start"
+      },
+      "children": ["startTitle", "startBox1", "startBox2", "startBox3"]
+    },
+    "startTitle": {
+      "id": "startTitle",
+      "type": "text",
+      "style": {
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "color": "#333",
+        "marginBottom": 15,
+        "textAlign": "center",
+        "width": "100%"
+      },
+      "text": "Start Alignment"
+    },
+    "startBox1": {
+      "id": "startBox1",
+      "type": "container",
+      "style": {
+        "width": 150,
+        "height": 80,
+        "backgroundColor": "#ff8a80",
+        "borderRadius": 4,
+        "marginBottom": 10,
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center"
+      },
+      "children": ["startText1"]
+    },
+    "startText1": {
+      "id": "startText1",
+      "type": "text",
+      "style": {
+        "color": "white",
+        "fontWeight": "bold"
+      },
+      "text": "Box 1"
+    },
+    "startBox2": {
+      "id": "startBox2",
+      "type": "container",
+      "style": {
+        "width": 120,
+        "height": 80,
+        "backgroundColor": "#80d8ff",
+        "borderRadius": 4,
+        "marginBottom": 10,
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center"
+      },
+      "children": ["startText2"]
+    },
+    "startText2": {
+      "id": "startText2",
+      "type": "text",
+      "style": {
+        "color": "white",
+        "fontWeight": "bold"
+      },
+      "text": "Box 2"
+    },
+    "startBox3": {
+      "id": "startBox3",
+      "type": "container",
+      "style": {
+        "width": 180,
+        "height": 80,
+        "backgroundColor": "#b9f6ca",
+        "borderRadius": 4,
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center"
+      },
+      "children": ["startText3"]
+    },
+    "startText3": {
+      "id": "startText3",
+      "type": "text",
+      "style": {
+        "color": "white",
+        "fontWeight": "bold"
+      },
+      "text": "Box 3"
+    },
+    
+    "columnCenter": {
+      "id": "columnCenter",
+      "type": "column",
+      "style": {
+        "width": 220,
+        "height": 500,
+        "position": "absolute",
+        "left": 300,
+        "top": 100,
+        "backgroundColor": "#f5f5f5",
+        "padding": 10,
+        "borderRadius": 8,
+        "alignItems": "center"
+      },
+      "children": ["centerTitle", "centerBox1", "centerBox2", "centerBox3"]
+    },
+    "centerTitle": {
+      "id": "centerTitle",
+      "type": "text",
+      "style": {
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "color": "#333",
+        "marginBottom": 15,
+        "textAlign": "center",
+        "width": "100%"
+      },
+      "text": "Center Alignment"
+    },
+    "centerBox1": {
+      "id": "centerBox1",
+      "type": "container",
+      "style": {
+        "width": 150,
+        "height": 80,
+        "backgroundColor": "#ff8a80",
+        "borderRadius": 4,
+        "marginBottom": 10,
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center"
+      },
+      "children": ["centerText1"]
+    },
+    "centerText1": {
+      "id": "centerText1",
+      "type": "text",
+      "style": {
+        "color": "white",
+        "fontWeight": "bold"
+      },
+      "text": "Box 1"
+    },
+    "centerBox2": {
+      "id": "centerBox2",
+      "type": "container",
+      "style": {
+        "width": 120,
+        "height": 80,
+        "backgroundColor": "#80d8ff",
+        "borderRadius": 4,
+        "marginBottom": 10,
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center"
+      },
+      "children": ["centerText2"]
+    },
+    "centerText2": {
+      "id": "centerText2",
+      "type": "text",
+      "style": {
+        "color": "white",
+        "fontWeight": "bold"
+      },
+      "text": "Box 2"
+    },
+    "centerBox3": {
+      "id": "centerBox3",
+      "type": "container",
+      "style": {
+        "width": 180,
+        "height": 80,
+        "backgroundColor": "#b9f6ca",
+        "borderRadius": 4,
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center"
+      },
+      "children": ["centerText3"]
+    },
+    "centerText3": {
+      "id": "centerText3",
+      "type": "text",
+      "style": {
+        "color": "white",
+        "fontWeight": "bold"
+      },
+      "text": "Box 3"
+    },
+    
+    "columnEnd": {
+      "id": "columnEnd",
+      "type": "column",
+      "style": {
+        "width": 220,
+        "height": 500,
+        "position": "absolute",
+        "left": 560,
+        "top": 100,
+        "backgroundColor": "#f5f5f5",
+        "padding": 10,
+        "borderRadius": 8,
+        "alignItems": "flex-end"
+      },
+      "children": ["endTitle", "endBox1", "endBox2", "endBox3"]
+    },
+    "endTitle": {
+      "id": "endTitle",
+      "type": "text",
+      "style": {
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "color": "#333",
+        "marginBottom": 15,
+        "textAlign": "center",
+        "width": "100%"
+      },
+      "text": "End Alignment"
+    },
+    "endBox1": {
+      "id": "endBox1",
+      "type": "container",
+      "style": {
+        "width": 150,
+        "height": 80,
+        "backgroundColor": "#ff8a80",
+        "borderRadius": 4,
+        "marginBottom": 10,
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center"
+      },
+      "children": ["endText1"]
+    },
+    "endText1": {
+      "id": "endText1",
+      "type": "text",
+      "style": {
+        "color": "white",
+        "fontWeight": "bold"
+      },
+      "text": "Box 1"
+    },
+    "endBox2": {
+      "id": "endBox2",
+      "type": "container",
+      "style": {
+        "width": 120,
+        "height": 80,
+        "backgroundColor": "#80d8ff",
+        "borderRadius": 4,
+        "marginBottom": 10,
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center"
+      },
+      "children": ["endText2"]
+    },
+    "endText2": {
+      "id": "endText2",
+      "type": "text",
+      "style": {
+        "color": "white",
+        "fontWeight": "bold"
+      },
+      "text": "Box 2"
+    },
+    "endBox3": {
+      "id": "endBox3",
+      "type": "container",
+      "style": {
+        "width": 180,
+        "height": 80,
+        "backgroundColor": "#b9f6ca",
+        "borderRadius": 4,
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center"
+      },
+      "children": ["endText3"]
+    },
+    "endText3": {
+      "id": "endText3",
+      "type": "text",
+      "style": {
+        "color": "white",
+        "fontWeight": "bold"
+      },
+      "text": "Box 3"
+    },
+    
+    "columnStretch": {
+      "id": "columnStretch",
+      "type": "column",
+      "style": {
+        "width": 220,
+        "height": 500,
+        "position": "absolute",
+        "left": 820,
+        "top": 100,
+        "backgroundColor": "#f5f5f5",
+        "padding": 10,
+        "borderRadius": 8,
+        "alignItems": "stretch"
+      },
+      "children": ["stretchTitle", "stretchBox1", "stretchBox2", "stretchBox3"]
+    },
+    "stretchTitle": {
+      "id": "stretchTitle",
+      "type": "text",
+      "style": {
+        "fontSize": 16,
+        "fontWeight": "bold",
+        "color": "#333",
+        "marginBottom": 15,
+        "textAlign": "center",
+        "width": "100%"
+      },
+      "text": "Stretch Alignment"
+    },
+    "stretchBox1": {
+      "id": "stretchBox1",
+      "type": "container",
+      "style": {
+        "height": 80,
+        "backgroundColor": "#ff8a80",
+        "borderRadius": 4,
+        "marginBottom": 10,
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center"
+      },
+      "children": ["stretchText1"]
+    },
+    "stretchText1": {
+      "id": "stretchText1",
+      "type": "text",
+      "style": {
+        "color": "white",
+        "fontWeight": "bold"
+      },
+      "text": "Box 1"
+    },
+    "stretchBox2": {
+      "id": "stretchBox2",
+      "type": "container",
+      "style": {
+        "height": 80,
+        "backgroundColor": "#80d8ff",
+        "borderRadius": 4,
+        "marginBottom": 10,
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center"
+      },
+      "children": ["stretchText2"]
+    },
+    "stretchText2": {
+      "id": "stretchText2",
+      "type": "text",
+      "style": {
+        "color": "white",
+        "fontWeight": "bold"
+      },
+      "text": "Box 2"
+    },
+    "stretchBox3": {
+      "id": "stretchBox3",
+      "type": "container",
+      "style": {
+        "height": 80,
+        "backgroundColor": "#b9f6ca",
+        "borderRadius": 4,
+        "display": "flex",
+        "justifyContent": "center",
+        "alignItems": "center"
+      },
+      "children": ["stretchText3"]
+    },
+    "stretchText3": {
+      "id": "stretchText3",
+      "type": "text",
+      "style": {
+        "color": "white",
+        "fontWeight": "bold"
+      },
+      "text": "Box 3"
+    }
+  }
+} 

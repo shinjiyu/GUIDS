@@ -1,0 +1,390 @@
+{
+  "version": "1.0",
+  "name": "LayoutExample",
+  "designReference": {
+    "width": 1920,
+    "height": 1080
+  },
+  "root": "screen",
+  
+  "components": {
+    "screen": {
+      "type": "Screen",
+      "adaptiveStrategy": "fitWidth",
+      "background": {
+        "type": "color",
+        "value": "#F5F5F5"
+      },
+      "children": ["mainContainer"]
+    },
+    
+    "mainContainer": {
+      "type": "Container",
+      "position": {
+        "width": "80%",
+        "height": "80%",
+        "centerIn": "parent"
+      },
+      "background": {
+        "type": "color",
+        "value": "#FFFFFF"
+      },
+      "cornerRadius": 10,
+      "shadow": {
+        "color": "rgba(0,0,0,0.2)",
+        "offsetX": 0,
+        "offsetY": 5,
+        "blur": 15
+      },
+      "children": ["headerRow", "contentColumn"]
+    },
+    
+    "headerRow": {
+      "type": "Row",
+      "position": {
+        "top": 0,
+        "left": 0,
+        "right": 0,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#3498DB"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "space-between",
+        "padding": 20
+      },
+      "children": ["headerTitle", "headerActions"]
+    },
+    
+    "headerTitle": {
+      "type": "Text",
+      "content": "布局演示",
+      "style": "headerText"
+    },
+    
+    "headerActions": {
+      "type": "Row",
+      "layout": {
+        "type": "row",
+        "spacing": 10,
+        "alignment": "center"
+      },
+      "children": ["actionButton1", "actionButton2"]
+    },
+    
+    "actionButton1": {
+      "type": "Button",
+      "content": "保存",
+      "style": "actionButton",
+      "position": {
+        "width": 100,
+        "height": 40
+      }
+    },
+    
+    "actionButton2": {
+      "type": "Button",
+      "content": "取消",
+      "style": "actionButton",
+      "position": {
+        "width": 100,
+        "height": 40
+      }
+    },
+    
+    "contentColumn": {
+      "type": "Column",
+      "position": {
+        "top": 80,
+        "left": 0,
+        "right": 0,
+        "bottom": 0
+      },
+      "layout": {
+        "type": "column",
+        "spacing": 20,
+        "padding": 30
+      },
+      "children": ["sectionTitle1", "itemsRow", "sectionTitle2", "featuresGrid"]
+    },
+    
+    "sectionTitle1": {
+      "type": "Text",
+      "content": "水平布局示例 (Row)",
+      "style": "sectionTitle"
+    },
+    
+    "itemsRow": {
+      "type": "Row",
+      "layout": {
+        "type": "row",
+        "spacing": 15,
+        "alignment": "center",
+        "distribution": "center"
+      },
+      "position": {
+        "height": 150
+      },
+      "children": ["item1", "item2", "item3"]
+    },
+    
+    "item1": {
+      "type": "Container",
+      "position": {
+        "width": 120,
+        "height": 120
+      },
+      "background": {
+        "type": "color",
+        "value": "#E74C3C"
+      },
+      "cornerRadius": 8
+    },
+    
+    "item2": {
+      "type": "Container",
+      "position": {
+        "width": 120,
+        "height": 120
+      },
+      "background": {
+        "type": "color",
+        "value": "#2ECC71"
+      },
+      "cornerRadius": 8
+    },
+    
+    "item3": {
+      "type": "Container",
+      "position": {
+        "width": 120,
+        "height": 120
+      },
+      "background": {
+        "type": "color",
+        "value": "#F39C12"
+      },
+      "cornerRadius": 8
+    },
+    
+    "sectionTitle2": {
+      "type": "Text",
+      "content": "垂直布局示例 (Column)",
+      "style": "sectionTitle"
+    },
+    
+    "featuresGrid": {
+      "type": "Column",
+      "layout": {
+        "type": "column",
+        "spacing": 15
+      },
+      "children": ["featureRow1", "featureRow2"]
+    },
+    
+    "featureRow1": {
+      "type": "Row",
+      "layout": {
+        "type": "row",
+        "spacing": 15,
+        "distribution": "space-between"
+      },
+      "position": {
+        "height": 100
+      },
+      "children": ["featureItem1", "featureItem2"]
+    },
+    
+    "featureRow2": {
+      "type": "Row",
+      "layout": {
+        "type": "row",
+        "spacing": 15,
+        "distribution": "space-between"
+      },
+      "position": {
+        "height": 100
+      },
+      "children": ["featureItem3", "featureItem4"]
+    },
+    
+    "featureItem1": {
+      "type": "Container",
+      "background": {
+        "type": "color",
+        "value": "#9B59B6"
+      },
+      "cornerRadius": 8,
+      "position": {
+        "flex": 1
+      },
+      "children": ["featureText1"]
+    },
+    
+    "featureText1": {
+      "type": "Text",
+      "content": "功能一",
+      "style": "featureText",
+      "position": {
+        "centerIn": "parent"
+      }
+    },
+    
+    "featureItem2": {
+      "type": "Container",
+      "background": {
+        "type": "color",
+        "value": "#34495E"
+      },
+      "cornerRadius": 8,
+      "position": {
+        "flex": 1
+      },
+      "children": ["featureText2"]
+    },
+    
+    "featureText2": {
+      "type": "Text",
+      "content": "功能二",
+      "style": "featureText",
+      "position": {
+        "centerIn": "parent"
+      }
+    },
+    
+    "featureItem3": {
+      "type": "Container",
+      "background": {
+        "type": "color",
+        "value": "#16A085"
+      },
+      "cornerRadius": 8,
+      "position": {
+        "flex": 1
+      },
+      "children": ["featureText3"]
+    },
+    
+    "featureText3": {
+      "type": "Text",
+      "content": "功能三",
+      "style": "featureText",
+      "position": {
+        "centerIn": "parent"
+      }
+    },
+    
+    "featureItem4": {
+      "type": "Container",
+      "background": {
+        "type": "color",
+        "value": "#D35400"
+      },
+      "cornerRadius": 8,
+      "position": {
+        "flex": 1
+      },
+      "children": ["featureText4"]
+    },
+    
+    "featureText4": {
+      "type": "Text",
+      "content": "功能四",
+      "style": "featureText",
+      "position": {
+        "centerIn": "parent"
+      }
+    }
+  },
+  
+  "styles": {
+    "headerText": {
+      "fontFamily": "Arial",
+      "fontSize": 24,
+      "fontWeight": "bold",
+      "textColor": "#FFFFFF"
+    },
+    
+    "actionButton": {
+      "fontFamily": "Arial",
+      "fontSize": 16,
+      "textColor": "#FFFFFF",
+      "textAlign": "center",
+      "background": {
+        "type": "color",
+        "value": "#2980B9"
+      },
+      "cornerRadius": 4,
+      "states": {
+        "hover": {
+          "background": {
+            "value": "#3498DB"
+          }
+        },
+        "pressed": {
+          "background": {
+            "value": "#1F618D"
+          }
+        }
+      }
+    },
+    
+    "sectionTitle": {
+      "fontFamily": "Arial",
+      "fontSize": 20,
+      "fontWeight": "bold",
+      "textColor": "#2C3E50"
+    },
+    
+    "featureText": {
+      "fontFamily": "Arial",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "textColor": "#FFFFFF",
+      "textAlign": "center"
+    }
+  },
+  
+  "adaptationRules": [
+    {
+      "condition": {
+        "maxWidth": 800
+      },
+      "adjustments": {
+        "components": {
+          "mainContainer": {
+            "position": {
+              "width": "95%",
+              "height": "95%"
+            }
+          },
+          "headerRow": {
+            "position": {
+              "height": 60
+            }
+          },
+          "contentColumn": {
+            "position": {
+              "top": 60
+            },
+            "layout": {
+              "padding": 15
+            }
+          }
+        },
+        "styles": {
+          "headerText": {
+            "fontSize": 20
+          },
+          "sectionTitle": {
+            "fontSize": 18
+          }
+        }
+      }
+    }
+  ]
+} 

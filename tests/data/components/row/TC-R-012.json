@@ -1,0 +1,460 @@
+{
+  "version": "1.0",
+  "name": "Row组件间距(spacing)测试",
+  "designReference": {
+    "width": 1200,
+    "height": 800
+  },
+  "root": "screen",
+  
+  "components": {
+    "screen": {
+      "type": "Screen",
+      "background": {
+        "type": "color",
+        "value": "#F5F5F5"
+      },
+      "children": ["spacingTitle", "rowNoSpacing", "rowSmallSpacing", "rowMediumSpacing", "rowLargeSpacing"]
+    },
+    
+    "spacingTitle": {
+      "type": "Text",
+      "content": "Row 组件间距（Spacing）测试",
+      "position": {
+        "top": 30,
+        "left": 50,
+        "width": 600,
+        "height": 40
+      },
+      "style": "titleStyle"
+    },
+    
+    "rowNoSpacing": {
+      "type": "Row",
+      "position": {
+        "top": 100,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "start",
+        "spacing": 0
+      },
+      "children": ["noSpacingLabel", "redBox1", "greenBox1", "blueBox1"],
+      "cornerRadius": 8
+    },
+    
+    "rowSmallSpacing": {
+      "type": "Row",
+      "position": {
+        "top": 200,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "start",
+        "spacing": 10
+      },
+      "children": ["smallSpacingLabel", "redBox2", "greenBox2", "blueBox2"],
+      "cornerRadius": 8
+    },
+    
+    "rowMediumSpacing": {
+      "type": "Row",
+      "position": {
+        "top": 300,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "start",
+        "spacing": 25
+      },
+      "children": ["mediumSpacingLabel", "redBox3", "greenBox3", "blueBox3"],
+      "cornerRadius": 8
+    },
+    
+    "rowLargeSpacing": {
+      "type": "Row",
+      "position": {
+        "top": 400,
+        "left": 50,
+        "width": 600,
+        "height": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "start",
+        "spacing": 50
+      },
+      "children": ["largeSpacingLabel", "redBox4", "greenBox4", "blueBox4"],
+      "cornerRadius": 8
+    },
+    
+    "noSpacingLabel": {
+      "type": "Text",
+      "content": "无间距:",
+      "position": {
+        "width": 100,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "smallSpacingLabel": {
+      "type": "Text",
+      "content": "小间距(10px):",
+      "position": {
+        "width": 120,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "mediumSpacingLabel": {
+      "type": "Text",
+      "content": "中间距(25px):",
+      "position": {
+        "width": 120,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "largeSpacingLabel": {
+      "type": "Text",
+      "content": "大间距(50px):",
+      "position": {
+        "width": 120,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "redBox1": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["redBoxLabel1"]
+    },
+    
+    "greenBox1": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["greenBoxLabel1"]
+    },
+    
+    "blueBox1": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["blueBoxLabel1"]
+    },
+    
+    "redBox2": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["redBoxLabel2"]
+    },
+    
+    "greenBox2": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["greenBoxLabel2"]
+    },
+    
+    "blueBox2": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["blueBoxLabel2"]
+    },
+    
+    "redBox3": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["redBoxLabel3"]
+    },
+    
+    "greenBox3": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["greenBoxLabel3"]
+    },
+    
+    "blueBox3": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["blueBoxLabel3"]
+    },
+    
+    "redBox4": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["redBoxLabel4"]
+    },
+    
+    "greenBox4": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["greenBoxLabel4"]
+    },
+    
+    "blueBox4": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["blueBoxLabel4"]
+    },
+    
+    "redBoxLabel1": {
+      "type": "Text",
+      "content": "块1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "greenBoxLabel1": {
+      "type": "Text",
+      "content": "块2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "blueBoxLabel1": {
+      "type": "Text",
+      "content": "块3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "redBoxLabel2": {
+      "type": "Text",
+      "content": "块1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "greenBoxLabel2": {
+      "type": "Text",
+      "content": "块2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "blueBoxLabel2": {
+      "type": "Text",
+      "content": "块3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "redBoxLabel3": {
+      "type": "Text",
+      "content": "块1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "greenBoxLabel3": {
+      "type": "Text",
+      "content": "块2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "blueBoxLabel3": {
+      "type": "Text",
+      "content": "块3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "redBoxLabel4": {
+      "type": "Text",
+      "content": "块1",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "greenBoxLabel4": {
+      "type": "Text",
+      "content": "块2",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "blueBoxLabel4": {
+      "type": "Text",
+      "content": "块3",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    }
+  },
+  
+  "styles": {
+    "titleStyle": {
+      "fontFamily": "Arial",
+      "fontSize": 24,
+      "fontWeight": "bold",
+      "textColor": "#333333",
+      "textAlign": "left"
+    },
+    "labelStyle": {
+      "fontFamily": "Arial",
+      "fontSize": 16,
+      "fontWeight": "bold",
+      "textColor": "#333333",
+      "textAlign": "right"
+    },
+    "itemLabel": {
+      "fontFamily": "Arial",
+      "fontSize": 14,
+      "fontWeight": "bold",
+      "textColor": "#FFFFFF",
+      "textAlign": "center"
+    }
+  }
+} 

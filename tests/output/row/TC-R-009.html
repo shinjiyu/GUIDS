@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Row组件溢出处理测试</title>
+    <style id="guids-styles">
+
+/* GUIDS基础样式 */
+:root {
+    --guids-design-width: 1200px;
+    --guids-design-height: 800px;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+    width: 100vw;
+    height: 100vh;
+}
+
+.guids-screen {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+.guids-container {
+    position: relative;
+}
+
+.guids-row {
+    display: flex;
+    flex-direction: row;
+    position: relative;
+}
+
+.guids-column {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.guids-button {
+    cursor: pointer;
+    user-select: none;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.guids-image {
+    display: block;
+    object-fit: contain;
+}
+
+.guids-text {
+    word-wrap: break-word;
+}
+
+/* 响应式缩放支持 */
+
+/* 响应式缩放 */
+.guids-responsive {
+    transform-origin: top left;
+}
+
+@media (max-aspect-ratio: 16/9) {
+    .guids-responsive[data-strategy="fitWidth"] {
+        transform: scale(calc(100vw / var(--guids-design-width)));
+        width: var(--guids-design-width);
+        height: var(--guids-design-height);
+    }
+}
+
+@media (min-aspect-ratio: 16/9) {
+    .guids-responsive[data-strategy="fitHeight"] {
+        transform: scale(calc(100vh / var(--guids-design-height)));
+        width: var(--guids-design-width);
+        height: var(--guids-design-height);
+    }
+}
+
+
+    </style>
+</head>
+<body>
+<div id="screen" class="guids-screen guids-screen"><p id="title" class="guids-text">Row组件溢出处理测试</p><div id="rowOverflow" class="guids-row guids-row"><p id="overflowLabel" class="guids-text">溢出可见: 元素超出容器边界</p><div id="box1_1" class="guids-container guids-container"></div><div id="box1_2" class="guids-container guids-container"></div><div id="box1_3" class="guids-container guids-container"></div><div id="box1_4" class="guids-container guids-container"></div><div id="box1_5" class="guids-container guids-container"></div></div><div id="rowWrapOverflow" class="guids-row guids-row"><p id="wrapOverflowLabel" class="guids-text">自动换行: 元素换行不溢出</p><div id="box2_1" class="guids-container guids-container"></div><div id="box2_2" class="guids-container guids-container"></div><div id="box2_3" class="guids-container guids-container"></div><div id="box2_4" class="guids-container guids-container"></div><div id="box2_5" class="guids-container guids-container"></div></div><div id="rowClipOverflow" class="guids-row guids-row"><p id="clipOverflowLabel" class="guids-text">溢出隐藏: 元素被裁剪</p><div id="box3_1" class="guids-container guids-container"></div><div id="box3_2" class="guids-container guids-container"></div><div id="box3_3" class="guids-container guids-container"></div><div id="box3_4" class="guids-container guids-container"></div><div id="box3_5" class="guids-container guids-container"></div></div><div id="rowScrollOverflow" class="guids-row guids-row"><p id="scrollOverflowLabel" class="guids-text">溢出滚动: 元素可滚动查看</p><div id="box4_1" class="guids-container guids-container"></div><div id="box4_2" class="guids-container guids-container"></div><div id="box4_3" class="guids-container guids-container"></div><div id="box4_4" class="guids-container guids-container"></div><div id="box4_5" class="guids-container guids-container"></div></div></div>
+<style>
+#screen { background-color: #F5F5F5; }
+#title { position: absolute; top: 30px; left: 50px; width: 400px; height: 40px; }
+#rowOverflow { position: absolute; top: 100px; left: 50px; width: 300px; height: 100px; background-color: #E0E0E0; display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: flex-start; }
+#overflowLabel { position: relative; width: 60px; height: 100px; }
+#box1_1 { position: relative; width: 60px; height: 60px; background-color: #FF9800; border-radius: 4px; }
+#box1_2 { position: relative; width: 60px; height: 60px; background-color: #4CAF50; border-radius: 4px; }
+#box1_3 { position: relative; width: 60px; height: 60px; background-color: #2196F3; border-radius: 4px; }
+#box1_4 { position: relative; width: 60px; height: 60px; background-color: #9C27B0; border-radius: 4px; }
+#box1_5 { position: relative; width: 60px; height: 60px; background-color: #F44336; border-radius: 4px; }
+#rowWrapOverflow { position: absolute; top: 220px; left: 50px; width: 300px; height: 150px; background-color: #E0E0E0; display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: flex-start; flex-wrap: wrap; }
+#wrapOverflowLabel { position: relative; width: 60px; height: 150px; }
+#box2_1 { position: relative; width: 60px; height: 60px; background-color: #FF9800; border-radius: 4px; }
+#box2_2 { position: relative; width: 60px; height: 60px; background-color: #4CAF50; border-radius: 4px; }
+#box2_3 { position: relative; width: 60px; height: 60px; background-color: #2196F3; border-radius: 4px; }
+#box2_4 { position: relative; width: 60px; height: 60px; background-color: #9C27B0; border-radius: 4px; }
+#box2_5 { position: relative; width: 60px; height: 60px; background-color: #F44336; border-radius: 4px; }
+#rowClipOverflow { position: absolute; top: 390px; left: 50px; width: 300px; height: 100px; background-color: #E0E0E0; display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: flex-start; }
+#clipOverflowLabel { position: relative; width: 60px; height: 100px; }
+#box3_1 { position: relative; width: 60px; height: 60px; background-color: #FF9800; border-radius: 4px; }
+#box3_2 { position: relative; width: 60px; height: 60px; background-color: #4CAF50; border-radius: 4px; }
+#box3_3 { position: relative; width: 60px; height: 60px; background-color: #2196F3; border-radius: 4px; }
+#box3_4 { position: relative; width: 60px; height: 60px; background-color: #9C27B0; border-radius: 4px; }
+#box3_5 { position: relative; width: 60px; height: 60px; background-color: #F44336; border-radius: 4px; }
+#rowScrollOverflow { position: absolute; top: 510px; left: 50px; width: 300px; height: 100px; background-color: #E0E0E0; display: flex; flex-direction: row; gap: 10px; align-items: center; justify-content: flex-start; }
+#scrollOverflowLabel { position: relative; width: 60px; height: 100px; }
+#box4_1 { position: relative; width: 60px; height: 60px; background-color: #FF9800; border-radius: 4px; }
+#box4_2 { position: relative; width: 60px; height: 60px; background-color: #4CAF50; border-radius: 4px; }
+#box4_3 { position: relative; width: 60px; height: 60px; background-color: #2196F3; border-radius: 4px; }
+#box4_4 { position: relative; width: 60px; height: 60px; background-color: #9C27B0; border-radius: 4px; }
+#box4_5 { position: relative; width: 60px; height: 60px; background-color: #F44336; border-radius: 4px; }
+</style>
+
+<script>
+
+// GUIDS交互支持
+document.addEventListener('DOMContentLoaded', function() {
+    // 注册点击事件
+    document.querySelectorAll('[data-action]').forEach(element => {
+        element.addEventListener('click', function(e) {
+            const action = this.getAttribute('data-action');
+            const params = JSON.parse(this.getAttribute('data-params') || '{}');
+            console.log('执行操作:', action, '参数:', params);
+            
+            // 这里可以实现模拟操作（示例）
+            switch(action) {
+                case 'navigateTo':
+                    if (params.screen) {
+                        alert('导航到: ' + params.screen);
+                    }
+                    break;
+                case 'openURL':
+                    if (params.url) {
+                        window.open(params.url, '_blank');
+                    }
+                    break;
+                default:
+                    // 自定义操作可通过事件派发
+                    const customEvent = new CustomEvent('guids-action', {
+                        detail: { action, params, element: this }
+                    });
+                    document.dispatchEvent(customEvent);
+            }
+        });
+    });
+    
+    // 处理hover状态
+    document.querySelectorAll('[data-has-hover]').forEach(element => {
+        element.addEventListener('mouseenter', function() {
+            this.classList.add('guids-hover');
+        });
+        element.addEventListener('mouseleave', function() {
+            this.classList.remove('guids-hover');
+        });
+    });
+    
+    // 处理pressed状态
+    document.querySelectorAll('[data-has-pressed]').forEach(element => {
+        element.addEventListener('mousedown', function() {
+            this.classList.add('guids-pressed');
+        });
+        element.addEventListener('mouseup', function() {
+            this.classList.remove('guids-pressed');
+        });
+        element.addEventListener('mouseleave', function() {
+            this.classList.remove('guids-pressed');
+        });
+    });
+});
+
+</script>
+
+</body>
+</html>

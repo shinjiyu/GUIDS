@@ -1,0 +1,111 @@
+MAIN MENU DESCRIPTION (游戏主菜单描述)
+======================
+
+This file describes the UI components and effects defined in main_menu.json
+本文件描述了main_menu.json中定义的UI组件和效果
+
+BASIC INFORMATION (基本信息):
+- Design reference (设计参考): 1920x1080px
+- Purpose (用途): Defines a game main menu interface with top bar, content area and bottom bar
+  定义了一个游戏主菜单界面，包含顶部栏、内容区域和底部栏
+- Features (特性): Responsive layout, solid color backgrounds, interactive buttons, social media links
+  响应式布局、纯色背景、交互按钮、社交媒体链接
+
+SCREEN STRUCTURE (屏幕结构):
+- Main screen (主屏幕): Full screen with adaptive "fitWidth" strategy and safe area
+  全屏显示，采用"fitWidth"自适应策略和安全区域
+- Background (背景): Dark solid color background (#1E1E2D)
+  深色纯色背景 (#1E1E2D)
+- Layout (布局): Consists of topBar, contentArea, and bottomBar sections
+  由顶部栏、内容区域和底部栏组成
+
+TOP BAR (顶部栏):
+- Position (位置): Top of screen, height 80px
+  屏幕顶部，高度80px
+- Background (背景): Solid black with transparency (rgba(0,0,0,0.8))
+  半透明黑色 (rgba(0,0,0,0.8))
+- Components (组件): 
+  * Logo text (标志文本): Left-aligned, "游戏标志", 180x60px
+    左对齐，文本"游戏标志"，尺寸180x60px
+  * Player info (玩家信息): Right-aligned with avatar, name and coin display
+    右对齐，包含头像、名称和金币显示
+  * Avatar (头像): Blue circle (#4285F4)
+    蓝色圆形 (#4285F4)
+  * Coin icon (金币图标): Gold square with rounded corners (#FFD700)
+    金色圆角方形 (#FFD700)
+
+CONTENT AREA (内容区域):
+- Position (位置): Between top and bottom bars, centered content
+  在顶部栏和底部栏之间，内容居中
+- Main menu container (主菜单容器): 
+  * Width (宽度): 50% of screen, max 600px
+    屏幕宽度的50%，最大600px
+  * Background (背景): Semi-transparent black (rgba(0,0,0,0.7))
+    半透明黑色 (rgba(0,0,0,0.7))
+  * Corner radius (圆角): 15px
+    15像素圆角
+
+MENU BUTTONS (菜单按钮):
+- Play button (开始游戏按钮): 
+  * Style (样式): primaryButton (blue solid color)
+    primaryButton样式（蓝色纯色）
+  * Height (高度): 80px
+    高度80px
+  * Special effect (特效): Glow effect
+    发光效果
+- Store, Settings buttons (商店、设置按钮): 
+  * Style (样式): secondaryButton (gray solid color)
+    secondaryButton样式（灰色纯色）
+  * Height (高度): 70px
+    高度70px
+- Exit button (退出按钮): 
+  * Style (样式): dangerButton (red solid color)
+    dangerButton样式（红色纯色）
+  * Height (高度): 70px
+    高度70px
+
+BOTTOM BAR (底部栏):
+- Position (位置): Bottom of screen, height 60px
+  屏幕底部，高度60px
+- Background (背景): Semi-transparent black (rgba(0,0,0,0.8))
+  半透明黑色 (rgba(0,0,0,0.8))
+- Components (组件): 
+  * Version text (版本文本): Left-aligned "版本 1.0.0"
+    左对齐"版本 1.0.0"
+  * Social buttons (社交按钮): Right-aligned button texts "FB", "TW", "DC"
+    右对齐的文本按钮"FB"、"TW"、"DC"
+
+BUTTON INTERACTIONS (按钮交互):
+- Menu buttons (菜单按钮): 
+  * Hover effects (悬停效果): Lighter background, scale up
+    背景变亮，尺寸放大
+  * Press effects (按下效果): Darker background, scale down
+    背景变暗，尺寸缩小
+- Play button (开始游戏按钮): Triggers "startGame" action
+  触发"startGame"动作
+- Store/Settings buttons (商店/设置按钮): Navigate to respective screens
+  导航到相应的屏幕
+- Exit button (退出按钮): Triggers "exitGame" action
+  触发"exitGame"动作
+- Social buttons (社交按钮): Open respective URLs in browser
+  在浏览器中打开相应的URL
+
+RESPONSIVE ADAPTATION (响应式适配):
+- Portrait orientation (竖屏方向): 
+  * Main menu width increases to 80%
+    主菜单宽度增加到80%
+  * Top bar rearranges to vertical layout
+    顶部栏重排为垂直布局
+- Screen width < 800px (屏幕宽度<800px): 
+  * Global scale reduced to 0.9
+    全局比例缩小到0.9
+  * Button heights reduced
+    按钮高度减小
+
+ASSETS MANAGEMENT (资源管理):
+- UI Atlas (UI图集): Contains icons and buttons in a single texture
+  在单一纹理中包含图标和按钮
+- Preloaded assets (预加载资源): UI atlas, background image, logo
+  预加载UI图集、背景图像、标志
+- Lazy loaded assets (延迟加载资源): Avatar images
+  延迟加载头像图像 

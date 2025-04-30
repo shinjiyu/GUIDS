@@ -1,0 +1,37 @@
+SIMPLE BUTTON DESCRIPTION
+======================
+
+This file describes the UI components and effects defined in simple_button.json
+
+BASIC INFORMATION:
+- Design reference: 1920x1080px
+- Purpose: Defines a centered blue button with text "Click me"
+- Features: Hover effects, click actions, animations and responsive behavior
+
+BUTTON APPEARANCE:
+- Size: 200x60px, centered on screen
+- Text: "点击我" (Click me), Arial, 24px, centered
+- Background: Solid blue color (#3498DB)
+- Border radius: 8px
+- Shadow: Slight drop shadow, 3px offset, 5px blur
+- Screen background: Light gray (#F5F5F5)
+
+INTERACTIONS:
+- Click: Triggers "buttonClicked" action
+- Hover: 
+  * Triggers "buttonHovered" action
+  * Lighter background (#5DADE2)
+  * Slight scale up (1.05)
+- Pressed: 
+  * Darker background (#2980B9)
+  * Slight scale down (0.98)
+
+ANIMATIONS:
+- Fade in when appearing:
+  * Duration: 0.3 seconds
+  * Easing: "easeOutQuad"
+  * Fades in from transparent and 20px offset from below
+
+RESPONSIVE ADAPTATION:
+- When screen width < 800px:
+  * Button size reduces to 150x50px 

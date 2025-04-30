@@ -1,0 +1,457 @@
+{
+  "version": "1.0",
+  "name": "Row组件对齐方式测试",
+  "designReference": {
+    "width": 1200,
+    "height": 800
+  },
+  "root": "screen",
+  
+  "components": {
+    "screen": {
+      "type": "Screen",
+      "background": {
+        "type": "color",
+        "value": "#F5F5F5"
+      },
+      "children": ["alignmentTitle", "rowStart", "rowCenter", "rowEnd", "rowStretch"]
+    },
+    
+    "alignmentTitle": {
+      "type": "Text",
+      "content": "Row 组件对齐方式（Alignment）测试",
+      "position": {
+        "top": 30,
+        "left": 50,
+        "width": 600,
+        "height": 40
+      },
+      "style": "titleStyle"
+    },
+    
+    "rowStart": {
+      "type": "Row",
+      "position": {
+        "top": 100,
+        "left": 50,
+        "width": 600,
+        "height": 150
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "start",
+        "distribution": "start",
+        "spacing": 20
+      },
+      "children": ["startLabel", "item1", "item2", "item3"],
+      "cornerRadius": 8
+    },
+    
+    "rowCenter": {
+      "type": "Row",
+      "position": {
+        "top": 270,
+        "left": 50,
+        "width": 600,
+        "height": 150
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "center",
+        "distribution": "start",
+        "spacing": 20
+      },
+      "children": ["centerLabel", "item4", "item5", "item6"],
+      "cornerRadius": 8
+    },
+    
+    "rowEnd": {
+      "type": "Row",
+      "position": {
+        "top": 440,
+        "left": 50,
+        "width": 600,
+        "height": 150
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "end",
+        "distribution": "start",
+        "spacing": 20
+      },
+      "children": ["endLabel", "item7", "item8", "item9"],
+      "cornerRadius": 8
+    },
+    
+    "rowStretch": {
+      "type": "Row",
+      "position": {
+        "top": 610,
+        "left": 50,
+        "width": 600,
+        "height": 150
+      },
+      "background": {
+        "type": "color",
+        "value": "#E0E0E0"
+      },
+      "layout": {
+        "type": "row",
+        "alignment": "stretch",
+        "distribution": "start",
+        "spacing": 20
+      },
+      "children": ["stretchLabel", "item10", "item11", "item12"],
+      "cornerRadius": 8
+    },
+    
+    "startLabel": {
+      "type": "Text",
+      "content": "上对齐(start):",
+      "position": {
+        "width": 120,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "centerLabel": {
+      "type": "Text",
+      "content": "居中对齐(center):",
+      "position": {
+        "width": 120,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "endLabel": {
+      "type": "Text",
+      "content": "下对齐(end):",
+      "position": {
+        "width": 120,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "stretchLabel": {
+      "type": "Text",
+      "content": "拉伸(stretch):",
+      "position": {
+        "width": 120,
+        "height": 40
+      },
+      "style": "labelStyle"
+    },
+    
+    "item1": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["label1"]
+    },
+    
+    "item2": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 90
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["label2"]
+    },
+    
+    "item3": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 120
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["label3"]
+    },
+    
+    "item4": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["label4"]
+    },
+    
+    "item5": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 90
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["label5"]
+    },
+    
+    "item6": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 120
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["label6"]
+    },
+    
+    "item7": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 60
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["label7"]
+    },
+    
+    "item8": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 90
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["label8"]
+    },
+    
+    "item9": {
+      "type": "Container",
+      "position": {
+        "width": 80,
+        "height": 120
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["label9"]
+    },
+    
+    "item10": {
+      "type": "Container",
+      "position": {
+        "width": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#FF5252"
+      },
+      "cornerRadius": 8,
+      "children": ["label10"]
+    },
+    
+    "item11": {
+      "type": "Container",
+      "position": {
+        "width": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#4CAF50"
+      },
+      "cornerRadius": 8,
+      "children": ["label11"]
+    },
+    
+    "item12": {
+      "type": "Container",
+      "position": {
+        "width": 80
+      },
+      "background": {
+        "type": "color",
+        "value": "#2196F3"
+      },
+      "cornerRadius": 8,
+      "children": ["label12"]
+    },
+    
+    "label1": {
+      "type": "Text",
+      "content": "60px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label2": {
+      "type": "Text",
+      "content": "90px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label3": {
+      "type": "Text",
+      "content": "120px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label4": {
+      "type": "Text",
+      "content": "60px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label5": {
+      "type": "Text",
+      "content": "90px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label6": {
+      "type": "Text",
+      "content": "120px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label7": {
+      "type": "Text",
+      "content": "60px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label8": {
+      "type": "Text",
+      "content": "90px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label9": {
+      "type": "Text",
+      "content": "120px",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label10": {
+      "type": "Text",
+      "content": "拉伸",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label11": {
+      "type": "Text",
+      "content": "拉伸",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    },
+    
+    "label12": {
+      "type": "Text",
+      "content": "拉伸",
+      "position": {
+        "centerIn": "parent"
+      },
+      "style": "itemLabel"
+    }
+  },
+  
+  "styles": {
+    "titleStyle": {
+      "fontFamily": "Arial",
+      "fontSize": 24,
+      "fontWeight": "bold",
+      "textColor": "#333333",
+      "textAlign": "left"
+    },
+    "labelStyle": {
+      "fontFamily": "Arial",
+      "fontSize": 16,
+      "fontWeight": "bold",
+      "textColor": "#333333",
+      "textAlign": "right"
+    },
+    "itemLabel": {
+      "fontFamily": "Arial",
+      "fontSize": 14,
+      "fontWeight": "bold",
+      "textColor": "#FFFFFF",
+      "textAlign": "center"
+    }
+  }
+} 

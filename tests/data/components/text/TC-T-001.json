@@ -1,0 +1,109 @@
+{
+  "version": "1.0",
+  "name": "Text组件基本渲染测试",
+  "designReference": {
+    "width": 1200,
+    "height": 800
+  },
+  "root": "screen",
+  
+  "components": {
+    "screen": {
+      "type": "Screen",
+      "background": {
+        "type": "color",
+        "value": "#F5F5F5"
+      },
+      "children": ["textContainer"]
+    },
+    
+    "textContainer": {
+      "type": "Container",
+      "position": {
+        "top": 100,
+        "left": 100,
+        "width": 800,
+        "height": 600
+      },
+      "background": {
+        "type": "color",
+        "value": "#FFFFFF"
+      },
+      "cornerRadius": 8,
+      "shadow": {
+        "color": "rgba(0,0,0,0.2)",
+        "offsetX": 0,
+        "offsetY": 4,
+        "blur": 10
+      },
+      "layout": {
+        "type": "stack",
+        "direction": "vertical",
+        "spacing": 20,
+        "padding": 30
+      },
+      "children": ["titleText", "subtitleText", "bodyText", "htmlText", "styledText"]
+    },
+    
+    "titleText": {
+      "type": "Text",
+      "content": "这是一个标题文本",
+      "style": "title"
+    },
+    
+    "subtitleText": {
+      "type": "Text",
+      "content": "这是一个副标题文本，用于测试不同类型的文本渲染",
+      "style": "subtitle"
+    },
+    
+    "bodyText": {
+      "type": "Text",
+      "content": "这是正文文本内容。GUIDS2HTML 转换器能够正确渲染各种文本样式，包括字体大小、颜色和对齐方式等。这段文本的目的是测试长文本的换行效果和文本块的整体呈现。正文内容通常包含大段文字，需要正确处理换行和段落间距。",
+      "style": "body"
+    },
+    
+    "htmlText": {
+      "type": "Text",
+      "content": "这段文本包含特殊字符：<div>、\"引号\"、'单引号'、&符号、>大于和<小于",
+      "style": "body"
+    },
+    
+    "styledText": {
+      "type": "Text",
+      "content": "这是自定义样式文本",
+      "position": {
+        "width": "100%"
+      },
+      "fontFamily": "Courier New",
+      "fontSize": 18,
+      "fontWeight": "bold",
+      "textColor": "#FF5722",
+      "textAlign": "right"
+    }
+  },
+  
+  "styles": {
+    "title": {
+      "fontFamily": "Arial",
+      "fontSize": 32,
+      "fontWeight": "bold",
+      "textColor": "#333333",
+      "textAlign": "left"
+    },
+    "subtitle": {
+      "fontFamily": "Arial",
+      "fontSize": 20,
+      "fontWeight": "normal",
+      "textColor": "#666666",
+      "textAlign": "left"
+    },
+    "body": {
+      "fontFamily": "Georgia",
+      "fontSize": 16,
+      "lineHeight": 1.5,
+      "textColor": "#333333",
+      "textAlign": "justify"
+    }
+  }
+} 

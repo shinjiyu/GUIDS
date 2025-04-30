@@ -118,7 +118,7 @@
         "type": {
           "type": "string",
           "description": "组件类型",
-          "enum": ["Screen", "Container", "Button", "Text", "Image", "ProgressBar", "ScrollView", "InputField", "Toggle", "Slider", "Custom"]
+          "enum": ["Screen", "Container", "Row", "Column", "Button", "Text", "Image", "ProgressBar", "ScrollView", "InputField", "Toggle", "Slider", "Custom"]
         },
         "position": {
           "$ref": "#/definitions/position"
