@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "name": "Column组件间距属性测试",
+  "name": "Column组件背景样式测试",
   "designReference": {
     "width": 1200,
     "height": 800
@@ -21,7 +21,7 @@
         "height": "100%",
         "padding": "20px"
       },
-      "children": ["title", "columnNoSpacing", "columnSmallSpacing", "columnMediumSpacing", "columnLargeSpacing"]
+      "children": ["title", "columnSolidColor", "columnGradient", "columnImage", "columnTransparent"]
     },
     "title": {
       "type": "text",
@@ -30,66 +30,14 @@
         "fontWeight": "bold",
         "marginBottom": "20px"
       },
-      "text": "Column组件间距属性测试"
+      "text": "Column组件背景样式测试"
     },
-    "columnNoSpacing": {
+    "columnSolidColor": {
       "type": "column",
       "styles": {
         "width": "300px",
         "height": "200px",
-        "backgroundColor": "#ffffff",
-        "border": "1px solid #e0e0e0",
-        "borderRadius": "8px",
-        "padding": "16px",
-        "marginBottom": "20px"
-      },
-      "layout": {
-        "spacing": 0
-      },
-      "children": ["noSpacingTitle", "noSpacingBox1", "noSpacingBox2", "noSpacingBox3"]
-    },
-    "noSpacingTitle": {
-      "type": "text",
-      "styles": {
-        "fontSize": "16px",
-        "fontWeight": "bold",
-        "marginBottom": "10px"
-      },
-      "text": "间距：0px"
-    },
-    "noSpacingBox1": {
-      "type": "container",
-      "styles": {
-        "width": "100%",
-        "height": "40px",
         "backgroundColor": "#e3f2fd",
-        "borderRadius": "4px"
-      }
-    },
-    "noSpacingBox2": {
-      "type": "container",
-      "styles": {
-        "width": "100%",
-        "height": "40px",
-        "backgroundColor": "#e8f5e9",
-        "borderRadius": "4px"
-      }
-    },
-    "noSpacingBox3": {
-      "type": "container",
-      "styles": {
-        "width": "100%",
-        "height": "40px",
-        "backgroundColor": "#fff3e0",
-        "borderRadius": "4px"
-      }
-    },
-    "columnSmallSpacing": {
-      "type": "column",
-      "styles": {
-        "width": "300px",
-        "height": "200px",
-        "backgroundColor": "#ffffff",
         "border": "1px solid #e0e0e0",
         "borderRadius": "8px",
         "padding": "16px",
@@ -98,121 +46,173 @@
       "layout": {
         "spacing": 8
       },
-      "children": ["smallSpacingTitle", "smallSpacingBox1", "smallSpacingBox2", "smallSpacingBox3"]
+      "children": ["solidColorTitle", "solidColorBox1", "solidColorBox2", "solidColorBox3"]
     },
-    "smallSpacingTitle": {
+    "solidColorTitle": {
       "type": "text",
       "styles": {
         "fontSize": "16px",
         "fontWeight": "bold",
         "marginBottom": "10px"
       },
-      "text": "间距：8px"
+      "text": "纯色背景"
     },
-    "smallSpacingBox1": {
+    "solidColorBox1": {
       "type": "container",
       "styles": {
         "width": "100%",
         "height": "40px",
-        "backgroundColor": "#e3f2fd",
+        "backgroundColor": "#ffffff",
         "borderRadius": "4px"
       }
     },
-    "smallSpacingBox2": {
+    "solidColorBox2": {
       "type": "container",
       "styles": {
         "width": "100%",
         "height": "40px",
-        "backgroundColor": "#e8f5e9",
+        "backgroundColor": "#ffffff",
         "borderRadius": "4px"
       }
     },
-    "smallSpacingBox3": {
+    "solidColorBox3": {
       "type": "container",
       "styles": {
         "width": "100%",
         "height": "40px",
-        "backgroundColor": "#fff3e0",
+        "backgroundColor": "#ffffff",
         "borderRadius": "4px"
       }
     },
-    "columnMediumSpacing": {
+    "columnGradient": {
       "type": "column",
       "styles": {
         "width": "300px",
         "height": "200px",
-        "backgroundColor": "#ffffff",
+        "backgroundImage": "linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%)",
         "border": "1px solid #e0e0e0",
         "borderRadius": "8px",
         "padding": "16px",
         "marginBottom": "20px"
       },
       "layout": {
-        "spacing": 16
+        "spacing": 8
       },
-      "children": ["mediumSpacingTitle", "mediumSpacingBox1", "mediumSpacingBox2", "mediumSpacingBox3"]
+      "children": ["gradientTitle", "gradientBox1", "gradientBox2", "gradientBox3"]
     },
-    "mediumSpacingTitle": {
+    "gradientTitle": {
       "type": "text",
       "styles": {
         "fontSize": "16px",
         "fontWeight": "bold",
         "marginBottom": "10px"
       },
-      "text": "间距：16px"
+      "text": "渐变背景"
     },
-    "mediumSpacingBox1": {
+    "gradientBox1": {
       "type": "container",
       "styles": {
         "width": "100%",
         "height": "40px",
-        "backgroundColor": "#e3f2fd",
+        "backgroundColor": "#ffffff",
         "borderRadius": "4px"
       }
     },
-    "mediumSpacingBox2": {
+    "gradientBox2": {
       "type": "container",
       "styles": {
         "width": "100%",
         "height": "40px",
-        "backgroundColor": "#e8f5e9",
+        "backgroundColor": "#ffffff",
         "borderRadius": "4px"
       }
     },
-    "mediumSpacingBox3": {
+    "gradientBox3": {
       "type": "container",
       "styles": {
         "width": "100%",
         "height": "40px",
-        "backgroundColor": "#fff3e0",
+        "backgroundColor": "#ffffff",
         "borderRadius": "4px"
       }
     },
-    "columnLargeSpacing": {
+    "columnImage": {
       "type": "column",
       "styles": {
         "width": "300px",
         "height": "200px",
+        "backgroundImage": "url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiBwYXR0ZXJuVW5pdHM9InVzZXJTcGFjZU9uVXNlIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSg0NSkiPjxyZWN0IHdpZHRoPSIyMCIgaGVpZ2h0PSIyMCIgZmlsbD0iI2UzZjJmZCIvPjxyZWN0IHg9IjIwIiB5PSIwIiB3aWR0aD0iMjAiIGhlaWdodD0iMjAiIGZpbGw9IiNiYmRlZmIiLz48L3BhdHRlcm4+PC9kZWZzPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InVybCgjcGF0dGVybikiLz48L3N2Zz4=')",
+        "border": "1px solid #e0e0e0",
+        "borderRadius": "8px",
+        "padding": "16px",
+        "marginBottom": "20px"
+      },
+      "layout": {
+        "spacing": 8
+      },
+      "children": ["imageTitle", "imageBox1", "imageBox2", "imageBox3"]
+    },
+    "imageTitle": {
+      "type": "text",
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "bold",
+        "marginBottom": "10px"
+      },
+      "text": "图案背景"
+    },
+    "imageBox1": {
+      "type": "container",
+      "styles": {
+        "width": "100%",
+        "height": "40px",
         "backgroundColor": "#ffffff",
+        "borderRadius": "4px"
+      }
+    },
+    "imageBox2": {
+      "type": "container",
+      "styles": {
+        "width": "100%",
+        "height": "40px",
+        "backgroundColor": "#ffffff",
+        "borderRadius": "4px"
+      }
+    },
+    "imageBox3": {
+      "type": "container",
+      "styles": {
+        "width": "100%",
+        "height": "40px",
+        "backgroundColor": "#ffffff",
+        "borderRadius": "4px"
+      }
+    },
+    "columnTransparent": {
+      "type": "column",
+      "styles": {
+        "width": "300px",
+        "height": "200px",
+        "backgroundColor": "transparent",
         "border": "1px solid #e0e0e0",
         "borderRadius": "8px",
         "padding": "16px"
       },
       "layout": {
-        "spacing": 32
+        "spacing": 8
       },
-      "children": ["largeSpacingTitle", "largeSpacingBox1", "largeSpacingBox2", "largeSpacingBox3"]
+      "children": ["transparentTitle", "transparentBox1", "transparentBox2", "transparentBox3"]
     },
-    "largeSpacingTitle": {
+    "transparentTitle": {
       "type": "text",
       "styles": {
         "fontSize": "16px",
         "fontWeight": "bold",
         "marginBottom": "10px"
       },
-      "text": "间距：32px"
+      "text": "透明背景"
     },
-    "largeSpacingBox1": {
+    "transparentBox1": {
       "type": "container",
       "styles": {
         "width": "100%",
@@ -221,7 +221,7 @@
         "borderRadius": "4px"
       }
     },
-    "largeSpacingBox2": {
+    "transparentBox2": {
       "type": "container",
       "styles": {
         "width": "100%",
@@ -230,7 +230,7 @@
         "borderRadius": "4px"
       }
     },
-    "largeSpacingBox3": {
+    "transparentBox3": {
       "type": "container",
       "styles": {
         "width": "100%",

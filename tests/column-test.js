@@ -175,10 +175,14 @@ async function runTest(testCase) {
 
       // 执行GUIDS2HTML转换
       console.log("将GUIDs转换为HTML...");
-      const converterScript = path.join(BASE_PATH, "dist", "converter.js");
+      const converterScript = path.join(
+        BASE_PATH,
+        "converters",
+        "guids2any.js"
+      );
 
       execSync(
-        `node "${converterScript}" "${jsonFilePath}" "${outputFilePath}"`,
+        `node "${converterScript}" html "${jsonFilePath}" "${outputFilePath}"`,
         { stdio: "inherit" }
       );
 

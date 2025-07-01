@@ -1,0 +1,31 @@
+{
+  "name": "guids",
+  "version": "1.0.0",
+  "description": "通用界面描述语言 GUIDS 及其多种格式转换工具（如 HTML、JSON 等）",
+  "main": "converters/index.js",
+  "scripts": {
+    "test": "node tests/run-all-tests.js",
+    "test:row": "node tests/run-all-tests.js row",
+    "test:column": "node tests/run-all-tests.js column",
+    "test:button": "node tests/run-all-tests.js button",
+    "test:help": "node tests/run-all-tests.js --help"
+  },
+  "keywords": [
+    "guids",
+    "中间描述语言",
+    "converter",
+    "html",
+    "schema",
+    "testing"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "fs": "0.0.1-security",
+    "path": "^0.12.7"
+  },
+  "devDependencies": {
+    "child_process": "^1.0.2",
+    "jsdom": "^26.1.0"
+  }
+}

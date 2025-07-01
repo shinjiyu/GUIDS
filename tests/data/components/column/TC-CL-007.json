@@ -1,6 +1,6 @@
 {
   "version": "1.0",
-  "name": "Column组件间距属性测试",
+  "name": "Column组件圆角样式测试",
   "designReference": {
     "width": 1200,
     "height": 800
@@ -21,7 +21,7 @@
         "height": "100%",
         "padding": "20px"
       },
-      "children": ["title", "columnNoSpacing", "columnSmallSpacing", "columnMediumSpacing", "columnLargeSpacing"]
+      "children": ["title", "columnNoRadius", "columnSmallRadius", "columnMediumRadius", "columnLargeRadius", "columnCustomRadius"]
     },
     "title": {
       "type": "text",
@@ -30,34 +30,86 @@
         "fontWeight": "bold",
         "marginBottom": "20px"
       },
-      "text": "Column组件间距属性测试"
+      "text": "Column组件圆角样式测试"
     },
-    "columnNoSpacing": {
+    "columnNoRadius": {
       "type": "column",
       "styles": {
         "width": "300px",
         "height": "200px",
         "backgroundColor": "#ffffff",
-        "border": "1px solid #e0e0e0",
-        "borderRadius": "8px",
+        "border": "2px solid #2196f3",
+        "borderRadius": "0px",
         "padding": "16px",
         "marginBottom": "20px"
       },
       "layout": {
-        "spacing": 0
+        "spacing": 8
       },
-      "children": ["noSpacingTitle", "noSpacingBox1", "noSpacingBox2", "noSpacingBox3"]
+      "children": ["noRadiusTitle", "noRadiusBox1", "noRadiusBox2", "noRadiusBox3"]
     },
-    "noSpacingTitle": {
+    "noRadiusTitle": {
       "type": "text",
       "styles": {
         "fontSize": "16px",
         "fontWeight": "bold",
         "marginBottom": "10px"
       },
-      "text": "间距：0px"
+      "text": "无圆角"
     },
-    "noSpacingBox1": {
+    "noRadiusBox1": {
+      "type": "container",
+      "styles": {
+        "width": "100%",
+        "height": "40px",
+        "backgroundColor": "#e3f2fd",
+        "borderRadius": "0px"
+      }
+    },
+    "noRadiusBox2": {
+      "type": "container",
+      "styles": {
+        "width": "100%",
+        "height": "40px",
+        "backgroundColor": "#e8f5e9",
+        "borderRadius": "0px"
+      }
+    },
+    "noRadiusBox3": {
+      "type": "container",
+      "styles": {
+        "width": "100%",
+        "height": "40px",
+        "backgroundColor": "#fff3e0",
+        "borderRadius": "0px"
+      }
+    },
+    "columnSmallRadius": {
+      "type": "column",
+      "styles": {
+        "width": "300px",
+        "height": "200px",
+        "backgroundColor": "#ffffff",
+        "border": "2px solid #2196f3",
+        "borderRadius": "4px",
+        "padding": "16px",
+        "marginBottom": "20px"
+      },
+      "layout": {
+        "spacing": 8
+      },
+      "children": ["smallRadiusTitle", "smallRadiusBox1", "smallRadiusBox2", "smallRadiusBox3"]
+    },
+    "smallRadiusTitle": {
+      "type": "text",
+      "styles": {
+        "fontSize": "16px",
+        "fontWeight": "bold",
+        "marginBottom": "10px"
+      },
+      "text": "小圆角 (4px)"
+    },
+    "smallRadiusBox1": {
       "type": "container",
       "styles": {
         "width": "100%",
@@ -66,7 +118,7 @@
         "borderRadius": "4px"
       }
     },
-    "noSpacingBox2": {
+    "smallRadiusBox2": {
       "type": "container",
       "styles": {
         "width": "100%",
@@ -75,7 +127,7 @@
         "borderRadius": "4px"
       }
     },
-    "noSpacingBox3": {
+    "smallRadiusBox3": {
       "type": "container",
       "styles": {
         "width": "100%",
@@ -84,13 +136,13 @@
         "borderRadius": "4px"
       }
     },
-    "columnSmallSpacing": {
+    "columnMediumRadius": {
       "type": "column",
       "styles": {
         "width": "300px",
         "height": "200px",
         "backgroundColor": "#ffffff",
-        "border": "1px solid #e0e0e0",
+        "border": "2px solid #2196f3",
         "borderRadius": "8px",
         "padding": "16px",
         "marginBottom": "20px"
@@ -98,145 +150,145 @@
       "layout": {
         "spacing": 8
       },
-      "children": ["smallSpacingTitle", "smallSpacingBox1", "smallSpacingBox2", "smallSpacingBox3"]
+      "children": ["mediumRadiusTitle", "mediumRadiusBox1", "mediumRadiusBox2", "mediumRadiusBox3"]
     },
-    "smallSpacingTitle": {
+    "mediumRadiusTitle": {
       "type": "text",
       "styles": {
         "fontSize": "16px",
         "fontWeight": "bold",
         "marginBottom": "10px"
       },
-      "text": "间距：8px"
+      "text": "中等圆角 (8px)"
     },
-    "smallSpacingBox1": {
+    "mediumRadiusBox1": {
       "type": "container",
       "styles": {
         "width": "100%",
         "height": "40px",
         "backgroundColor": "#e3f2fd",
-        "borderRadius": "4px"
+        "borderRadius": "8px"
       }
     },
-    "smallSpacingBox2": {
+    "mediumRadiusBox2": {
       "type": "container",
       "styles": {
         "width": "100%",
         "height": "40px",
         "backgroundColor": "#e8f5e9",
-        "borderRadius": "4px"
+        "borderRadius": "8px"
       }
     },
-    "smallSpacingBox3": {
+    "mediumRadiusBox3": {
       "type": "container",
       "styles": {
         "width": "100%",
         "height": "40px",
         "backgroundColor": "#fff3e0",
-        "borderRadius": "4px"
+        "borderRadius": "8px"
       }
     },
-    "columnMediumSpacing": {
+    "columnLargeRadius": {
       "type": "column",
       "styles": {
         "width": "300px",
         "height": "200px",
         "backgroundColor": "#ffffff",
-        "border": "1px solid #e0e0e0",
-        "borderRadius": "8px",
+        "border": "2px solid #2196f3",
+        "borderRadius": "16px",
         "padding": "16px",
         "marginBottom": "20px"
       },
       "layout": {
-        "spacing": 16
+        "spacing": 8
       },
-      "children": ["mediumSpacingTitle", "mediumSpacingBox1", "mediumSpacingBox2", "mediumSpacingBox3"]
+      "children": ["largeRadiusTitle", "largeRadiusBox1", "largeRadiusBox2", "largeRadiusBox3"]
     },
-    "mediumSpacingTitle": {
+    "largeRadiusTitle": {
       "type": "text",
       "styles": {
         "fontSize": "16px",
         "fontWeight": "bold",
         "marginBottom": "10px"
       },
-      "text": "间距：16px"
+      "text": "大圆角 (16px)"
     },
-    "mediumSpacingBox1": {
+    "largeRadiusBox1": {
       "type": "container",
       "styles": {
         "width": "100%",
         "height": "40px",
         "backgroundColor": "#e3f2fd",
-        "borderRadius": "4px"
+        "borderRadius": "16px"
       }
     },
-    "mediumSpacingBox2": {
+    "largeRadiusBox2": {
       "type": "container",
       "styles": {
         "width": "100%",
         "height": "40px",
         "backgroundColor": "#e8f5e9",
-        "borderRadius": "4px"
+        "borderRadius": "16px"
       }
     },
-    "mediumSpacingBox3": {
+    "largeRadiusBox3": {
       "type": "container",
       "styles": {
         "width": "100%",
         "height": "40px",
         "backgroundColor": "#fff3e0",
-        "borderRadius": "4px"
+        "borderRadius": "16px"
       }
     },
-    "columnLargeSpacing": {
+    "columnCustomRadius": {
       "type": "column",
       "styles": {
         "width": "300px",
         "height": "200px",
         "backgroundColor": "#ffffff",
-        "border": "1px solid #e0e0e0",
-        "borderRadius": "8px",
+        "border": "2px solid #2196f3",
+        "borderRadius": "8px 24px 8px 24px",
         "padding": "16px"
       },
       "layout": {
-        "spacing": 32
+        "spacing": 8
       },
-      "children": ["largeSpacingTitle", "largeSpacingBox1", "largeSpacingBox2", "largeSpacingBox3"]
+      "children": ["customRadiusTitle", "customRadiusBox1", "customRadiusBox2", "customRadiusBox3"]
     },
-    "largeSpacingTitle": {
+    "customRadiusTitle": {
       "type": "text",
       "styles": {
         "fontSize": "16px",
         "fontWeight": "bold",
         "marginBottom": "10px"
       },
-      "text": "间距：32px"
+      "text": "自定义圆角"
     },
-    "largeSpacingBox1": {
+    "customRadiusBox1": {
       "type": "container",
       "styles": {
         "width": "100%",
         "height": "40px",
         "backgroundColor": "#e3f2fd",
-        "borderRadius": "4px"
+        "borderRadius": "4px 12px 4px 12px"
       }
     },
-    "largeSpacingBox2": {
+    "customRadiusBox2": {
       "type": "container",
       "styles": {
         "width": "100%",
         "height": "40px",
         "backgroundColor": "#e8f5e9",
-        "borderRadius": "4px"
+        "borderRadius": "4px 12px 4px 12px"
       }
     },
-    "largeSpacingBox3": {
+    "customRadiusBox3": {
       "type": "container",
       "styles": {
         "width": "100%",
         "height": "40px",
         "backgroundColor": "#fff3e0",
-        "borderRadius": "4px"
+        "borderRadius": "4px 12px 4px 12px"
       }
     }
   }
