@@ -8,7 +8,8 @@
     "test:row": "node tests/run-all-tests.js row",
     "test:column": "node tests/run-all-tests.js column",
     "test:button": "node tests/run-all-tests.js button",
-    "test:help": "node tests/run-all-tests.js --help"
+    "test:help": "node tests/run-all-tests.js --help",
+    "generate:view-results": "node scripts/generate-view-test-results.js"
   },
   "keywords": [
     "guids",
