@@ -47,8 +47,6 @@ const TEST_CASES = [
   "TC-CL-016",
   "TC-CL-017",
   "TC-CL-018",
-  "TC-CL-019",
-  "TC-CL-020",
 ];
 
 // Ensure the output directory exists

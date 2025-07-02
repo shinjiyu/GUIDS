@@ -6,6 +6,16 @@
 
 GUIDS(Game UI Description System)是一种用于描述游戏 UI 的 JSON 格式规范，旨在提供一种引擎无关的方式来定义 UI 布局、样式、交互和适配策略。本文档详细说明了 GUIDS 规范的各个部分及其用法。
 
+## 组件唯一性约定
+
+- 每个 `components` 下的组件 id 只能被一个父组件的 `children` 数组引用一次。
+- 不允许同一个组件 id 被多个父组件或同一父组件多次引用。
+- 如需复用内容，请通过模板、克隆或组件实例化机制实现。
+
+## 布局类型简化约定
+
+- 对于 Column、Row 等专用布局组件，其布局类型由组件 type 决定，layout 字段无需再指定 type，直接写 spacing、alignment 等属性即可。
+
 ## 文件结构
 
 GUIDS 描述文件采用 JSON 格式，顶层结构如下：
@@ -81,7 +91,7 @@ GUIDS 描述文件采用 JSON 格式，顶层结构如下：
 
 | 类型        | 描述         | 特有属性                          |
 | ----------- | ------------ | --------------------------------- |
-| Screen      | 屏幕根容器   | adaptiveStrategy, safeArea        |
+| Screen      | 屏幕根容器   | safeArea                          |
 | Container   | 容器组件     | layout, clip                      |
 | Row         | 水平布局容器 | layout, children                  |
 | Column      | 垂直布局容器 | layout, children                  |
@@ -116,7 +126,7 @@ GUIDS 描述文件采用 JSON 格式，顶层结构如下：
 
 #### 组件属性详解
 
-- **Screen**: 支持 children、layout、background、style、mask、clip、interactions、adaptiveStrategy、safeArea
+- **Screen**: 支持 children、layout、background、style、mask、clip、interactions、safeArea
 - **Container**: 支持 children、layout、background、style、mask、clip、interactions
 - **Row/Column**: 支持 children、layout、background、style、mask、clip、interactions
 - **Button**: 支持 content、background、style、interactions、mask、clip

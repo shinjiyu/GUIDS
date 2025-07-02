@@ -27,9 +27,10 @@ body {
 
 .guids-screen {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: var(--guids-design-width);
+    height: var(--guids-design-height);
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .guids-container {
@@ -66,34 +67,10 @@ body {
     word-wrap: break-word;
 }
 
-/* 响应式缩放支持 */
-
-/* 响应式缩放 */
-.guids-responsive {
-    transform-origin: top left;
-}
-
-@media (max-aspect-ratio: 16/9) {
-    .guids-responsive[data-strategy="fitWidth"] {
-        transform: scale(calc(100vw / var(--guids-design-width)));
-        width: var(--guids-design-width);
-        height: var(--guids-design-height);
-    }
-}
-
-@media (min-aspect-ratio: 16/9) {
-    .guids-responsive[data-strategy="fitHeight"] {
-        transform: scale(calc(100vh / var(--guids-design-height)));
-        width: var(--guids-design-width);
-        height: var(--guids-design-height);
-    }
-}
-
-
     </style>
 </head>
 <body>
-<div id="screen" class="guids-screen guids-screen"><p id="alignmentTitle" class="guids-text">Row 组件对齐方式（Alignment）测试</p><div id="rowStartAlign" class="guids-row guids-row"><p id="startAlignLabel" class="guids-text">顶部对齐:</p><div id="smallBox1" class="guids-container guids-container"><p id="smallBoxLabel1" class="guids-text">40px</p></div><div id="mediumBox1" class="guids-container guids-container"><p id="mediumBoxLabel1" class="guids-text">60px</p></div><div id="largeBox1" class="guids-container guids-container"><p id="largeBoxLabel1" class="guids-text">80px</p></div></div><div id="rowCenterAlign" class="guids-row guids-row"><p id="centerAlignLabel" class="guids-text">居中对齐:</p><div id="smallBox2" class="guids-container guids-container"><p id="smallBoxLabel2" class="guids-text">40px</p></div><div id="mediumBox2" class="guids-container guids-container"><p id="mediumBoxLabel2" class="guids-text">60px</p></div><div id="largeBox2" class="guids-container guids-container"><p id="largeBoxLabel2" class="guids-text">80px</p></div></div><div id="rowEndAlign" class="guids-row guids-row"><p id="endAlignLabel" class="guids-text">底部对齐:</p><div id="smallBox3" class="guids-container guids-container"><p id="smallBoxLabel3" class="guids-text">40px</p></div><div id="mediumBox3" class="guids-container guids-container"><p id="mediumBoxLabel3" class="guids-text">60px</p></div><div id="largeBox3" class="guids-container guids-container"><p id="largeBoxLabel3" class="guids-text">80px</p></div></div><div id="rowStretchAlign" class="guids-row guids-row"><p id="stretchAlignLabel" class="guids-text">拉伸对齐:</p><div id="stretchBox1" class="guids-container guids-container"><p id="stretchBoxLabel1" class="guids-text">拉伸</p></div><div id="stretchBox2" class="guids-container guids-container"><p id="stretchBoxLabel2" class="guids-text">拉伸</p></div><div id="stretchBox3" class="guids-container guids-container"><p id="stretchBoxLabel3" class="guids-text">拉伸</p></div></div></div>
+<div id="screen" class="guids-screen"><p id="alignmentTitle" class="guids-text">Row 组件对齐方式（Alignment）测试</p><div id="rowStartAlign" class="guids-row"><p id="startAlignLabel" class="guids-text">顶部对齐:</p><div id="smallBox1" class="guids-container"><p id="smallBoxLabel1" class="guids-text">40px</p></div><div id="mediumBox1" class="guids-container"><p id="mediumBoxLabel1" class="guids-text">60px</p></div><div id="largeBox1" class="guids-container"><p id="largeBoxLabel1" class="guids-text">80px</p></div></div><div id="rowCenterAlign" class="guids-row"><p id="centerAlignLabel" class="guids-text">居中对齐:</p><div id="smallBox2" class="guids-container"><p id="smallBoxLabel2" class="guids-text">40px</p></div><div id="mediumBox2" class="guids-container"><p id="mediumBoxLabel2" class="guids-text">60px</p></div><div id="largeBox2" class="guids-container"><p id="largeBoxLabel2" class="guids-text">80px</p></div></div><div id="rowEndAlign" class="guids-row"><p id="endAlignLabel" class="guids-text">底部对齐:</p><div id="smallBox3" class="guids-container"><p id="smallBoxLabel3" class="guids-text">40px</p></div><div id="mediumBox3" class="guids-container"><p id="mediumBoxLabel3" class="guids-text">60px</p></div><div id="largeBox3" class="guids-container"><p id="largeBoxLabel3" class="guids-text">80px</p></div></div><div id="rowStretchAlign" class="guids-row"><p id="stretchAlignLabel" class="guids-text">拉伸对齐:</p><div id="stretchBox1" class="guids-container"><p id="stretchBoxLabel1" class="guids-text">拉伸</p></div><div id="stretchBox2" class="guids-container"><p id="stretchBoxLabel2" class="guids-text">拉伸</p></div><div id="stretchBox3" class="guids-container"><p id="stretchBoxLabel3" class="guids-text">拉伸</p></div></div></div>
 <style>
 #screen { background-color: #F5F5F5; }
 #alignmentTitle { position: absolute; top: 30px; left: 50px; width: 600px; height: 40px; font-family: Arial; font-size: 24px; font-weight: bold; color: #333333; text-align: left; }

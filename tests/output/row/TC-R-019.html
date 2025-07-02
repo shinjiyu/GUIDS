@@ -27,9 +27,10 @@ body {
 
 .guids-screen {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: var(--guids-design-width);
+    height: var(--guids-design-height);
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .guids-container {
@@ -66,34 +67,10 @@ body {
     word-wrap: break-word;
 }
 
-/* 响应式缩放支持 */
-
-/* 响应式缩放 */
-.guids-responsive {
-    transform-origin: top left;
-}
-
-@media (max-aspect-ratio: 16/9) {
-    .guids-responsive[data-strategy="fitWidth"] {
-        transform: scale(calc(100vw / var(--guids-design-width)));
-        width: var(--guids-design-width);
-        height: var(--guids-design-height);
-    }
-}
-
-@media (min-aspect-ratio: 16/9) {
-    .guids-responsive[data-strategy="fitHeight"] {
-        transform: scale(calc(100vh / var(--guids-design-height)));
-        width: var(--guids-design-width);
-        height: var(--guids-design-height);
-    }
-}
-
-
     </style>
 </head>
 <body>
-<div id="screen" class="guids-screen guids-screen"><p id="title" class="guids-text">Row组件对齐方式(alignment)属性测试</p><div id="rowStartAlign" class="guids-row guids-row"><p id="startAlignLabel" class="guids-text">顶部对齐: alignment: start</p><div id="boxS1" class="guids-container guids-container"></div><div id="boxS2" class="guids-container guids-container"></div><div id="boxS3" class="guids-container guids-container"></div></div><div id="rowCenterAlign" class="guids-row guids-row"><p id="centerAlignLabel" class="guids-text">居中对齐: alignment: center</p><div id="boxC1" class="guids-container guids-container"></div><div id="boxC2" class="guids-container guids-container"></div><div id="boxC3" class="guids-container guids-container"></div></div><div id="rowEndAlign" class="guids-row guids-row"><p id="endAlignLabel" class="guids-text">底部对齐: alignment: end</p><div id="boxE1" class="guids-container guids-container"></div><div id="boxE2" class="guids-container guids-container"></div><div id="boxE3" class="guids-container guids-container"></div></div><div id="rowStretchAlign" class="guids-row guids-row"><p id="stretchAlignLabel" class="guids-text">拉伸对齐: alignment: stretch</p><div id="boxSt1" class="guids-container guids-container"></div><div id="boxSt2" class="guids-container guids-container"></div><div id="boxSt3" class="guids-container guids-container"></div></div></div>
+<div id="screen" class="guids-screen"><p id="title" class="guids-text">Row组件对齐方式(alignment)属性测试</p><div id="rowStartAlign" class="guids-row"><p id="startAlignLabel" class="guids-text">顶部对齐: alignment: start</p><div id="boxS1" class="guids-container"></div><div id="boxS2" class="guids-container"></div><div id="boxS3" class="guids-container"></div></div><div id="rowCenterAlign" class="guids-row"><p id="centerAlignLabel" class="guids-text">居中对齐: alignment: center</p><div id="boxC1" class="guids-container"></div><div id="boxC2" class="guids-container"></div><div id="boxC3" class="guids-container"></div></div><div id="rowEndAlign" class="guids-row"><p id="endAlignLabel" class="guids-text">底部对齐: alignment: end</p><div id="boxE1" class="guids-container"></div><div id="boxE2" class="guids-container"></div><div id="boxE3" class="guids-container"></div></div><div id="rowStretchAlign" class="guids-row"><p id="stretchAlignLabel" class="guids-text">拉伸对齐: alignment: stretch</p><div id="boxSt1" class="guids-container"></div><div id="boxSt2" class="guids-container"></div><div id="boxSt3" class="guids-container"></div></div></div>
 <style>
 #screen { background-color: #F5F5F5; }
 #title { position: absolute; top: 30px; left: 50px; width: 400px; height: 40px; }

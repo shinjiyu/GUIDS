@@ -27,9 +27,10 @@ body {
 
 .guids-screen {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: var(--guids-design-width);
+    height: var(--guids-design-height);
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .guids-container {
@@ -66,34 +67,10 @@ body {
     word-wrap: break-word;
 }
 
-/* 响应式缩放支持 */
-
-/* 响应式缩放 */
-.guids-responsive {
-    transform-origin: top left;
-}
-
-@media (max-aspect-ratio: 16/9) {
-    .guids-responsive[data-strategy="fitWidth"] {
-        transform: scale(calc(100vw / var(--guids-design-width)));
-        width: var(--guids-design-width);
-        height: var(--guids-design-height);
-    }
-}
-
-@media (min-aspect-ratio: 16/9) {
-    .guids-responsive[data-strategy="fitHeight"] {
-        transform: scale(calc(100vh / var(--guids-design-height)));
-        width: var(--guids-design-width);
-        height: var(--guids-design-height);
-    }
-}
-
-
     </style>
 </head>
 <body>
-<div id="screen" class="guids-screen guids-screen"><p id="title" class="guids-text">Row组件分布方式(distribution)属性测试</p><div id="rowStartDist" class="guids-row guids-row"><p id="startDistLabel" class="guids-text">左侧分布: distribution: start</p><div id="box1" class="guids-container guids-container"></div><div id="box2" class="guids-container guids-container"></div><div id="box3" class="guids-container guids-container"></div></div><div id="rowCenterDist" class="guids-row guids-row"><p id="centerDistLabel" class="guids-text">居中分布: distribution: center</p><div id="boxC1" class="guids-container guids-container"></div><div id="boxC2" class="guids-container guids-container"></div><div id="boxC3" class="guids-container guids-container"></div></div><div id="rowEndDist" class="guids-row guids-row"><p id="endDistLabel" class="guids-text">右侧分布: distribution: end</p><div id="boxE1" class="guids-container guids-container"></div><div id="boxE2" class="guids-container guids-container"></div><div id="boxE3" class="guids-container guids-container"></div></div><div id="rowSpaceBetweenDist" class="guids-row guids-row"><p id="spaceBetweenDistLabel" class="guids-text">两端对齐: distribution: space-between</p><div id="boxSB1" class="guids-container guids-container"></div><div id="boxSB2" class="guids-container guids-container"></div><div id="boxSB3" class="guids-container guids-container"></div></div><div id="rowSpaceAroundDist" class="guids-row guids-row"><p id="spaceAroundDistLabel" class="guids-text">环绕分布: distribution: space-around</p><div id="boxSA1" class="guids-container guids-container"></div><div id="boxSA2" class="guids-container guids-container"></div><div id="boxSA3" class="guids-container guids-container"></div></div><div id="rowSpaceEvenlyDist" class="guids-row guids-row"><p id="spaceEvenlyDistLabel" class="guids-text">均匀分布: distribution: space-evenly</p><div id="boxSE1" class="guids-container guids-container"></div><div id="boxSE2" class="guids-container guids-container"></div><div id="boxSE3" class="guids-container guids-container"></div></div></div>
+<div id="screen" class="guids-screen"><p id="title" class="guids-text">Row组件分布方式(distribution)属性测试</p><div id="rowStartDist" class="guids-row"><p id="startDistLabel" class="guids-text">左侧分布: distribution: start</p><div id="box1" class="guids-container"></div><div id="box2" class="guids-container"></div><div id="box3" class="guids-container"></div></div><div id="rowCenterDist" class="guids-row"><p id="centerDistLabel" class="guids-text">居中分布: distribution: center</p><div id="boxC1" class="guids-container"></div><div id="boxC2" class="guids-container"></div><div id="boxC3" class="guids-container"></div></div><div id="rowEndDist" class="guids-row"><p id="endDistLabel" class="guids-text">右侧分布: distribution: end</p><div id="boxE1" class="guids-container"></div><div id="boxE2" class="guids-container"></div><div id="boxE3" class="guids-container"></div></div><div id="rowSpaceBetweenDist" class="guids-row"><p id="spaceBetweenDistLabel" class="guids-text">两端对齐: distribution: space-between</p><div id="boxSB1" class="guids-container"></div><div id="boxSB2" class="guids-container"></div><div id="boxSB3" class="guids-container"></div></div><div id="rowSpaceAroundDist" class="guids-row"><p id="spaceAroundDistLabel" class="guids-text">环绕分布: distribution: space-around</p><div id="boxSA1" class="guids-container"></div><div id="boxSA2" class="guids-container"></div><div id="boxSA3" class="guids-container"></div></div><div id="rowSpaceEvenlyDist" class="guids-row"><p id="spaceEvenlyDistLabel" class="guids-text">均匀分布: distribution: space-evenly</p><div id="boxSE1" class="guids-container"></div><div id="boxSE2" class="guids-container"></div><div id="boxSE3" class="guids-container"></div></div></div>
 <style>
 #screen { background-color: #F5F5F5; }
 #title { position: absolute; top: 30px; left: 50px; width: 400px; height: 40px; }

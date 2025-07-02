@@ -27,9 +27,10 @@ body {
 
 .guids-screen {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: var(--guids-design-width);
+    height: var(--guids-design-height);
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .guids-container {
@@ -66,34 +67,10 @@ body {
     word-wrap: break-word;
 }
 
-/* 响应式缩放支持 */
-
-/* 响应式缩放 */
-.guids-responsive {
-    transform-origin: top left;
-}
-
-@media (max-aspect-ratio: 16/9) {
-    .guids-responsive[data-strategy="fitWidth"] {
-        transform: scale(calc(100vw / var(--guids-design-width)));
-        width: var(--guids-design-width);
-        height: var(--guids-design-height);
-    }
-}
-
-@media (min-aspect-ratio: 16/9) {
-    .guids-responsive[data-strategy="fitHeight"] {
-        transform: scale(calc(100vh / var(--guids-design-height)));
-        width: var(--guids-design-width);
-        height: var(--guids-design-height);
-    }
-}
-
-
     </style>
 </head>
 <body>
-<div id="screen" class="guids-screen guids-screen"><p id="distributionTitle" class="guids-text">Row 组件分布方式（Distribution）测试</p><div id="rowStartDist" class="guids-row guids-row"><p id="startDistLabel" class="guids-text">左侧分布:</p><div id="box1_1" class="guids-container guids-container"><p id="boxLabel1_1" class="guids-text">1</p></div><div id="box1_2" class="guids-container guids-container"><p id="boxLabel1_2" class="guids-text">2</p></div><div id="box1_3" class="guids-container guids-container"><p id="boxLabel1_3" class="guids-text">3</p></div></div><div id="rowCenterDist" class="guids-row guids-row"><p id="centerDistLabel" class="guids-text">居中分布:</p><div id="box2_1" class="guids-container guids-container"><p id="boxLabel2_1" class="guids-text">1</p></div><div id="box2_2" class="guids-container guids-container"><p id="boxLabel2_2" class="guids-text">2</p></div><div id="box2_3" class="guids-container guids-container"><p id="boxLabel2_3" class="guids-text">3</p></div></div><div id="rowEndDist" class="guids-row guids-row"><p id="endDistLabel" class="guids-text">右侧分布:</p><div id="box3_1" class="guids-container guids-container"><p id="boxLabel3_1" class="guids-text">1</p></div><div id="box3_2" class="guids-container guids-container"><p id="boxLabel3_2" class="guids-text">2</p></div><div id="box3_3" class="guids-container guids-container"><p id="boxLabel3_3" class="guids-text">3</p></div></div><div id="rowSpaceBetweenDist" class="guids-row guids-row"><p id="spaceBetweenDistLabel" class="guids-text">两端对齐:</p><div id="box4_1" class="guids-container guids-container"><p id="boxLabel4_1" class="guids-text">1</p></div><div id="box4_2" class="guids-container guids-container"><p id="boxLabel4_2" class="guids-text">2</p></div><div id="box4_3" class="guids-container guids-container"><p id="boxLabel4_3" class="guids-text">3</p></div></div><div id="rowSpaceAroundDist" class="guids-row guids-row"><p id="spaceAroundDistLabel" class="guids-text">环绕分布:</p><div id="box5_1" class="guids-container guids-container"><p id="boxLabel5_1" class="guids-text">1</p></div><div id="box5_2" class="guids-container guids-container"><p id="boxLabel5_2" class="guids-text">2</p></div><div id="box5_3" class="guids-container guids-container"><p id="boxLabel5_3" class="guids-text">3</p></div></div><div id="rowSpaceEvenlyDist" class="guids-row guids-row"><p id="spaceEvenlyDistLabel" class="guids-text">均匀分布:</p><div id="box6_1" class="guids-container guids-container"><p id="boxLabel6_1" class="guids-text">1</p></div><div id="box6_2" class="guids-container guids-container"><p id="boxLabel6_2" class="guids-text">2</p></div><div id="box6_3" class="guids-container guids-container"><p id="boxLabel6_3" class="guids-text">3</p></div></div></div>
+<div id="screen" class="guids-screen"><p id="distributionTitle" class="guids-text">Row 组件分布方式（Distribution）测试</p><div id="rowStartDist" class="guids-row"><p id="startDistLabel" class="guids-text">左侧分布:</p><div id="box1_1" class="guids-container"><p id="boxLabel1_1" class="guids-text">1</p></div><div id="box1_2" class="guids-container"><p id="boxLabel1_2" class="guids-text">2</p></div><div id="box1_3" class="guids-container"><p id="boxLabel1_3" class="guids-text">3</p></div></div><div id="rowCenterDist" class="guids-row"><p id="centerDistLabel" class="guids-text">居中分布:</p><div id="box2_1" class="guids-container"><p id="boxLabel2_1" class="guids-text">1</p></div><div id="box2_2" class="guids-container"><p id="boxLabel2_2" class="guids-text">2</p></div><div id="box2_3" class="guids-container"><p id="boxLabel2_3" class="guids-text">3</p></div></div><div id="rowEndDist" class="guids-row"><p id="endDistLabel" class="guids-text">右侧分布:</p><div id="box3_1" class="guids-container"><p id="boxLabel3_1" class="guids-text">1</p></div><div id="box3_2" class="guids-container"><p id="boxLabel3_2" class="guids-text">2</p></div><div id="box3_3" class="guids-container"><p id="boxLabel3_3" class="guids-text">3</p></div></div><div id="rowSpaceBetweenDist" class="guids-row"><p id="spaceBetweenDistLabel" class="guids-text">两端对齐:</p><div id="box4_1" class="guids-container"><p id="boxLabel4_1" class="guids-text">1</p></div><div id="box4_2" class="guids-container"><p id="boxLabel4_2" class="guids-text">2</p></div><div id="box4_3" class="guids-container"><p id="boxLabel4_3" class="guids-text">3</p></div></div><div id="rowSpaceAroundDist" class="guids-row"><p id="spaceAroundDistLabel" class="guids-text">环绕分布:</p><div id="box5_1" class="guids-container"><p id="boxLabel5_1" class="guids-text">1</p></div><div id="box5_2" class="guids-container"><p id="boxLabel5_2" class="guids-text">2</p></div><div id="box5_3" class="guids-container"><p id="boxLabel5_3" class="guids-text">3</p></div></div><div id="rowSpaceEvenlyDist" class="guids-row"><p id="spaceEvenlyDistLabel" class="guids-text">均匀分布:</p><div id="box6_1" class="guids-container"><p id="boxLabel6_1" class="guids-text">1</p></div><div id="box6_2" class="guids-container"><p id="boxLabel6_2" class="guids-text">2</p></div><div id="box6_3" class="guids-container"><p id="boxLabel6_3" class="guids-text">3</p></div></div></div>
 <style>
 #screen { background-color: #F5F5F5; }
 #distributionTitle { position: absolute; top: 30px; left: 50px; width: 600px; height: 40px; font-family: Arial; font-size: 24px; font-weight: bold; color: #333333; text-align: left; }

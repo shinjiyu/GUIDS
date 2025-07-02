@@ -14,13 +14,7 @@
         --light-bg: #f5f7fa;
         --border-color: #ddd;
       }
-
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
-
+      * { box-sizing: border-box; margin: 0; padding: 0; }
       body {
         font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
         line-height: 1.6;
@@ -28,7 +22,6 @@
         background-color: var(--light-bg);
         padding: 20px;
       }
-
       .container {
         max-width: 1200px;
         margin: 0 auto;
@@ -37,19 +30,13 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
         overflow: hidden;
       }
-
       header {
         background-color: var(--secondary-color);
         color: white;
         padding: 20px;
         text-align: center;
       }
-
-      h1 {
-        font-size: 24px;
-        margin-bottom: 5px;
-      }
-
+      h1 { font-size: 24px; margin-bottom: 5px; }
       .summary {
         background-color: var(--primary-color);
         color: white;
@@ -57,731 +44,296 @@
         display: flex;
         justify-content: space-between;
       }
-
-      .summary-item {
-        text-align: center;
-        flex: 1;
-      }
-
-      .summary-item span {
-        font-size: 24px;
-        font-weight: bold;
-        display: block;
-      }
-
-      .test-controls {
-        padding: 15px 20px;
-        background-color: #f8f9fa;
-        border-bottom: 1px solid var(--border-color);
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-      }
-
-      .component-filter {
-        display: flex;
-        gap: 10px;
-      }
-
-      button {
-        background-color: var(--primary-color);
-        color: white;
-        border: none;
-        padding: 8px 15px;
-        border-radius: 4px;
-        cursor: pointer;
-        font-size: 14px;
-        transition: background-color 0.2s;
-      }
-
-      button:hover {
-        background-color: #2980b9;
-      }
-
-      button.active {
-        background-color: var(--secondary-color);
-      }
-
-      .test-list {
-        list-style: none;
-        padding: 0;
-        max-height: 600px;
-        overflow-y: auto;
-      }
-
-      .test-item {
-        padding: 15px 20px;
-        border-bottom: 1px solid var(--border-color);
-        transition: background-color 0.2s;
-      }
-
-      .test-item:hover {
-        background-color: #f8f9fa;
-      }
-
-      .test-header {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        cursor: pointer;
-      }
-
-      .test-name {
-        font-weight: bold;
-        font-size: 16px;
-      }
-
-      .test-status {
-        display: inline-block;
-        padding: 4px 8px;
-        border-radius: 4px;
-        font-size: 12px;
-        font-weight: bold;
-        text-transform: uppercase;
-      }
-
-      .status-passed {
-        background-color: var(--success-color);
-        color: white;
-      }
-
-      .status-failed {
-        background-color: var(--danger-color);
-        color: white;
-      }
-
-      .status-untested {
-        background-color: var(--warning-color);
-        color: white;
-      }
-
-      .test-details {
-        display: none;
-        margin-top: 15px;
-        padding: 15px;
-        background-color: #f8f9fa;
-        border-radius: 4px;
-      }
-
-      .test-details.active {
-        display: block;
-      }
-
-      .test-detail-item {
-        margin-bottom: 10px;
-      }
-
-      .test-detail-item h4 {
-        margin-bottom: 5px;
-        color: var(--secondary-color);
-      }
-
-      .test-links {
-        margin-top: 15px;
-        display: flex;
-        gap: 10px;
-      }
-
-      .test-links a {
-        text-decoration: none;
-        color: var(--primary-color);
-        font-size: 14px;
-        display: inline-flex;
-        align-items: center;
-        gap: 5px;
-      }
-
-      footer {
-        padding: 20px;
-        text-align: center;
-        color: #666;
-        font-size: 14px;
-      }
-
-      .warning-message {
-        color: var(--warning-color);
-        font-style: italic;
-        margin-bottom: 10px;
-      }
-
-      #output-frame-container {
-        margin-top: 20px;
-        padding: 0;
-        display: none;
-      }
-
-      #output-frame {
-        width: 100%;
-        height: 500px;
+      .summary-item { text-align: center; flex: 1; }
+      .summary-item span { font-size: 24px; font-weight: bold; display: block; }
+      .test-list { list-style: none; padding: 0; max-height: 600px; overflow-y: auto; }
+      .test-item { padding: 15px 20px; border-bottom: 1px solid var(--border-color); transition: background-color 0.2s; cursor: pointer; position: relative; }
+      .test-item:hover { background-color: #f8f9fa; }
+      .test-header { display: flex; justify-content: space-between; align-items: center; }
+      .test-name { font-weight: bold; font-size: 16px; }
+      .test-component { font-size: 14px; color: #888; margin-left: 10px; }
+      .test-file { font-size: 14px; color: #888; margin-left: 10px; }
+      .preview-container {
+        background: #f8f9fa;
         border: 1px solid var(--border-color);
         border-radius: 4px;
+        margin: 10px 0 20px 0;
+        padding: 10px;
+        box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+        animation: fadeIn 0.2s;
+        max-height: 420px;
+        overflow: auto;
       }
-
-      .status-spinner {
-        display: inline-block;
-        width: 15px;
-        height: 15px;
-        border: 2px solid rgba(255, 255, 255, 0.3);
-        border-radius: 50%;
-        border-top-color: #fff;
-        animation: spin 1s ease-in-out infinite;
-        margin-left: 5px;
+      .preview-container iframe {
+        width: 100%;
+        height: 400px;
+        border: none;
+        border-radius: 4px;
+        background: white;
+        display: block;
       }
-
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
+      @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(-10px); }
+        to { opacity: 1; transform: translateY(0); }
       }
-
-      .run-status {
-        display: none;
-        margin-left: 10px;
-        font-size: 14px;
-        color: var(--secondary-color);
-      }
+      footer { padding: 20px; text-align: center; color: #666; font-size: 14px; }
     </style>
   </head>
   <body>
     <div class="container">
       <header>
         <h1>GUIDS2HTML 测试结果查看器</h1>
-        <p>查看和分析组件测试结果</p>
+        <p>自动收集 output 目录下所有用例，点击用例可在下方直接展开预览</p>
       </header>
-
       <div class="summary">
         <div class="summary-item">
-          <span id="total-tests">0</span>
+          <span id="total-tests">27</span>
           <p>总测试数</p>
         </div>
         <div class="summary-item">
-          <span id="passed-tests" style="color: #2ecc71">0</span>
-          <p>通过</p>
-        </div>
-        <div class="summary-item">
-          <span id="failed-tests" style="color: #e74c3c">0</span>
-          <p>失败</p>
-        </div>
-        <div class="summary-item">
-          <span id="untested-tests" style="color: #f39c12">0</span>
-          <p>未测试</p>
+          <span id="component-count">3</span>
+          <p>组件种类</p>
         </div>
       </div>
-
-      <div class="test-controls">
-        <div class="component-filter">
-          <button class="active" data-filter="all">全部</button>
-          <button data-filter="button">Button</button>
-          <button data-filter="row">Row</button>
-          <button data-filter="column">Column</button>
-          <button data-filter="text">Text</button>
-        </div>
-        <div style="display: flex; align-items: center">
-          <button id="run-tests">运行选中的测试</button>
-          <span id="run-status" class="run-status"
-            >测试运行中...<span class="status-spinner"></span
-          ></span>
-        </div>
-      </div>
-
       <ul class="test-list" id="test-list">
-        <!-- 测试项将动态加载 -->
+        
+          <li class="test-item" data-file="output/column/TC-CL-001.html">
+            <div class="test-header">
+              <div class="test-name">TC-CL-001</div>
+              <div class="test-component">column</div>
+              <div class="test-file">output/column/TC-CL-001.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/column/TC-CL-003.html">
+            <div class="test-header">
+              <div class="test-name">TC-CL-003</div>
+              <div class="test-component">column</div>
+              <div class="test-file">output/column/TC-CL-003.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/column/TC-CL-004.html">
+            <div class="test-header">
+              <div class="test-name">TC-CL-004</div>
+              <div class="test-component">column</div>
+              <div class="test-file">output/column/TC-CL-004.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/column/TC-CL-006.html">
+            <div class="test-header">
+              <div class="test-name">TC-CL-006</div>
+              <div class="test-component">column</div>
+              <div class="test-file">output/column/TC-CL-006.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/column/TC-CL-007.html">
+            <div class="test-header">
+              <div class="test-name">TC-CL-007</div>
+              <div class="test-component">column</div>
+              <div class="test-file">output/column/TC-CL-007.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/column/TC-CL-008.html">
+            <div class="test-header">
+              <div class="test-name">TC-CL-008</div>
+              <div class="test-component">column</div>
+              <div class="test-file">output/column/TC-CL-008.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-001.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-001</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-001.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-002.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-002</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-002.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-003.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-003</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-003.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-004.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-004</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-004.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-005.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-005</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-005.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-006.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-006</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-006.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-007.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-007</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-007.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-008.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-008</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-008.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-009.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-009</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-009.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-010.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-010</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-010.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-011.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-011</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-011.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-012.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-012</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-012.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-013.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-013</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-013.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-014.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-014</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-014.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-015.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-015</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-015.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-016.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-016</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-016.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-017.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-017</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-017.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-018.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-018</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-018.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-019.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-019</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-019.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/row/TC-R-020.html">
+            <div class="test-header">
+              <div class="test-name">TC-R-020</div>
+              <div class="test-component">row</div>
+              <div class="test-file">output/row/TC-R-020.html</div>
+            </div>
+          </li>
+        
+          <li class="test-item" data-file="output/test-report.html">
+            <div class="test-header">
+              <div class="test-name">test-report</div>
+              <div class="test-component">output</div>
+              <div class="test-file">output/test-report.html</div>
+            </div>
+          </li>
+        
       </ul>
-
-      <div id="output-frame-container">
-        <h3>测试输出预览</h3>
-        <iframe id="output-frame" frameborder="0"></iframe>
-      </div>
-
       <footer>
-        <p>GUIDS2HTML 测试框架 | © 2023</p>
+        <p>GUIDS2HTML 测试框架 | 自动生成 | 2025/7/2 18:04:10</p>
       </footer>
     </div>
-
     <script>
-      // 获取测试结果
-      async function fetchTestResults() {
-        try {
-          const response = await fetch("/api/test-results");
-          if (!response.ok) {
-            throw new Error(`HTTP error! status: ${response.status}`);
+      document.querySelectorAll('.test-item').forEach(item => {
+        item.addEventListener('click', function() {
+          // toggle preview
+          const already = this.nextElementSibling && this.nextElementSibling.classList.contains('preview-container');
+          // 先移除所有已展开的预览
+          document.querySelectorAll('.preview-container').forEach(el => el.parentNode.removeChild(el));
+          if (!already) {
+            const file = this.getAttribute('data-file');
+            const preview = document.createElement('div');
+            preview.className = 'preview-container';
+            preview.innerHTML = '<iframe src="' + file + '"></iframe>';
+            this.parentNode.insertBefore(preview, this.nextSibling);
+            preview.scrollIntoView({ behavior: 'smooth', block: 'center' });
           }
-          return await response.json();
-        } catch (error) {
-          console.error("Error fetching test results:", error);
-          // 如果API不可用，回退到静态测试数据
-          return getStaticTestResults();
-        }
-      }
-
-      // 静态测试数据作为后备
-      function getStaticTestResults() {
-        return [
-          // Row组件测试
-          {
-            id: "TC-R-001",
-            component: "row",
-            name: "Row组件基本布局测试",
-            description: "测试Row组件的基本水平布局功能",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 3, 实际 0"],
-          },
-          {
-            id: "TC-R-002",
-            component: "row",
-            name: "Row组件间距测试",
-            description: "测试Row组件的间距(spacing)控制",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 3, 实际 0"],
-          },
-          {
-            id: "TC-R-003",
-            component: "row",
-            name: "Row组件对齐方式测试",
-            description: "测试Row组件的对齐方式(alignment)属性",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 3, 实际 0"],
-          },
-          {
-            id: "TC-R-004",
-            component: "row",
-            name: "Row组件响应式布局测试",
-            description: "测试Row组件的响应式布局能力",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 3, 实际 0"],
-          },
-          {
-            id: "TC-R-005",
-            component: "row",
-            name: "Row组件嵌套测试",
-            description: "测试Row组件的嵌套功能",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 6, 实际 0"],
-          },
-          {
-            id: "TC-R-006",
-            component: "row",
-            name: "Row组件与其他组件组合测试",
-            description: "测试Row组件与其他组件组合使用",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 3, 实际 0"],
-          },
-          {
-            id: "TC-R-007",
-            component: "row",
-            name: "Row组件样式继承测试",
-            description: "测试Row组件的样式继承功能",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 4, 实际 0"],
-          },
-          {
-            id: "TC-R-008",
-            component: "row",
-            name: "Row组件边界条件测试",
-            description: "测试Row组件的边界条件处理",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 4, 实际 0"],
-          },
-          {
-            id: "TC-R-009",
-            component: "row",
-            name: "Row组件溢出处理测试",
-            description: "测试Row组件的overflow属性功能",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: [
-              "HTML中未找到overflow: visible",
-              "HTML中未找到overflow: scroll",
-              "子元素数量不匹配: 预期 6, 实际 0",
-            ],
-          },
-          {
-            id: "TC-R-010",
-            component: "row",
-            name: "Row组件可见性控制测试",
-            description: "测试Row组件的可见性控制功能",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 4, 实际 0"],
-          },
-          {
-            id: "TC-R-011",
-            component: "row",
-            name: "Row组件边框属性测试",
-            description: "测试Row组件的边框属性功能",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 4, 实际 0"],
-          },
-          {
-            id: "TC-R-012",
-            component: "row",
-            name: "Row组件背景属性测试",
-            description: "测试Row组件的背景属性功能",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 4, 实际 0"],
-          },
-          {
-            id: "TC-R-013",
-            component: "row",
-            name: "Row组件阴影效果测试",
-            description: "测试Row组件的阴影效果功能",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 4, 实际 0"],
-          },
-          {
-            id: "TC-R-014",
-            component: "row",
-            name: "Row组件动态内容测试",
-            description: "测试Row组件的动态内容功能",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 4, 实际 0"],
-          },
-          {
-            id: "TC-R-015",
-            component: "row",
-            name: "Row组件事件处理测试",
-            description: "测试Row组件的事件处理功能",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 4, 实际 0"],
-          },
-          {
-            id: "TC-R-016",
-            component: "row",
-            name: "Row组件自动换行(wrap)功能测试",
-            description: "测试Row组件的自动换行功能",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: [
-              "HTML中未找到flex-wrap: nowrap",
-              "子元素数量不匹配: 预期 6, 实际 0",
-            ],
-          },
-          {
-            id: "TC-R-017",
-            component: "row",
-            name: "Row组件内边距(padding)属性测试",
-            description: "测试Row组件的内边距功能",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 4, 实际 0"],
-          },
-          {
-            id: "TC-R-018",
-            component: "row",
-            name: "Row组件间距(spacing)属性测试",
-            description: "测试Row组件的间距属性",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 4, 实际 0"],
-          },
-          {
-            id: "TC-R-019",
-            component: "row",
-            name: "Row组件高度控制测试",
-            description: "测试Row组件的高度控制功能",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 4, 实际 0"],
-          },
-          {
-            id: "TC-R-020",
-            component: "row",
-            name: "Row组件宽度控制测试",
-            description: "测试Row组件的宽度控制功能",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-            warnings: ["子元素数量不匹配: 预期 4, 实际 0"],
-          },
-
-          // Button组件测试
-          {
-            id: "TC-B-001",
-            component: "button",
-            name: "Button组件基本渲染测试",
-            description: "测试Button组件的基本渲染和交互功能",
-            status: "passed",
-            lastRun: new Date().toLocaleString(),
-          },
-
-          // Column组件测试
-          {
-            id: "TC-CL-001",
-            component: "column",
-            name: "Column组件垂直布局测试",
-            description: "测试Column组件的垂直布局功能",
-            status: "failed",
-            failureDetails:
-              "垂直方向对齐属性不正确。预期居中对齐，实际顶部对齐。",
-            lastRun: new Date().toLocaleString(),
-          },
-
-          // Text组件测试
-          {
-            id: "TC-T-001",
-            component: "text",
-            name: "Text组件渲染测试",
-            description: "测试Text组件的文本样式和HTML内容渲染",
-            status: "untested",
-          },
-        ];
-      }
-
-      // 检查测试输出文件是否存在
-      async function checkFileExists(url) {
-        try {
-          const response = await fetch(url, { method: "HEAD" });
-          return response.ok;
-        } catch (error) {
-          return false;
-        }
-      }
-
-      // 渲染测试项列表
-      async function renderTestList(filter = "all") {
-        const testList = document.getElementById("test-list");
-        testList.innerHTML = "";
-
-        const testCases = await fetchTestResults();
-
-        const filteredTests =
-          filter === "all"
-            ? testCases
-            : testCases.filter((test) => test.component === filter);
-
-        for (const test of filteredTests) {
-          const listItem = document.createElement("li");
-          listItem.className = "test-item";
-          listItem.dataset.component = test.component;
-          listItem.dataset.id = test.id;
-
-          const statusClass =
-            test.status === "passed"
-              ? "status-passed"
-              : test.status === "failed"
-              ? "status-failed"
-              : "status-untested";
-
-          // 检查输出文件是否存在
-          const outputPath = `output/${test.component}/${test.id}.html`;
-          const outputExists = await checkFileExists(outputPath);
-          const docsPath = `test-case-docs/${test.component}/${test.id}.md`;
-          const docsExists = await checkFileExists(docsPath);
-          const dataPath = `data/components/${test.component}/${test.id}.json`;
-          const dataExists = await checkFileExists(dataPath);
-
-          listItem.innerHTML = `
-            <div class="test-header">
-              <div class="test-name">${test.id}: ${test.name}</div>
-              <div class="test-status ${statusClass}">${test.status}</div>
-            </div>
-            <div class="test-details">
-              <div class="test-detail-item">
-                <h4>描述</h4>
-                <p>${test.description}</p>
-              </div>
-              ${
-                test.lastRun
-                  ? `
-                <div class="test-detail-item">
-                  <h4>最后运行时间</h4>
-                  <p>${test.lastRun}</p>
-                </div>
-              `
-                  : ""
-              }
-              ${
-                test.warnings && test.warnings.length > 0
-                  ? `
-                <div class="test-detail-item">
-                  <h4>警告</h4>
-                  ${test.warnings
-                    .map(
-                      (warning) => `<p class="warning-message">⚠ ${warning}</p>`
-                    )
-                    .join("")}
-                </div>
-              `
-                  : ""
-              }
-              ${
-                test.failureDetails
-                  ? `
-                <div class="test-detail-item">
-                  <h4>失败详情</h4>
-                  <p class="warning-message">${test.failureDetails}</p>
-                </div>
-              `
-                  : ""
-              }
-              <div class="test-links">
-                ${
-                  outputExists
-                    ? `<a href="${outputPath}" target="_blank">查看输出</a>`
-                    : ""
-                }
-                ${
-                  docsExists
-                    ? `<a href="${docsPath}" target="_blank">查看测试用例</a>`
-                    : ""
-                }
-                ${
-                  dataExists
-                    ? `<a href="${dataPath}" target="_blank">查看测试数据</a>`
-                    : ""
-                }
-                ${
-                  outputExists
-                    ? `<a href="#" class="view-output" data-path="${outputPath}">在下方预览</a>`
-                    : ""
-                }
-              </div>
-            </div>
-          `;
-
-          testList.appendChild(listItem);
-        }
-
-        updateSummary(filteredTests);
-        attachEventListeners();
-      }
-
-      // 添加事件监听器
-      function attachEventListeners() {
-        // 切换测试详情显示
-        document.querySelectorAll(".test-header").forEach((header) => {
-          header.addEventListener("click", () => {
-            const details = header.nextElementSibling;
-            details.classList.toggle("active");
-          });
         });
-
-        // 预览输出
-        document.querySelectorAll(".view-output").forEach((link) => {
-          link.addEventListener("click", (e) => {
-            e.preventDefault();
-            const path = link.dataset.path;
-            const container = document.getElementById("output-frame-container");
-            const frame = document.getElementById("output-frame");
-
-            frame.src = path;
-            container.style.display = "block";
-
-            // 滚动到预览区域
-            container.scrollIntoView({ behavior: "smooth" });
-          });
-        });
-      }
-
-      // 更新摘要信息
-      function updateSummary(tests) {
-        const totalTests = tests.length;
-        const passedTests = tests.filter(
-          (test) => test.status === "passed"
-        ).length;
-        const failedTests = tests.filter(
-          (test) => test.status === "failed"
-        ).length;
-        const untestedTests = tests.filter(
-          (test) => test.status === "untested"
-        ).length;
-
-        document.getElementById("total-tests").textContent = totalTests;
-        document.getElementById("passed-tests").textContent = passedTests;
-        document.getElementById("failed-tests").textContent = failedTests;
-        document.getElementById("untested-tests").textContent = untestedTests;
-      }
-
-      // 运行测试
-      async function runTests(component) {
-        const runStatus = document.getElementById("run-status");
-        runStatus.style.display = "inline";
-
-        try {
-          // 本地模拟运行测试，在实际环境中这里应该调用后端API
-          if (component === "all") {
-            // 运行所有测试
-            await simulateTestRun(["row", "button", "column", "text"]);
-          } else {
-            // 运行特定组件测试
-            await simulateTestRun([component]);
-          }
-
-          // 测试完成，刷新测试列表
-          await renderTestList(component === "all" ? "all" : component);
-          alert(
-            `${component === "all" ? "所有" : component} 组件测试运行完成！`
-          );
-        } catch (error) {
-          console.error("测试运行失败:", error);
-          alert(`测试运行失败: ${error.message}`);
-        } finally {
-          runStatus.style.display = "none";
-        }
-      }
-
-      // 模拟测试运行
-      async function simulateTestRun(components) {
-        // 模拟测试运行延迟
-        await new Promise((resolve) => setTimeout(resolve, 2000));
-
-        // 在实际环境中，这里应该使用fetch或其他方法调用后端API运行测试
-        console.log(`运行测试组件: ${components.join(", ")}`);
-
-        // 返回模拟结果
-        return { success: true, message: "测试完成" };
-      }
-
-      // 过滤器按钮点击事件
-      document
-        .querySelectorAll(".component-filter button")
-        .forEach((button) => {
-          button.addEventListener("click", () => {
-            // 更新活动按钮样式
-            document
-              .querySelectorAll(".component-filter button")
-              .forEach((btn) => {
-                btn.classList.remove("active");
-              });
-            button.classList.add("active");
-
-            // 应用过滤器
-            const filter = button.dataset.filter;
-            renderTestList(filter);
-          });
-        });
-
-      // 运行测试按钮
-      document.getElementById("run-tests").addEventListener("click", () => {
-        const activeFilter = document.querySelector(
-          ".component-filter button.active"
-        ).dataset.filter;
-
-        const confirmMessage =
-          activeFilter === "all"
-            ? "确定要运行所有测试吗？这可能需要一些时间。"
-            : `确定要运行所有 ${activeFilter} 组件测试吗？`;
-
-        if (confirm(confirmMessage)) {
-          runTests(activeFilter);
-        }
-      });
-
-      // 初始加载
-      document.addEventListener("DOMContentLoaded", () => {
-        renderTestList("all");
       });
     </script>
   </body>

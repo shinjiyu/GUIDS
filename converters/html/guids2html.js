@@ -105,9 +105,10 @@ body {
 
 .guids-screen {
     position: relative;
-    width: 100%;
-    height: 100%;
+    width: var(--guids-design-width);
+    height: var(--guids-design-height);
     overflow: hidden;
+    margin: 0 auto;
 }
 
 .guids-container {
@@ -142,37 +143,6 @@ body {
 
 .guids-text {
     word-wrap: break-word;
-}
-
-/* 响应式缩放支持 */
-${this.options.responsiveScaling ? this.generateResponsiveStyles() : ""}
-`;
-  }
-
-  /**
-   * 生成响应式样式
-   */
-  generateResponsiveStyles() {
-    return `
-/* 响应式缩放 */
-.guids-responsive {
-    transform-origin: top left;
-}
-
-@media (max-aspect-ratio: 16/9) {
-    .guids-responsive[data-strategy="fitWidth"] {
-        transform: scale(calc(100vw / var(--guids-design-width)));
-        width: var(--guids-design-width);
-        height: var(--guids-design-height);
-    }
-}
-
-@media (min-aspect-ratio: 16/9) {
-    .guids-responsive[data-strategy="fitHeight"] {
-        transform: scale(calc(100vh / var(--guids-design-height)));
-        width: var(--guids-design-width);
-        height: var(--guids-design-height);
-    }
 }
 `;
   }
@@ -245,14 +215,17 @@ document.addEventListener('DOMContentLoaded', function() {
   renderComponent(id, component, parentComponent = null) {
     if (!component) return "";
 
-    // 准备属性
-    const attributes = this.prepareAttributes(id, component);
+    // 统一类型为小写
+    const type = (component.type || "").toLowerCase();
 
-    // 如果父组件是Row或Column类型，对于当前子组件，修改其位置处理逻辑
+    // 准备属性
+    const attributes = this.prepareAttributes(id, component, type);
+
+    // 如果父组件是row或column类型，对于当前子组件，修改其位置处理逻辑
     let styles;
     if (
       parentComponent &&
-      (parentComponent.type === "Row" || parentComponent.type === "Column")
+      ["row", "column"].includes((parentComponent.type || "").toLowerCase())
     ) {
       // 复制组件对象，以便修改位置处理而不影响原组件
       const modifiedComponent = { ...component };
@@ -264,12 +237,15 @@ document.addEventListener('DOMContentLoaded', function() {
           useRelativePosition: true,
         };
       }
-      styles = this.prepareStyles(modifiedComponent);
+      styles = this.prepareStyles(
+        modifiedComponent,
+        parentComponent.type.toLowerCase()
+      );
     } else {
-      styles = this.prepareStyles(component);
+      styles = this.prepareStyles(component, type);
     }
 
-    const tag = this.getHtmlTag(component.type);
+    const tag = this.getHtmlTag(type);
 
     // 组织HTML
     let html = `<${tag} id="${id}" ${attributes}`;
@@ -286,14 +262,14 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 添加内容（针对Text和Button）
     if (
-      component.content &&
-      (component.type === "Text" || component.type === "Button")
+      (type === "text" || type === "button") &&
+      (component.text || component.content)
     ) {
-      html += this.escapeHtml(component.content);
+      html += this.escapeHtml(component.text || component.content);
     }
 
     // 特殊处理Image
-    if (component.type === "Image" && component.source) {
+    if (type === "image" && component.source) {
       html += `<img src="${component.source}" alt="" class="guids-image-inner" style="width: 100%; height: 100%;">`;
     }
 
@@ -312,27 +288,54 @@ document.addEventListener('DOMContentLoaded', function() {
   }
 
   /**
+   * 获取对应的HTML标签
+   */
+  getHtmlTag(componentType) {
+    switch ((componentType || "").toLowerCase()) {
+      case "text":
+        return "p";
+      case "button":
+        return "button";
+      case "image":
+        return "div";
+      case "screen":
+        return "div";
+      case "container":
+        return "div";
+      case "row":
+        return "div";
+      case "column":
+        return "div";
+      case "scrollview":
+        return "div";
+      case "inputfield":
+        return "input";
+      case "progressbar":
+        return "div";
+      default:
+        return "div";
+    }
+  }
+
+  /**
    * 准备HTML属性
    */
-  prepareAttributes(id, component) {
+  prepareAttributes(id, component, typeOverride = null) {
     const attrs = [];
+    const type = typeOverride || (component.type || "").toLowerCase();
 
-    // 基本类名
-    let className = `guids-${component.type.toLowerCase()}`;
+    // 用数组收集所有类名
+    const classNames = [`guids-${type}`];
 
-    // 添加基于类型的特殊类名
-    if (component.type === "Screen") {
-      className += " guids-screen";
-      if (this.options.responsiveScaling && component.adaptiveStrategy) {
-        className += " guids-responsive";
-        attrs.push(`data-strategy="${component.adaptiveStrategy}"`);
-      }
-    } else if (component.type === "Container") {
-      className += " guids-container";
-    } else if (component.type === "Row") {
-      className += " guids-row";
-    } else if (component.type === "Column") {
-      className += " guids-column";
+    // 添加基于类型的特殊类名（避免重复）
+    if (type === "screen") {
+      classNames.push("guids-screen");
+    } else if (type === "container") {
+      classNames.push("guids-container");
+    } else if (type === "row") {
+      classNames.push("guids-row");
+    } else if (type === "column") {
+      classNames.push("guids-column");
     }
 
     // 添加事件处理属性
@@ -362,8 +365,9 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    // 添加class属性
-    attrs.push(`class="${className}"`);
+    // 去重并添加class属性
+    const uniqueClassNames = Array.from(new Set(classNames));
+    attrs.push(`class="${uniqueClassNames.join(" ")}"`);
 
     return attrs.join(" ");
   }
@@ -371,7 +375,7 @@ document.addEventListener('DOMContentLoaded', function() {
   /**
    * 准备CSS样式
    */
-  prepareStyles(component) {
+  prepareStyles(component, parentType = null) {
     const styles = [];
 
     // 处理位置和尺寸
@@ -393,6 +397,11 @@ document.addEventListener('DOMContentLoaded', function() {
       styles.push(...this.processStyle(this.guids.styles[component.style]));
     }
 
+    // 针对容器类组件，强制 box-sizing: border-box
+    if (["column", "row", "container"].includes(component.type)) {
+      styles.push("box-sizing: border-box;");
+    }
+
     // 处理边框圆角
     if (component.cornerRadius) {
       styles.push(`border-radius: ${component.cornerRadius}px;`);
@@ -400,7 +409,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // 处理布局
     if (component.layout) {
-      styles.push(...this.processLayout(component.layout));
+      styles.push(...this.processLayout(component.layout, parentType));
     }
 
     // 处理透明度
@@ -559,20 +568,42 @@ document.addEventListener('DOMContentLoaded', function() {
       styles.push(...this.processStyle(this.guids.styles[style.extends]));
     }
 
-    // 处理字体
-    if (style.fontFamily) styles.push(`font-family: ${style.fontFamily};`);
-    if (style.fontSize) styles.push(`font-size: ${style.fontSize}px;`);
+    // 常用样式属性映射
+    if (style.width) styles.push(`width: ${style.width};`);
+    if (style.height) styles.push(`height: ${style.height};`);
+    if (style.backgroundColor)
+      styles.push(`background-color: ${style.backgroundColor};`);
+    if (style.border) styles.push(`border: ${style.border};`);
+    if (style.borderRadius)
+      styles.push(`border-radius: ${style.borderRadius};`);
+    if (style.padding) styles.push(`padding: ${style.padding};`);
+    if (style.margin) styles.push(`margin: ${style.margin};`);
+    if (style.fontSize)
+      styles.push(
+        `font-size: ${
+          typeof style.fontSize === "number"
+            ? style.fontSize + "px"
+            : style.fontSize
+        };`
+      );
     if (style.fontWeight) styles.push(`font-weight: ${style.fontWeight};`);
-    if (style.textColor) styles.push(`color: ${style.textColor};`);
+    if (style.color) styles.push(`color: ${style.color};`);
+    if (style.fontFamily) styles.push(`font-family: ${style.fontFamily};`);
     if (style.textAlign) styles.push(`text-align: ${style.textAlign};`);
+    if (style.textColor) styles.push(`color: ${style.textColor};`);
+    if (style.marginBottom)
+      styles.push(`margin-bottom: ${style.marginBottom};`);
+    if (style.marginTop) styles.push(`margin-top: ${style.marginTop};`);
+    if (style.marginLeft) styles.push(`margin-left: ${style.marginLeft};`);
+    if (style.marginRight) styles.push(`margin-right: ${style.marginRight};`);
 
     // 处理背景
     if (style.background) {
       styles.push(...this.processBackground(style.background));
     }
 
-    // 处理边框
-    if (style.border) {
+    // 处理边框（对象形式）
+    if (style.border && typeof style.border === "object") {
       if (style.border.width)
         styles.push(`border-width: ${style.border.width}px;`);
       if (style.border.color)
@@ -599,18 +630,14 @@ document.addEventListener('DOMContentLoaded', function() {
     // 处理透明度
     if (style.opacity !== undefined) styles.push(`opacity: ${style.opacity};`);
 
-    // 处理内边距
-    if (style.padding) {
-      if (typeof style.padding === "number") {
-        styles.push(`padding: ${style.padding}px;`);
-      } else {
-        const padding = style.padding;
-        styles.push(
-          `padding: ${padding.top || 0}px ${padding.right || 0}px ${
-            padding.bottom || 0
-          }px ${padding.left || 0}px;`
-        );
-      }
+    // 处理内边距（对象形式）
+    if (style.padding && typeof style.padding === "object") {
+      const padding = style.padding;
+      styles.push(
+        `padding: ${padding.top || 0}px ${padding.right || 0}px ${
+          padding.bottom || 0
+        }px ${padding.left || 0}px;`
+      );
     }
 
     // 处理状态样式（通过CSS类实现）
@@ -651,28 +678,24 @@ document.addEventListener('DOMContentLoaded', function() {
   /**
    * 处理布局
    */
-  processLayout(layout) {
+  processLayout(layout, parentType = null) {
     const styles = [];
 
-    if (!layout.type) return styles;
+    // 判断布局类型
+    const layoutType = layout.type || parentType;
 
+    // 对于 Column/Row 组件，如果 layout 没有 type，也能处理 spacing/alignment
     // 堆叠布局 (Stack)
-    if (layout.type === "stack") {
+    if (layoutType === "stack") {
       styles.push("display: flex;");
-
-      // 方向
       if (layout.direction === "horizontal") {
         styles.push("flex-direction: row;");
       } else {
         styles.push("flex-direction: column;");
       }
-
-      // 间距
-      if (layout.spacing) {
+      if (layout.spacing !== undefined) {
         styles.push(`gap: ${layout.spacing}px;`);
       }
-
-      // 横向对齐
       if (layout.alignment) {
         let alignItems;
         if (typeof layout.alignment === "string") {
@@ -684,20 +707,14 @@ document.addEventListener('DOMContentLoaded', function() {
         }
         styles.push(`align-items: ${alignItems};`);
       }
-
-      // 纵向分布
       if (layout.distribution) {
         styles.push(
           `justify-content: ${this.convertDistribution(layout.distribution)};`
         );
       }
-
-      // 换行
       if (layout.wrap) {
         styles.push("flex-wrap: wrap;");
       }
-
-      // 内边距
       if (layout.padding) {
         if (typeof layout.padding === "number") {
           styles.push(`padding: ${layout.padding}px;`);
@@ -714,39 +731,34 @@ document.addEventListener('DOMContentLoaded', function() {
       }
     }
 
-    // 特殊处理Row和Column组件的布局
-    if (layout.type === "row" || layout.type === "column") {
+    // Row/Column布局
+    if (
+      layoutType === "row" ||
+      layoutType === "column" ||
+      (!layout.type &&
+        parentType &&
+        (parentType === "row" || parentType === "column"))
+    ) {
       styles.push("display: flex;");
-
-      if (layout.type === "row") {
+      if (layoutType === "row" || (!layout.type && parentType === "row")) {
         styles.push("flex-direction: row;");
       } else {
         styles.push("flex-direction: column;");
       }
-
-      // 间距
-      if (layout.spacing) {
+      if (layout.spacing !== undefined) {
         styles.push(`gap: ${layout.spacing}px;`);
       }
-
-      // 对齐
       if (layout.alignment) {
         styles.push(`align-items: ${this.convertAlignment(layout.alignment)};`);
       }
-
-      // 分布
       if (layout.distribution) {
         styles.push(
           `justify-content: ${this.convertDistribution(layout.distribution)};`
         );
       }
-
-      // 换行
       if (layout.wrap) {
         styles.push("flex-wrap: wrap;");
       }
-
-      // 内边距
       if (layout.padding) {
         if (typeof layout.padding === "number") {
           styles.push(`padding: ${layout.padding}px;`);
@@ -886,36 +898,6 @@ document.addEventListener('DOMContentLoaded', function() {
       .replace(/>/g, "&gt;")
       .replace(/"/g, "&quot;")
       .replace(/'/g, "&#039;");
-  }
-
-  /**
-   * 获取对应的HTML标签
-   */
-  getHtmlTag(componentType) {
-    switch (componentType) {
-      case "Text":
-        return "p";
-      case "Button":
-        return "button";
-      case "Image":
-        return "div";
-      case "Screen":
-        return "div";
-      case "Container":
-        return "div";
-      case "Row":
-        return "div";
-      case "Column":
-        return "div";
-      case "ScrollView":
-        return "div";
-      case "InputField":
-        return "input";
-      case "ProgressBar":
-        return "div";
-      default:
-        return "div";
-    }
   }
 }
 
